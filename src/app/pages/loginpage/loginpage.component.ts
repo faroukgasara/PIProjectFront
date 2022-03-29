@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
@@ -85,8 +85,8 @@ export class LoginpageComponent implements OnInit , OnDestroy{
 
   ngOnInit():void {
     this.form = this.formBuilder.group({
-      email:'',
-      password:''
+      email:new FormControl('',[Validators.email,Validators.required]),
+      password:['', [Validators.required]],
     });
 
     var body = document.getElementsByTagName("body")[0];

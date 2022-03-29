@@ -38,6 +38,13 @@
                         (blur)="focus1 = false"
                       />
                     </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <small  style="color: #fd5d93;" *ngIf="form.get('email').invalid && form.get('email').touched" [type]="'danger'">
+                          Please enter a valid Email
+                        </small>
+                      </div>
+                    </div>
                     <div
                       class="input-group"
                       [ngClass]="{ 'input-group-focus': focus2 === true }"
@@ -56,18 +63,15 @@
                         (blur)="focus2 = false"
                       />
                     </div>
-                    <div class="form-check text-left">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" />
-  
-                        <span class="form-check-sign"> </span> I agree to the
-                        <a href="javascript:void(0)"> terms and conditions </a> .
-                      </label>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <small  style="color: #fd5d93;" *ngIf="form.get('password').invalid && form.get('password').touched" [type]="'danger'">
+                          Please enter a valid Password
+                        </small>
+                      </div>
                     </div>
-                    <div class="card-footer" >
-                      
-                    </div>
-                    <button class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
+                    
+                    <button [disabled]="!form.valid" class="w-100 btn btn-lg btn-primary"  type="submit">Login</button>
                   </form>
                 </div>
                 
