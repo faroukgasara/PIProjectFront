@@ -1,0 +1,389 @@
+
+<style>
+  #example {
+    height: 650px;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+</style>
+<div class="wrapper">
+  <div class="page-header">
+    <div class="page-header-image"></div>
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 col-md-6 offset-lg-0 offset-md-3">
+            <div class="square square-7" id="square7"></div>
+            <div class="square square-8" id="square8"></div>
+            <div class="card card-register">
+              <div class="card-header">
+                <img
+                  alt="Card image"
+                  class="card-img"
+                  src="assets/img/square1-red.png"
+                />
+
+                <h4 class="card-title">Register</h4>
+              <div class="card-body">
+                <form id="example"    class="form" [formGroup]="form" (submit)="submit()">
+                  <div class="form-row">
+                    <div class="form-group col-md-6" [hidden]="!isFirstNameShown" [ngClass]="{ 'input-group-focus': focus === true }">
+                      
+                      <label>FirstName</label>
+                      <input
+                        class="form-control"
+                        formControlName="firstName"
+                        placeholder="FirstName"
+                        type="text"
+                        (focus)="focus = true"
+                        (blur)="focus = false"
+                      />
+                    </div>
+                    
+                    <div class="form-group col-md-6" [hidden]="!isLastNameShown" [ngClass]="{ 'input-group-focus': focus1 === true }">
+                      <label>LastName</label>
+                      <input
+                        class="form-control"
+                        formControlName="lastName"
+                        placeholder="LastName"
+                        type="text"
+                        (focus)="focus1 = true"
+                        (blur)="focus1 = false"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <alert  [hidden]="!isFirstNameShown" *ngIf="form.get('firstName').invalid && form.get('firstName').touched" [type]="'danger'">
+                        Invalid FirstName
+                      </alert>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <alert  [hidden]="!isLastNameShown" *ngIf="form.get('lastName').invalid && form.get('lastName').touched" [type]="'danger'">
+                        Invalid LastName
+                      </alert>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-12" [ngClass]="{ 'input-group-focus': focus2 === true }">
+                      
+                      <label>Email</label>
+                      <input
+                        class="form-control"
+                        formControlName="email"
+                        placeholder="Email"
+                        type="text"
+                        (focus)="focus2 = true"
+                        (blur)="focus2 = false"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                  <alert  *ngIf="form.get('email').invalid && form.get('email').touched" [type]="'danger'">
+                    Please enter a valid email
+                  </alert></div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6" [ngClass]="{ 'input-group-focus': focus3 === true }">
+                      <label>Password</label>
+                      <input
+                        class="form-control"
+                        formControlName="password"
+                        placeholder="Password"
+                        type="text"
+                        (focus)="focus3 = true"
+                        (blur)="focus3 = false"
+                      />
+                    </div>
+
+                    <div class="form-group col-md-6"  [ngClass]="{ 'input-group-focus': focus4 === true }">
+                      <label>Confirm Password</label>
+                      <input
+                        class="form-control"
+                        formControlName="confirmpassword"
+                        placeholder="Confirm Password"
+                        type="text"
+                        (focus)="focus4 = true"
+                        (blur)="focus4 = false"
+                      />
+                    </div>
+                  </div>
+                  
+
+                  <div class="input-group" [ngClass]="{ 'input-group-focus': focus5 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-square-pin"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="adress"
+                      placeholder="Adress"
+                      type="text"
+                      (focus)="focus5 = true"
+                      (blur)="focus5 = false"
+                    />
+                  </div>
+                  <alert  *ngIf="form.get('adress').invalid && form.get('adress').touched" [type]="'danger'">
+                    Please enter a valid Adress
+                  </alert>
+
+                  <div class="input-group" [hidden]="!companyName" [ngClass]="{ 'input-group-focus': focus6 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-bank"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="companyName"
+                      placeholder="Company Name"
+                      type="text"
+                      (focus)="focus6 = true"
+                      (blur)="focus6 = false"
+                    />
+                  </div>
+                  <alert  [hidden]="!companyName" *ngIf="form.get('companyName').invalid && form.get('companyName').touched" [type]="'danger'">
+                    Please enter a valid Company Name
+                  </alert>
+
+
+                  <div class="input-group" [ngClass]="{ 'input-group-focus': focus7 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-mobile"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="numTel"
+                      placeholder="Phone Number"
+                      type="number"
+                      (focus)="focus7 = true"
+                      (blur)="focus7 = false"
+                    />
+                  </div>
+                  <alert *ngIf="form.get('numTel').invalid && form.get('numTel').touched" [type]="'danger'">
+                    Please enter a valid Phone Number
+                  </alert>
+
+                  <div class="input-group" [hidden]="!associationName" [ngClass]="{ 'input-group-focus': focus8 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-bank"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="associationName"
+                      placeholder="Association Name"
+                      type="text"
+                      (focus)="focus8 = true"
+                      (blur)="focus8 = false"
+                    />
+                  </div>
+                  <alert [hidden]="!associationName" *ngIf="form.get('associationName').invalid && form.get('associationName').touched" [type]="'danger'">
+                    Please enter a valid Association Name
+                  </alert>
+
+                  <div class="input-group" [hidden]="!CIN" [ngClass]="{ 'input-group-focus': focus9 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-mobile"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="CIN"
+                      placeholder="CIN"
+                      type="number"
+                      (focus)="focus9 = true"
+                      (blur)="focus9 = false"
+                    />
+                  </div>
+                  <alert [hidden]="!CIN" *ngIf="form.get('CIN').invalid && form.get('CIN').touched" [type]="'danger'">
+                    Please enter a valid CIN
+                  </alert>
+
+                  <div class="input-group" [hidden]="!Age" [ngClass]="{ 'input-group-focus': focus10 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-mobile"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="age"
+                      placeholder="Age"
+                      type="number"
+                      (focus)="focus10 = true"
+                      (blur)="focus10 = false"
+                    />
+                  </div>
+                  <alert [hidden]="!Age" *ngIf="form.get('age').invalid && form.get('age').touched" [type]="'danger'">
+                    Please enter a valid Age
+                  </alert>
+
+                  <div class="input-group" [hidden]="!profession" [ngClass]="{ 'input-group-focus': focus11 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-mobile"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="profession"
+                      placeholder="Profession"
+                      type="text"
+                      (focus)="focus11 = true"
+                      (blur)="focus11 = false"
+                    />
+                  </div>
+                  <alert [hidden]="!profession" *ngIf="form.get('profession').invalid && form.get('profession').touched" [type]="'danger'">
+                    Please enter a valid Profession
+                  </alert>
+
+
+                  <div class="input-group" [hidden]="!niveauetude" [ngClass]="{ 'input-group-focus': focus12 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-mobile"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      formControlName="niveauetude"
+                      placeholder="Level of study"
+                      type="text"
+                      (focus)="focus12 = true"
+                      (blur)="focus12 = false"
+                    />
+                  </div>
+                  <alert [hidden]="!niveauetude" *ngIf="form.get('niveauetude').invalid && form.get('niveauetude').touched" [type]="'danger'">
+                    Please enter a valid Level of study
+                  </alert>
+
+                  <div class="input-group"  [ngClass]="{ 'input-group-focus': focus13 === true }">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-mobile"> </i>
+                      </div>
+                    </div>
+                    <textarea 
+                      class="form-control"
+                      formControlName="description"
+                      placeholder="Description"
+                      type="text"
+                      (focus)="focus13 = true"
+                      (blur)="focus13 = false"
+                    ></textarea>
+                  </div>
+                  <alert *ngIf="form.get('description').invalid && form.get('description').touched" [type]="'danger'">
+                    Please enter a valid Description
+                  </alert>
+
+                  <div class="form-group">
+                    <label for="appUserRole">Role</label>
+                    <select  (change)="somethingChanged()" formControlName="appUserRole" name="appUserRole" class="form-control" id="appUserRole">
+                      <option style="background-color: indigo" value="ADMIN" >ADMIN</option>
+                      <option style="background-color: indigo" value="USER" [selected]="true">USER</option>
+                      <option style="background-color: indigo" value="TRAINER">TRAINER</option>
+                      <option style="background-color: indigo" value="COMPANY">COMPANY</option>
+                      <option style="background-color: indigo" value="ASSOCIATION" >ASSOCIATION</option>
+                      <option style="background-color: indigo" value="MEDCIN">MEDCIN</option>
+                      <option style="background-color: indigo" value="LAWYER">LAWYER</option>
+                      <option style="background-color: indigo" value="PSY">PSY</option>
+                    </select>
+                  </div>
+
+                  <div class="form-check text-left">
+                    <label class="form-check-label">
+                      <input [checked]="checkbox1" (change)="checkbox1 = !checkbox1" class="form-check-input" type="checkbox" />
+                      <span class="form-check-sign"> </span> I agree to the
+                      <a href="javascript:void(0)"> terms and conditions </a> .
+                    </label>
+                  </div>
+                  <div class="card-footer" >
+                    
+                  </div>
+                  <button  [disabled]="!checkbox1"
+                  data-target="#myModal1"
+                  (click)="myModal1.show()" class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
+                </form>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="register-bg"></div>
+        <div class="square square-1" id="square1"></div>
+        <div class="square square-2" id="square2"></div>
+        <div class="square square-3" id="square3"></div>
+        <div class="square square-4" id="square4"></div>
+        <div class="square square-5" id="square5"></div>
+        <div class="square square-6" id="square6"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" id="modals">
+  <div class="col-md-4">
+    <button
+      class="btn btn-warning"
+      data-target="#myModal1"
+      (click)="myModal1.show()"
+    >
+      Launch Modal Mini
+    </button>
+  </div>
+</div>
+
+<div
+  aria-hidden="true"
+  aria-labelledby="myModalLabel"
+  bsModal
+  class="modal fade modal-mini modal-primary modal-mini"
+  #myModal1="bs-modal"
+  id="myModal1"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <button
+          aria-hidden="true"
+          class="close"
+          data-dismiss="modal"
+          (click)="myModal1.hide()"
+          type="button"
+        >
+          <i class="tim-icons icon-simple-remove text-white"> </i>
+        </button>
+        <div class="modal-profile">
+          <i class="tim-icons icon-single-02"> </i>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Always have an access to your profile</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-link btn-neutral" type="button">
+          Back
+        </button>
+        <button
+          class="btn btn-link btn-neutral"
+          data-dismiss="modal"
+          type="button"
+          (click)="myModal1.hide()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
