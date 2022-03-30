@@ -165,6 +165,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     .toPromise()
     .then((response)=>{
       this.loading=false;
+      this.error = false;
       this.router.navigate(['/login'])
     }).catch((error:HttpErrorResponse)=>{
       this.error = true;

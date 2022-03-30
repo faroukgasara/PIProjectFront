@@ -125,6 +125,7 @@ export class LoginpageComponent implements OnInit , OnDestroy{
       this.email = resJSON.user;
       this.saveCurrentUser(this.token,this.email);
       this.loading=false;
+      this.error=false;
     }).catch((error:HttpErrorResponse)=>{
       console.log(error)
       console.log("non")
