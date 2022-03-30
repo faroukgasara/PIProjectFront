@@ -16,6 +16,8 @@ export class LoginpageComponent implements OnInit , OnDestroy{
   focus2;
   token;
   email;
+  public loading:boolean = false ;
+  public error:boolean = false ;
   form!: FormGroup;
   constructor(private formBuilder: FormBuilder,private http:HttpClient,private router:Router) { }
 
@@ -108,6 +110,7 @@ export class LoginpageComponent implements OnInit , OnDestroy{
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
       withCreadentials:true
     };
+    this.loading= true;
     this.http.post('http://localhost:8089/WomenEmpowerment/login',body.toString(), options)
     .pipe(map((data)=>data))
     .toPromise()
@@ -121,9 +124,12 @@ export class LoginpageComponent implements OnInit , OnDestroy{
       this.token = resJSON.access_token;
       this.email = resJSON.user;
       this.saveCurrentUser(this.token,this.email);
+      this.loading=false;
     }).catch((error:HttpErrorResponse)=>{
       console.log(error)
       console.log("non")
+      this.loading=false;
+      this.error=true;
     })
   }
 
@@ -148,14 +154,9 @@ export class LoginpageComponent implements OnInit , OnDestroy{
       localStorage.setItem('user', JSON.stringify(testObject));
       let user = JSON.parse(localStorage.getItem('user'));
       console.log(user.appUserRole);
-
-      
       this.router.navigate(['/home']).then(()=>{
         location.reload() ;
-  
       });
-      
-      
     }).catch((error:HttpErrorResponse)=>{
       console.log(error)
       console.log("non")

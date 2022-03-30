@@ -37,7 +37,7 @@ import { LoginpageComponent } from './pages/loginpage/loginpage.component';
     ProfilepageComponent,
     RegisterpageComponent,
     LandingpageComponent,
-    LoginpageComponent
+    LoginpageComponent,
   ],
   imports: [
     BrowserAnimationsModule,

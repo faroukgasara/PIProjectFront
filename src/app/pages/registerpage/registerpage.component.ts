@@ -20,7 +20,8 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   public Age:boolean = true ;
   public profession:boolean = true ;
   public niveauetude:boolean = true ;
-
+  public error:boolean = false ;
+  public loading:boolean = false ;
   public companyName:boolean = false ;
   public associationName:boolean = false ;
 
@@ -90,7 +91,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
       posY * -0.02 +
       "deg)";
   }
-
+  
   ngOnInit():void {
 
     this.form = this.formBuilder.group({
@@ -121,7 +122,6 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   }
   somethingChanged(){
     let role = this.form.controls['appUserRole'].value;
-    console.log(role)
     if(role == 'USER' || role == 'TRAINER'|| role == 'MEDCIN'|| role == 'LAWYER' || role == 'PSY' ){
       this.isFirstNameShown = true;
       this.Age = true ;
@@ -159,16 +159,16 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
 
 
   submit() : void{
+    this.loading= true;
     this.http.post('http://localhost:8089/WomenEmpowerment/registration',this.form.getRawValue())
     .pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{
+      this.loading=false;
       this.router.navigate(['/login'])
-      console.log("done")
-
     }).catch((error:HttpErrorResponse)=>{
-      console.log(error)
-      console.log(this.form.getRawValue())
+      this.error = true;
+      this.loading=false;
     })
 
   }

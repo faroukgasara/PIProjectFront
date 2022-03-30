@@ -1,16 +1,44 @@
 
 <style>
+  .center {
+  display: flex;
+  justify-content: center;
+}
   #example {
     height: 650px;
     overflow: auto;
     overflow-x: hidden;
   }
+  .lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>
 <div class="wrapper">
   <div class="page-header">
     <div class="page-header-image"></div>
-    <div class="content">
-      <div class="container">
+    <div style="padding-top: 5%;">
+      <div style="padding-left: 5%;">
         <div class="row">
           <div class="col-lg-5 col-md-6 offset-lg-0 offset-md-3">
             <div class="square square-7" id="square7"></div>
@@ -118,6 +146,12 @@
                     <div class="form-group col-md-6">
                       <small  *ngIf="form.get('password').invalid && form.get('password').touched" style="color: #fd5d93;" >
                         Please enter a valid Password
+                      </small>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <small  *ngIf="form.get('confirmpassword').value != form.get('password').value " style="color: #fd5d93;" >
+                        Passwords does not match
                       </small>
                     </div>
                   </div>
@@ -321,12 +355,20 @@
                       <a href="javascript:void(0)"> terms and conditions </a> .
                     </label>
                   </div>
-                  <div class="card-footer" >
-                    
+                  
+                  <div [hidden]="!loading" class="center">
+                    <span style="color: #fd5d93;" class="visually-hidden">Loading...<br></span>
                   </div>
-                  <button  [disabled]="!checkbox1"
-                  data-target="#myModal1"
-                  (click)="myModal1.show()" class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
+
+                  <div [hidden]="!loading" class="center">
+                    <div class="lds-dual-ring"></div>
+                  </div>
+                  
+                  <button  [disabled]="!checkbox1" class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
+                  
+                  <alert [hidden]="!error" [type]="'danger'">
+                    Something went wrong! please try again
+                  </alert>
                 </form>
               </div>
               
@@ -344,60 +386,4 @@
     </div>
   </div>
 </div>
-<div class="row" id="modals">
-  <div class="col-md-4">
-    <button
-      class="btn btn-warning"
-      data-target="#myModal1"
-      (click)="myModal1.show()"
-    >
-      Launch Modal Mini
-    </button>
-  </div>
-</div>
 
-<div
-  aria-hidden="true"
-  aria-labelledby="myModalLabel"
-  bsModal
-  class="modal fade modal-mini modal-primary modal-mini"
-  #myModal1="bs-modal"
-  id="myModal1"
-  role="dialog"
-  tabindex="-1"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header justify-content-center">
-        <button
-          aria-hidden="true"
-          class="close"
-          data-dismiss="modal"
-          (click)="myModal1.hide()"
-          type="button"
-        >
-          <i class="tim-icons icon-simple-remove text-white"> </i>
-        </button>
-        <div class="modal-profile">
-          <i class="tim-icons icon-single-02"> </i>
-        </div>
-      </div>
-      <div class="modal-body">
-        <p>Always have an access to your profile</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-link btn-neutral" type="button">
-          Back
-        </button>
-        <button
-          class="btn btn-link btn-neutral"
-          data-dismiss="modal"
-          type="button"
-          (click)="myModal1.hide()"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
