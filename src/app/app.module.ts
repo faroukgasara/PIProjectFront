@@ -25,9 +25,13 @@ import { LandingpageComponent } from "./pages/landingpage/landingpage.component"
 import { FooterComponent } from './pages/footer/footer.component';
 import { PublicnavbarComponent } from './pages/publicnavbar/publicnavbar.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
-
-
-
+import { TodoComponent } from './todo/todo.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +42,7 @@ import { LoginpageComponent } from './pages/loginpage/loginpage.component';
     RegisterpageComponent,
     LandingpageComponent,
     LoginpageComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -55,7 +60,13 @@ import { LoginpageComponent } from './pages/loginpage/loginpage.component';
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

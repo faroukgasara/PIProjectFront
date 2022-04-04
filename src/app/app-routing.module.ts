@@ -9,6 +9,7 @@ import { RegisterpageComponent } from "./pages/registerpage/registerpage.compone
 import { LandingpageComponent } from "./pages/landingpage/landingpage.component";
 import { LoginpageComponent } from "./pages/loginpage/loginpage.component";
 import { HasRoleGuard } from "./has-role.guard";
+import { TodoComponent } from "./todo/todo.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "register", component: RegisterpageComponent },
   { path: "landing", component: LandingpageComponent },
   { path: "login", component: LoginpageComponent },
+  { path: "todo", component: TodoComponent },
 ];
 
 @NgModule({
