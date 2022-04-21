@@ -25,7 +25,7 @@ import { LandingpageComponent } from "./pages/landingpage/landingpage.component"
 import { FooterComponent } from './pages/footer/footer.component';
 import { PublicnavbarComponent } from './pages/publicnavbar/publicnavbar.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
-import { TodoComponent } from './todo/todo.component';
+import { TodoComponent } from './pages/todo/todo.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';

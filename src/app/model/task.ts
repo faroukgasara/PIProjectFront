@@ -1,4 +1,8 @@
 export interface ITask{
     description:string,
-    done:boolean
+    done:boolean,
+    id:number,
+    progress:number,
+    debutDate:string,
+    targetDate:string,
 }

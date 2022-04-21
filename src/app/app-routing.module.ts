@@ -9,7 +9,7 @@ import { RegisterpageComponent } from "./pages/registerpage/registerpage.compone
 import { LandingpageComponent } from "./pages/landingpage/landingpage.component";
 import { LoginpageComponent } from "./pages/loginpage/loginpage.component";
 import { HasRoleGuard } from "./has-role.guard";
-import { TodoComponent } from "./todo/todo.component";
+import { TodoComponent } from "./pages/todo/todo.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
