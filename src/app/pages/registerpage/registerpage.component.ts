@@ -16,7 +16,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   public isFirstNameShown:boolean = true ;
   public isLastNameShown:boolean = true ;
-  public CIN:boolean = true ;
+  public cin:boolean = true ;
   public Age:boolean = true ;
   public profession:boolean = true ;
   public niveauetude:boolean = true ;
@@ -105,7 +105,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
       associationName:new FormControl('',Validators.required),
       companyName:new FormControl('',Validators.required),
       numTel:new FormControl('',Validators.required),
-      CIN:new FormControl('',Validators.required),
+      cin:new FormControl('',Validators.required),
       age:new FormControl('',Validators.required),
       profession:new FormControl('',Validators.required),
       niveauetude:new FormControl('',Validators.required),
@@ -125,7 +125,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     if(role == 'USER' || role == 'TRAINER'|| role == 'MEDCIN'|| role == 'LAWYER' || role == 'PSY' ){
       this.isFirstNameShown = true;
       this.Age = true ;
-      this.CIN=true;
+      this.cin=true;
       this.isLastNameShown=true;
       this.profession=true;
       this.niveauetude=true;
@@ -134,7 +134,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     }else if(role == 'COMPANY'){
       this.isFirstNameShown = false;
       this.Age = false ;
-      this.CIN=false;
+      this.cin=false;
       this.isLastNameShown=false;
       this.profession=false;
       this.niveauetude=false;
@@ -143,7 +143,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     }else if(role == 'ASSOCIATION'){
       this.isFirstNameShown = false;
       this.Age = false ;
-      this.CIN=false;
+      this.cin=false;
       this.isLastNameShown=false;
       this.profession=false;
       this.niveauetude=false;

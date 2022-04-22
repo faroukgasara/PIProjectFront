@@ -10,18 +10,23 @@ import { LandingpageComponent } from "./pages/landingpage/landingpage.component"
 import { LoginpageComponent } from "./pages/loginpage/loginpage.component";
 import { HasRoleGuard } from "./has-role.guard";
 import { TodoComponent } from "./pages/todo/todo.component";
+import { IsSignedInGuard } from "./IsSignedInGuard ";
+
+
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: IndexComponent },
   { path: "profile", component: ProfilepageComponent,
-    canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','user']}
+    canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']}
 
   },
-  { path: "register", component: RegisterpageComponent },
+  { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
   { path: "landing", component: LandingpageComponent },
-  { path: "login", component: LoginpageComponent },
+  { path: "login", component: LoginpageComponent ,canActivate:[IsSignedInGuard]},
   { path: "todo", component: TodoComponent },
+  
+
 ];
 
 @NgModule({

@@ -33,16 +33,21 @@
   }
 }
 </style>
-<div class="wrapper">
+<div style="background-image: url('assets/img/55.jpg');" class="wrapper">
     <div class="page-header">
       <div class="page-header-image"></div>
       <div class="content">
         <div class="container">
           <div class="row">
+            
+            
             <div class="col-lg-5 col-md-6 offset-lg-0 offset-md-3">
+              
               <div class="square square-7" id="square7"></div>
               <div class="square square-8" id="square8"></div>
+              
               <div class="card card-register">
+                
                 <div class="card-header">
                   <img
                     alt="Card image"
@@ -54,7 +59,7 @@
                 </div>
                 <div class="card-body">
                   <form class="form" [formGroup]="form" (submit)="submit()">
-                    <div
+                    <div style="margin-top: 30px;"
                       class="input-group"
                       [ngClass]="{ 'input-group-focus': focus1 === true }"
                     >
@@ -67,7 +72,7 @@
                         class="form-control"
                         formControlName="email"
                         placeholder="Email"
-                        type="text"
+                        type="email"
                         (focus)="focus1 = true"
                         (blur)="focus1 = false"
                       />
@@ -79,7 +84,8 @@
                         </small>
                       </div>
                     </div>
-                    <div
+                    
+                    <div style="margin-top: 20px;"
                       class="input-group"
                       [ngClass]="{ 'input-group-focus': focus2 === true }"
                     >
@@ -92,7 +98,7 @@
                         class="form-control"
                         formControlName="password"
                         placeholder="Password"
-                        type="text"
+                        type="password"
                         (focus)="focus2 = true"
                         (blur)="focus2 = false"
                       />
@@ -103,6 +109,12 @@
                           Please enter a valid Password
                         </small>
                       </div>
+                    </div>
+
+                    <div style="margin-top: 10px;margin-bottom: 10px;" >
+                      <label class="form-check-label">
+                        <a href="javascript:void(0)"> FORGOT PASSWORD </a> 
+                      </label>
                     </div>
 
                     <div [hidden]="!loading" class="center">
@@ -119,18 +131,19 @@
                     </alert>
 
                   </form>
+                  
                 </div>
                 
               </div>
+              
             </div>
+            
+            <div class="register-bg col-lg-5 col-md-6 offset-lg-0 offset-md-3"><img
+              alt="Card image"
+              class="card-img"
+              src="assets/img/4.png"
+            /></div>
           </div>
-          <div class="register-bg"></div>
-          <div class="square square-1" id="square1"></div>
-          <div class="square square-2" id="square2"></div>
-          <div class="square square-3" id="square3"></div>
-          <div class="square square-4" id="square4"></div>
-          <div class="square square-5" id="square5"></div>
-          <div class="square square-6" id="square6"></div>
         </div>
       </div>
     </div>
