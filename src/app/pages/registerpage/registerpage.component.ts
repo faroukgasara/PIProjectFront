@@ -23,7 +23,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   public error:boolean = false ;
   public loading:boolean = false ;
   public companyName:boolean = false ;
-  public associationName:boolean = false ;
+  public associationName:boolean = true ;
 
 
   constructor(private formBuilder: FormBuilder,private http:HttpClient,private router:Router) { }

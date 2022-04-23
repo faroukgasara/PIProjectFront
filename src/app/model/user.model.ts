@@ -1,6 +1,16 @@
 export class UserModel{
     email:string;
     firstName:string;
-    lastName:String;
+    lastName:string;
     roles:string[];
+    password:string;
+    locked:boolean;
+    enabled:boolean;
+    adress:string;
+    companyName:string;
+    numTel:string;
+    profession:string;
+    description:string;
+    CIN:string;
+    niveauetude:string;
 }

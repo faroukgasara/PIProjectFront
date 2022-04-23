@@ -32,6 +32,22 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { CardComponent } from './back/card/card.component';
+import { ChartComponent } from './back/card/chart/chart.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MiniCardComponent } from "./back/card/mini-card/mini-card.component";
+import { UsersTableComponent } from "./back/card/users-table/users-table.component";
+import { DashComponent } from "./back/card/dash/dash.component";
+import { NavComponent } from "./back/card/nav/nav.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +59,12 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     LandingpageComponent,
     LoginpageComponent,
     TodoComponent,
+    NavComponent,
+    DashComponent,
+    CardComponent,
+    ChartComponent,
+    UsersTableComponent,
+    MiniCardComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -66,7 +88,16 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    DragDropModule
+    DragDropModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

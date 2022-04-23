@@ -14,6 +14,9 @@ import { DOCUMENT } from "@angular/common";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
+
+  user = JSON.parse(localStorage.getItem('user'));
+  public accessGranted:boolean ;
   constructor(
     private renderer: Renderer2,
     public location: Location,
@@ -37,5 +40,12 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.onWindowScroll(event);
+    if(this.user.appUserRole=='ADMIN'){
+      console.log(this.user.appUserRole!='ADMIN')
+      this.accessGranted=true
+    }else{
+      this.accessGranted=false
+    }
+    
   }
 }

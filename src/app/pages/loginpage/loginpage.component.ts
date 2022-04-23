@@ -115,12 +115,8 @@ export class LoginpageComponent implements OnInit , OnDestroy{
     .pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{
-      //this.router.navigate(['/home'])
       let resSTR = JSON.stringify(response);
       let resJSON = JSON.parse(resSTR);
-     // console.log(resJSON.access_token);
-      //console.log(resJSON.refresh_token);
-      //console.log(resJSON.user);
       this.token = resJSON.access_token;
       this.email = resJSON.user;
       this.saveCurrentUser(this.token,this.email);
@@ -155,9 +151,15 @@ export class LoginpageComponent implements OnInit , OnDestroy{
       localStorage.setItem('user', JSON.stringify(testObject));
       let user = JSON.parse(localStorage.getItem('user'));
       console.log(user.appUserRole);
-      this.router.navigate(['/home']).then(()=>{
-        location.reload() ;
-      });
+      if(user.appUserRole=="ADMIN"){
+        this.router.navigate(['/dashboard']).then(()=>{
+          location.reload() ;
+        });
+      }else{
+        this.router.navigate(['/home']).then(()=>{
+          location.reload() ;
+        });
+      }
     }).catch((error:HttpErrorResponse)=>{
       console.log(error)
       console.log("non")

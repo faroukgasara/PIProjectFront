@@ -11,6 +11,7 @@ import { LoginpageComponent } from "./pages/loginpage/loginpage.component";
 import { HasRoleGuard } from "./has-role.guard";
 import { TodoComponent } from "./pages/todo/todo.component";
 import { IsSignedInGuard } from "./IsSignedInGuard ";
+import { DashComponent } from "./back/card/dash/dash.component";
 
 
 
@@ -19,12 +20,16 @@ const routes: Routes = [
   { path: "home", component: IndexComponent },
   { path: "profile", component: ProfilepageComponent,
     canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']}
-
   },
   { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
   { path: "landing", component: LandingpageComponent },
   { path: "login", component: LoginpageComponent ,canActivate:[IsSignedInGuard]},
   { path: "todo", component: TodoComponent },
+
+
+  { path: 'dashboard', component: DashComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
+  }
   
 
 ];
