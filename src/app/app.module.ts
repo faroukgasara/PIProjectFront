@@ -17,7 +17,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { CarouselModule } from "ngx-bootstrap/carousel";
 import { ModalModule } from "ngx-bootstrap/modal";
 
-
+import {MatBadgeModule} from '@angular/material/badge'
 import { IndexComponent } from "./pages/index/index.component";
 import { ProfilepageComponent } from "./pages/profilepage/profilepage.component";
 import { RegisterpageComponent } from "./pages/registerpage/registerpage.component";
@@ -48,6 +48,12 @@ import { MiniCardComponent } from "./back/card/mini-card/mini-card.component";
 import { UsersTableComponent } from "./back/card/users-table/users-table.component";
 import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
+
+import { NgxPaginationModule } from "ngx-pagination";
+import { Ng2OrderModule } from "ng2-order-pipe";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+import { UserManagementComponent } from './back/card/user-management/user-management.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +71,7 @@ import { NavComponent } from "./back/card/nav/nav.component";
     ChartComponent,
     UsersTableComponent,
     MiniCardComponent,
+    UserManagementComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -98,6 +105,10 @@ import { NavComponent } from "./back/card/nav/nav.component";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatBadgeModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

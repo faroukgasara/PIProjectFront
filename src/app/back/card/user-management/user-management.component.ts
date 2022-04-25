@@ -1,22 +1,19 @@
-
-
-
 import { HttpErrorResponse } from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserModel } from 'src/app/model/user.model';
 import { UserService } from 'src/app/services/user.service';
 
- @Component({
-  selector: 'app-users-table',
-  templateUrl: './users-table.component.html',
-  styleUrls: ['./users-table.component.scss']
+@Component({
+  selector: 'app-user-management',
+  templateUrl: './user-management.component.html',
+  styleUrls: ['./user-management.component.scss']
 })
-export class UsersTableComponent implements OnInit{
-  users: UserModel[];
-  p:number = 1 ;
+export class UserManagementComponent implements OnInit {
 
-  constructor(
-    private UserHttp: UserService) {}
+  constructor(private UserHttp: UserService) { }
+  users: UserModel[]=[];
+  firstName:any;
+  p:number = 1 ;
 
   ngOnInit(): void {
     this.getUsers();
@@ -38,6 +35,16 @@ export class UsersTableComponent implements OnInit{
     });
   }
 
+  
+  Search(){
+    if(this.firstName==""){
+      this.ngOnInit();
+    }else{
+      this.users = this.users.filter(res=>{
+        return res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+      })
+    }
+  }
   key:string='id';
   reverse:boolean = false;
   Sort(key){
@@ -45,4 +52,5 @@ export class UsersTableComponent implements OnInit{
     this.reverse = !this.reverse;
 
   }
+
 }

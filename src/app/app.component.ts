@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.onWindowScroll(event);
     if(this.user.appUserRole=='ADMIN'){
-      console.log(this.user.appUserRole!='ADMIN')
       this.accessGranted=true
     }else{
       this.accessGranted=false

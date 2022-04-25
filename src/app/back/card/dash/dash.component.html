@@ -1,6 +1,5 @@
 <!--dash.component.html-->
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
     <!--Mini Cards-->
     <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout | async )?.miniCard.cols"
@@ -8,14 +7,31 @@
       <app-card title="Card {{i}}"><div>Mini Card Content Here</div></app-card>
     </mat-grid-tile>
     <!--Charts-->
-    <mat-grid-tile *ngFor="let i of [5, 6, 7, 8]" [colspan]="( cardLayout | async )?.chart.cols"
+
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
       [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Card {{i}}"><div>Chart Content Here</div></app-card>
+      <app-card title="Card"><app-chart></app-chart></app-card>
     </mat-grid-tile>
+
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+      [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Card"><app-chart></app-chart></app-card>
+    </mat-grid-tile>
+    
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+      [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Card"><app-chart></app-chart></app-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+      [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card  title="Card"><app-chart ></app-chart></app-card>
+    </mat-grid-tile>
+    
     <!--Table-->
     <mat-grid-tile  [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
-      <app-card title="Management Table">
-        <app-users-table></app-users-table>
+      <app-card  title="Management Table">
+        <app-users-table style=" padding-bottom: 5%;"></app-users-table>
       </app-card>
    </mat-grid-tile>
 

@@ -7,13 +7,8 @@
     <div class="container align-items-center">
       <div class="row">
         <div class="col-lg-6 col-md-6">
-          <h1 class="profile-title text-left">Mike Scheinder</h1>
-          <h5 class="text-on-back">01</h5>
           <p class="profile-description">
-            Offices parties lasting outward nothing age few resolve. Impression
-            to discretion understood to we interested he excellence. Him
-            remarkably use projection collecting. Going about eat forty world
-            has round miles.
+            {{users.description}}
           </p>
           <div class="btn-wrapper profile pt-3">
             <a
@@ -47,77 +42,62 @@
                 src="assets/img/mike.jpg"
               />
 
-              <h4 class="title">Transactions</h4>
+              <h4 class="title">{{users.firstName}} {{users.lastName}}</h4>
             </div>
             <div class="card-body">
               <tabset
                 class="nav-tabs-danger justify-content-center tab-subcategories"
               >
-                <tab heading="Wallet">
-                  <div class="table-responsive">
-                    <table class="table tablesorter" id="plain-table">
-                      <thead class="text-danger">
-                        <tr>
-                          <th class="header">COIN</th>
-                          <th class="header">AMOUNT</th>
-                          <th class="header">VALUE</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>BTC</td>
-                          <td>7.342</td>
-                          <td>48,870.75 USD</td>
-                        </tr>
-                        <tr>
-                          <td>ETH</td>
-                          <td>30.737</td>
-                          <td>64,53.30 USD</td>
-                        </tr>
-                        <tr>
-                          <td>XRP</td>
-                          <td>19.242</td>
-                          <td>18,354.96 USD</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </tab>
-                <tab heading="Send">
+              <tab heading="Intro">
+                <div class="table-responsive">
+                  <table class="table tablesorter" id="plain-table">
+                    <thead class="text-danger">
+                      <tr>
+                        <th class="header">{{users.niveauetude}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{users.profession}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{users.adress}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{users.numTel}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </tab>
+              
+                <tab heading="Report">
+                  <form class="form" [formGroup]="form" (submit)="submit()">
                   <div class="row">
-                    <label class="col-sm-3 col-form-label"> Pay to </label>
+                    <label class="col-sm-3 col-form-label"> Reason </label>
                     <div class="col-sm-9">
                       <div class="form-group">
                         <input
                           class="form-control"
-                          placeholder="e.g. 1Nasd92348hU984353hfid"
+                          placeholder="Reason"
                           type="text"
+                          formControlName="reason"
                         />
 
-                        <span class="form-text">
-                          Please enter a valid address.
+                        <span style="color: #fd5d93;" *ngIf="form.get('reason').invalid && form.get('reason').touched" [type]="'danger'">
+                          Please enter a valid Reason.
                         </span>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <label class="col-sm-3 col-form-label"> Amount </label>
-                    <div class="col-sm-9">
-                      <div class="form-group">
-                        <input
-                          class="form-control"
-                          placeholder="1.587"
-                          type="text"
-                        />
-                      </div>
-                    </div>
-                  </div>
                   <button
+                    [disabled]="!form.valid"
                     class="btn btn-simple btn-danger btn-icon btn-round float-right"
                     type="submit"
                   >
                     <i class="tim-icons icon-send"> </i>
                   </button>
+                </form>
                 </tab>
                 <tab heading="News">
                   <div class="table-responsive">
@@ -191,7 +171,6 @@
           </div>
         </div>
         <div class="col-md-5">
-          <h1 class="profile-title text-left">Projects</h1>
           <h5 class="text-on-back">02</h5>
           <p class="profile-description text-left">
             An artist of considerable range, Ryan â the name taken by
@@ -220,8 +199,7 @@
         <div class="col-md-6">
           <div class="card card-plain">
             <div class="card-header">
-              <h1 class="profile-title text-left">Contact</h1>
-              <h5 class="text-on-back">03</h5>
+              <h1 class="text-on-back">Contact</h1>
             </div>
             <div class="card-body">
               <form>
@@ -294,13 +272,8 @@
               <i class="tim-icons icon-square-pin"> </i>
             </div>
             <div class="description">
-              <h4 class="info-title">Find us at the office</h4>
-              <p>
-                Bld Mihail Kogalniceanu, nr. 8, <br />
-
-                7652 Bucharest, <br />
-
-                Romania
+              <h4 class="info-title">Find me</h4>
+              <p>{{users.address}}
               </p>
             </div>
           </div>
@@ -309,13 +282,8 @@
               <i class="tim-icons icon-mobile"> </i>
             </div>
             <div class="description">
-              <h4 class="info-title">Give us a ring</h4>
-              <p>
-                Michael Jordan <br />
-
-                +40 762 321 762 <br />
-
-                Mon - Fri, 8:00-22:00
+              <h4 class="info-title">Give me a ring</h4>
+              <p>{{users.numTel}}
               </p>
             </div>
           </div>

@@ -1,4 +1,5 @@
 export class UserModel{
+    id:number;
     email:string;
     firstName:string;
     lastName:string;
@@ -13,4 +14,5 @@ export class UserModel{
     description:string;
     CIN:string;
     niveauetude:string;
+    subscriber:string[];
 }

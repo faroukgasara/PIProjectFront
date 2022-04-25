@@ -1,53 +1,37 @@
-<div  class="mat-elevation-z8 small-table">
-<table mat-table [dataSource]="users" class="full-width-table" matSort aria-label="Elements" >
-
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="firstName">
-    <th mat-header-cell *matHeaderCellDef> FirstName </th>
-    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="lastName">
-    <th mat-header-cell *matHeaderCellDef> LastName </th>
-    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="enabled">
-    <th mat-header-cell *matHeaderCellDef> Enabled </th>
-    <td mat-cell *matCellDef="let element"> {{element.enabled}} </td>
-  </ng-container>
-
-    <ng-container matColumnDef="locked">
-      <th mat-header-cell *matHeaderCellDef> Locked </th>
-      <td mat-cell *matCellDef="let element"> {{element.locked}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element"> 
-        <button mat-icon-button color="primary" aria-label="Example icon button with a open in new tab icon">
-          <mat-icon>visibility</mat-icon>
-        </button>
-        <button mat-icon-button color="accent" aria-label="Example icon button with a open in new tab icon">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button (click)="deleteUser(element.email)" mat-icon-button color="warn" aria-label="Example icon button with a open in new tab icon">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  <mat-paginator [length]="100"
-  [pageSize]="5"
-  [pageSizeOptions]="[5, 10, 25, 100]"
-  aria-label="Select page">
-  </mat-paginator>
+<table class="table">
+  <thead>
+      <tr>
+          <th (click)="Sort('email')">Email&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="Sort('firstName')">FirstName&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="Sort('lastName')">LastName&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="Sort('enabled')">Enabled&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="Sort('locked')">Locked&nbsp;<i class="fa fa-sort"></i></th>
+          <th class="text-left">Actions</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor ="let user of users | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};">
+          
+          <td>{{user.email}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td >{{user.enabled}}</td>
+          <td >{{user.locked}}</td>
+          <td class="td-actions">
+            <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+                <i class="tim-icons icon-single-02"></i>
+            </button>
+            <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+                <i class="tim-icons icon-settings-gear-63"></i>
+            </button>
+            <button (click)="deleteUser(user.email)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                <i class="tim-icons icon-simple-remove"></i>
+            </button>
+          </td>
+      </tr>
+  </tbody>
+      <pagination-controls  style="position: absolute; padding-left: 20%;"
+      (pageChange) ="p = $event"
+      >
+      </pagination-controls>
 </table>
-
-</div>
