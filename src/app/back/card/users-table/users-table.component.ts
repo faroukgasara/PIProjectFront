@@ -33,8 +33,7 @@ export class UsersTableComponent implements OnInit{
     .toPromise()
     .then((response)=>{
       this.getUsers();
-    }).catch((error:HttpErrorResponse)=>{
-      console.log(error)
+    }).catch((error:HttpErrorResponse)=>{console.log(error)
     });
   }
 

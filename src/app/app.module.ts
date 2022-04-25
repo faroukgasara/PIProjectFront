@@ -6,6 +6,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
+
+import { BrowserModule } from "@angular/platform-browser";
+
+
+
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { ProgressbarModule } from "ngx-bootstrap/progressbar";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
@@ -49,11 +54,15 @@ import { UsersTableComponent } from "./back/card/users-table/users-table.compone
 import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
+
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { UserManagementComponent } from './back/card/user-management/user-management.component';
+
+import { TrainingComponent } from './pages/training/training.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,9 +81,11 @@ import { UserManagementComponent } from './back/card/user-management/user-manage
     UsersTableComponent,
     MiniCardComponent,
     UserManagementComponent,
+    TrainingComponent,
   ],
   imports: [
     BrowserAnimationsModule,
+    BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule,
@@ -110,7 +121,9 @@ import { UserManagementComponent } from './back/card/user-management/user-manage
     Ng2OrderModule,
     NgxPaginationModule,
   ],
-  providers: [],
+  providers: [
+   
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

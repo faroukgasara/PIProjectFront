@@ -12,14 +12,22 @@ import { HasRoleGuard } from "./has-role.guard";
 import { TodoComponent } from "./pages/todo/todo.component";
 import { IsSignedInGuard } from "./IsSignedInGuard ";
 import { DashComponent } from "./back/card/dash/dash.component";
+
 import { UserManagementComponent } from "./back/card/user-management/user-management.component";
+import { TrainingComponent } from "./pages/training/training.component";
+
 
 
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: IndexComponent },
+
   { path: "profile/:email", component: ProfilepageComponent,
+
+  { path: "trainings", component: TrainingComponent },
+  { path: "profile", component: ProfilepageComponent,
+
     canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']}
   },
   { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
