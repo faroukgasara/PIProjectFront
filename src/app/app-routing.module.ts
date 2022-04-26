@@ -12,6 +12,11 @@ import { HasRoleGuard } from "./has-role.guard";
 import { TodoComponent } from "./pages/todo/todo.component";
 import { IsSignedInGuard } from "./IsSignedInGuard ";
 import { DashComponent } from "./back/card/dash/dash.component";
+import { OfferComponent } from "./pages/offer/offer.component";
+import { QuizComponent } from "./pages/quiz/quiz.component";
+import { QuestionComponent } from "./pages/question/question.component";
+
+
 
 import { UserManagementComponent } from "./back/card/user-management/user-management.component";
 
@@ -42,6 +47,7 @@ const routes: Routes = [
   { path: "login", component: LoginpageComponent ,canActivate:[IsSignedInGuard]},
   { path: "todo", component: TodoComponent },
 
+
   
   { path: "userManagement", component: UserManagementComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
@@ -58,6 +64,12 @@ const routes: Routes = [
   
 
 
+  { path: "offers", component: OfferComponent },
+  { path: "Quiz", component: QuizComponent },
+  { path: "Question", component: QuestionComponent },
+
+
+  
   { path: 'dashboard', component: DashComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
   },

@@ -55,6 +55,7 @@ import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
 
+
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -71,6 +72,12 @@ import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.c
 import { ResetpasswordComponent } from './pages/forgetpassword/resetpassword/resetpassword.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-users-by-year/count-total-users-by-year.component';
+
+
+import { OfferComponent } from "./pages/offer/offer.component";
+import { QuizComponent } from './pages/quiz/quiz.component';
+import { QuestionComponent } from './pages/question/question.component';
+
 
 @NgModule({
   declarations: [
@@ -89,6 +96,7 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
     ChartComponent,
     UsersTableComponent,
     MiniCardComponent,
+
     UserManagementComponent,
     TrainingComponent,
 
@@ -99,6 +107,11 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
 
 
     EventscomponentComponent,
+
+    OfferComponent,
+    QuizComponent,
+    QuestionComponent,
+    
   ],
   imports: [
     BrowserAnimationsModule,
