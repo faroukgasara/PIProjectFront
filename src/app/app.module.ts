@@ -61,7 +61,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { UserManagementComponent } from './back/card/user-management/user-management.component';
 
+
 import { TrainingComponent } from './pages/training/training.component';
+
+
+import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
+import { ResetpasswordComponent } from './pages/forgetpassword/resetpassword/resetpassword.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-users-by-year/count-total-users-by-year.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +89,11 @@ import { TrainingComponent } from './pages/training/training.component';
     MiniCardComponent,
     UserManagementComponent,
     TrainingComponent,
+    ForgetpasswordComponent,
+    ResetpasswordComponent,
+    NotfoundComponent,
+    CountTotalUsersByYearComponent,
+
   ],
   imports: [
     BrowserAnimationsModule,

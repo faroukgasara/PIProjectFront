@@ -11,7 +11,7 @@
         placement="bottom"
         [routerLink]="['/home']"
         target="_blank"
-        tooltip="Designed and Coded by Creative Tim"
+        tooltip="Designed and Coded by Cyber Hunter"
       >
         <span> WE• </span> Women Empowerment
       </a>
@@ -116,6 +116,16 @@
           </a>
         </li>
 
+        <li class="nav-item" [hidden]="!Login" >
+          <a
+          [routerLink]="['/forgetpassword']"
+            class="nav-link btn btn-default d-none d-lg-block"
+            href="javascript:void(0)"
+          >
+           Forgot Password
+          </a>
+        </li>
+
         <li class="nav-item" [hidden]="!Registration">
           <a
             [routerLink]="['/register']"
@@ -152,7 +162,7 @@
               <i class="tim-icons icon-simple-remove text-white"> </i>
             </button>
             <div class="text-muted text-center ml-auto mr-auto">
-              <h3 class="mb-0">Sign in with</h3>
+              <h3 class="mb-0">Are you sure you want to subscribe?</h3>
             </div>
           </div>
           <div class="modal-body">
@@ -168,7 +178,7 @@
               </a>
             </div>
             <div class="text-center text-muted mb-4 mt-3">
-              <small> Or sign in with credentials </small>
+              <small> Click Confirm </small>
             </div>
             <form  role="form">
               <div class="text-center">

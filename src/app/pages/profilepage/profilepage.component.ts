@@ -29,7 +29,7 @@ export class ProfilepageComponent implements OnInit, OnDestroy {
 
   findByEmail(){
     this.UserHttp.findByEmail(this.route.snapshot.params['email']).subscribe(
-  		(data:UserModel) => {this.users = data;console.log(this.users)}
+  		(data:UserModel) => {this.users = data;}
   	);
   }
 

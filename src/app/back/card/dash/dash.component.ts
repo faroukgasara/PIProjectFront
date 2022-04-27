@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { UserModel } from 'src/app/model/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.scss']
 })
-export class DashComponent {
-  /** Based on the screen size, switch from standard to one column per row */
+export class DashComponent implements OnInit{
+  constructor(private breakpointObserver: BreakpointObserver,private UserHttp: UserService) {}
+
+  TotalUsers:number;
+  InactifUsers=0;
+  users: UserModel[]=[];
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
@@ -49,5 +55,20 @@ export class DashComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  
+
+
+  ngOnInit(): void {
+    this.UserHttp.getUsers().subscribe(
+  		(data:UserModel[]) => {
+        this.users = data;
+        this.TotalUsers=data.length;
+        for (let i of this.users) {
+          if(i.enabled==false || i.locked==true){
+            this.InactifUsers = this.InactifUsers+1;
+          }
+        }
+      }
+  	);
+  }
 }

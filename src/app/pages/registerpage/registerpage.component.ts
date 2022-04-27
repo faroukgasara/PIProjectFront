@@ -171,6 +171,5 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
       this.error = true;
       this.loading=false;
     })
-
   }
 }

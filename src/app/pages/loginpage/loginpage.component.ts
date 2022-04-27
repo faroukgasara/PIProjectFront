@@ -92,14 +92,14 @@ export class LoginpageComponent implements OnInit , OnDestroy{
     });
 
     var body = document.getElementsByTagName("body")[0];
-    body.classList.add("login-page");
+    body.classList.add("register-page");
 
     this.onMouseMove(event);
   }
 
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
-    body.classList.remove("login-page");
+    body.classList.remove("register-page");
   }
 
   submit():void{

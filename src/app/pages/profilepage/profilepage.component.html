@@ -91,6 +91,8 @@
                     </div>
                   </div>
                   <button
+                    data-target="#myModal1"
+                    (click)="myModal1.show()"
                     [disabled]="!form.valid"
                     class="btn btn-simple btn-danger btn-icon btn-round float-right"
                     type="submit"
@@ -291,4 +293,45 @@
       </div>
     </div>
   </section>
+</div>
+<div
+aria-hidden="true"
+aria-labelledby="myModalLabel"
+bsModal
+class="modal fade modal-mini modal-danger modal-mini"
+#myModal1="bs-modal"
+id="myModal1"
+role="dialog"
+tabindex="-1"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header justify-content-center">
+      <button
+        aria-hidden="true"
+        class="close"
+        data-dismiss="modal"
+        (click)="myModal1.hide()"
+        type="button"
+      >
+        <i class="tim-icons icon-simple-remove text-white"> </i>
+      </button>
+      
+    </div>
+    <div class="modal-body">
+      <p>Your report has not been submitted successfully</p>
+    </div>
+    <div class="modal-footer">
+      
+      <button
+        class="btn btn-link btn-neutral"
+        data-dismiss="modal"
+        type="button"
+        (click)="myModal1.hide()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
 </div>

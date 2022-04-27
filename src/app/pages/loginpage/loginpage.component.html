@@ -33,7 +33,7 @@
   }
 }
 </style>
-<div style="background-image: url('assets/img/wo.jpg'); background-repeat: no-repeat;" class="wrapper">
+<div  class="wrapper">
     <div class="page-header">
       <div class="page-header-image"></div>
       <div class="content">
@@ -114,13 +114,13 @@
 
                     <div style="margin-top: 10px;margin-bottom: 10px;" >
                       <label class="form-check-label">
-                        <a href="javascript:void(0)"> FORGOT PASSWORD </a> 
+                        <a [routerLink]="['/forgetpassword']" href="javascript:void(0)"> FORGOT PASSWORD </a> 
                       </label>
                     </div>
 
                     <div style="margin-top: 10px;margin-bottom: 10px;" >
                       <label class="form-check-label">
-                        <a > Don't Have an Account? </a> <a href="javascript:void(0)"> Sign Up? </a> 
+                        <a > Don't Have an Account? </a> <a [routerLink]="['/register']"href="javascript:void(0)"> Sign Up? </a> 
                       </label>
                     </div>
 
@@ -144,15 +144,23 @@
               </div>
               
             </div>
-            
-            <div class="register-bg col-lg-5 col-md-6 offset-lg-0 offset-md-3"><img
-              alt="Card image"
-              class="card-img"
-              src="assets/img/4.png"
-            /></div>
           </div>
         </div>
+        
       </div>
+      <div class="register-bg"><img
+        style="margin-top: 5%;"
+                  alt="Card image"
+                  class="card-img"
+                  src="assets/img/login.png"
+                /></div>
+        <div class="square square-1" id="square1"></div>
+        <div class="square square-2" id="square2"></div>
+        <div class="square square-3" id="square3"></div>
+        <div class="square square-4" id="square4"></div>
+        <div class="square square-5" id="square5"></div>
+        <div class="square square-6" id="square6"></div>
     </div>
+    
   </div>
   

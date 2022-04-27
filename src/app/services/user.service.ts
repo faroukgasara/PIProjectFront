@@ -35,6 +35,11 @@ export class UserService {
   	return this.http.post(this.userUrl+'/reporting/addReport/'+reported+'/'+reportedby+'/'+reason,null,this.options);
   }
 
+  forgetpassword(email:string){
+  	return this.http.get(this.userUrl+"/registration/forgetpassword/"+email);
+  }
 
-
+  resetpassword(email:string,token:string,newPass:string){
+  	return this.http.get(this.userUrl+"/registration/reset/"+token+"/"+email+"/"+newPass);
+  }
 }

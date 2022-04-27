@@ -32,7 +32,6 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
       this.Logout=true
 
     }
-    console.log( localStorage.getItem('sub') ==="true")
     if( localStorage.getItem('sub') ==="true" ){
       this.isDisabled = true;
     }else if(Number(this.user.subscriber.id)){
