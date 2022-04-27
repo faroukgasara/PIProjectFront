@@ -16,6 +16,7 @@ import { DashComponent } from "./back/card/dash/dash.component";
 import { UserManagementComponent } from "./back/card/user-management/user-management.component";
 
 import { TrainingComponent } from "./pages/training/training.component";
+import { EventscomponentComponent } from "./eventscomponent/eventscomponent.component";
 
 
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: "landing", component: LandingpageComponent },
   { path: "login", component: LoginpageComponent ,canActivate:[IsSignedInGuard]},
   { path: "todo", component: TodoComponent },
+
   
   { path: "userManagement", component: UserManagementComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
@@ -47,6 +49,12 @@ const routes: Routes = [
   { path: "forgetpassword", component: ForgetpasswordComponent ,canActivate:[IsSignedInGuard]},
   { path: "resetpassword/:email/:token", component: ResetpasswordComponent ,canActivate:[IsSignedInGuard]},
 
+
+  { path: "userManagement", component: UserManagementComponent },
+  
+  { path: "events", component: EventscomponentComponent,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
+  },
   
 
 

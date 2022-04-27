@@ -63,6 +63,8 @@ import { UserManagementComponent } from './back/card/user-management/user-manage
 
 
 import { TrainingComponent } from './pages/training/training.component';
+import { EventscomponentComponent } from './eventscomponent/eventscomponent.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
@@ -89,11 +91,14 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
     MiniCardComponent,
     UserManagementComponent,
     TrainingComponent,
+
     ForgetpasswordComponent,
     ResetpasswordComponent,
     NotfoundComponent,
     CountTotalUsersByYearComponent,
 
+
+    EventscomponentComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -132,6 +137,7 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
+    NgbModule,
   ],
   providers: [
    
