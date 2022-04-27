@@ -23,6 +23,13 @@ export class OfferService {
   	const id = typeof offer === 'number' ? offer: offer.id;
   	return this.http.delete<OfferModel>(this.offerUrl+'/Offer/delete-offer/'+id,this.options);
   }
+  addOffers(offer: OfferModel){
+  	return this.http.post(this.offerUrl+"/Offer/add-offer",offer,this.options);
+  }
+  updatOffers(offer: OfferModel){
+  	return this.http.post(this.offerUrl+"/Offer/update-offer",offer,this.options);
+  }
+  
 
   /*postFile(fileToUpload: File): Observable<boolean> {
     const endpoint = 'your-destination-url';

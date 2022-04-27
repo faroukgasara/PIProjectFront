@@ -77,6 +77,8 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
 import { OfferComponent } from "./pages/offer/offer.component";
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuestionComponent } from './pages/question/question.component';
+import { CandidaturComponent } from './pages/candidatur/candidatur.component';
+import { BrowserModule } from "@angular/platform-browser";
 
 
 @NgModule({
@@ -111,6 +113,7 @@ import { QuestionComponent } from './pages/question/question.component';
     OfferComponent,
     QuizComponent,
     QuestionComponent,
+    CandidaturComponent,
     
   ],
   imports: [
@@ -154,6 +157,7 @@ import { QuestionComponent } from './pages/question/question.component';
   ],
   providers: [
    
+
   ],
   bootstrap: [AppComponent]
 })

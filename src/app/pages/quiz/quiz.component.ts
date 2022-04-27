@@ -12,8 +12,8 @@ export class QuizComponent implements OnInit {
   displayedColumns: string[] = ['idQuiz','contenu','name'];
   quizs: QuizModel[];
   
- // enum TypeQuiz  {QuizTrainer,QuizPlanification,QuizCertif}
-  //state: Type = TypeQuiz.init;
+ //enum TypeQuiz  {QuizTrainer,QuizPlanification,QuizCertif}
+ //state: Type = TypeQuiz.init;
 
   constructor(private QuizHttp: QuizService) { }
 

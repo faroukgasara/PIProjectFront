@@ -2,6 +2,6 @@ export class QuizModel{
 
 idQuiz:number;
 contenu:string;
-//Type:TypeQuiz;
+TypeQuiz:string;
 name:string;
 }

@@ -20,6 +20,7 @@ export class UsersTableComponent implements OnInit{
 
   ngOnInit(): void {
     this.getUsers();
+
   }
 
   getUsers(){
