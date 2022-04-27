@@ -2,6 +2,11 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
+import { PublicationComponent } from "./publication/publication.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AddPublicationComponent } from "./add-publication/add-publication.component";
+import { detailsPublicationComponent} from "./publication/detailsPublication.component";
+import { CommentaireComponent} from "./commentaire/commentaire.component";
 
 import { IndexComponent } from "./pages/index/index.component";
 import { ProfilepageComponent } from "./pages/profilepage/profilepage.component";
@@ -34,6 +39,7 @@ import { NotfoundComponent } from "./pages/notfound/notfound.component";
 
 const routes: Routes = [
 
+
   { path: "home", component: IndexComponent },
 
   { path: "profile/:email", component: ProfilepageComponent},
@@ -44,6 +50,20 @@ const routes: Routes = [
     canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']}
   },
   { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
+
+
+  
+  {path : "publication", component : PublicationComponent},
+  
+  {path : "publication/get/:id", component : detailsPublicationComponent},
+
+  
+  {path : "add-publication", component : AddPublicationComponent},
+  {path : "commentaire", component : CommentaireComponent}
+  ,
+
+
+
   { path: "landing", component: LandingpageComponent },
   { path: "login", component: LoginpageComponent ,canActivate:[IsSignedInGuard]},
   { path: "todo", component: TodoComponent },
@@ -86,13 +106,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
+  imports: [FormsModule, ReactiveFormsModule ,
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
       useHash: true
     })
   ],
-  exports: []
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

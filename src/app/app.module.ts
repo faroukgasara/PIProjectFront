@@ -7,7 +7,8 @@ import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 
-import { BrowserModule } from "@angular/platform-browser";
+
+
 
 
 
@@ -80,18 +81,26 @@ import { QuestionComponent } from './pages/question/question.component';
 import { CandidaturComponent } from './pages/candidatur/candidatur.component';
 import { BrowserModule } from "@angular/platform-browser";
 
+import { PublicationComponent } from "./publication/publication.component";
+import {EditorModule} from '@tinymce/tinymce-angular';
+import { AddPublicationComponent } from "./add-publication/add-publication.component";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     PublicnavbarComponent,
+    AddPublicationComponent,
+
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
     LandingpageComponent,
     LoginpageComponent,
     TodoComponent,
+
     NavComponent,
     DashComponent,
     CardComponent,
@@ -120,8 +129,14 @@ import { BrowserModule } from "@angular/platform-browser";
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+
+    PublicationComponent,
+
+    BrowserAnimationsModule,
+
     HttpClientModule,
     RouterModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
@@ -133,7 +148,7 @@ import { BrowserModule } from "@angular/platform-browser";
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
-    ReactiveFormsModule,
+    BrowserModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -157,6 +172,9 @@ import { BrowserModule } from "@angular/platform-browser";
   ],
   providers: [
    
+
+    EditorModule,FormsModule
+
 
   ],
   bootstrap: [AppComponent]
