@@ -79,7 +79,6 @@ import { OfferComponent } from "./pages/offer/offer.component";
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuestionComponent } from './pages/question/question.component';
 import { CandidaturComponent } from './pages/candidatur/candidatur.component';
-import { BrowserModule } from "@angular/platform-browser";
 
 import { PublicationComponent } from "./publication/publication.component";
 import {EditorModule} from '@tinymce/tinymce-angular';

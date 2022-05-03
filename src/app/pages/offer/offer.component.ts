@@ -10,8 +10,10 @@ import { OfferService } from 'src/app/services/offer.service';
   styleUrls: ['./offer.component.scss']
 })
 export class OfferComponent implements OnInit {
-  displayedColumns: string[] = [ 'id','Title','Domain','Place','description'];
+  
   offers: OfferModel[];
+
+  p:number = 1 ;
 
   fileToUpload: File | null = null;
   jobofferForm : FormGroup;
@@ -21,7 +23,11 @@ export class OfferComponent implements OnInit {
    
 
   ngOnInit(): void {
-    this.getOffers();
+    this.OfferHttp.getOffers().subscribe(
+  		(data:OfferModel[]) => {this.offers = data;console.log(this.offers)}
+        //;console.log(this.offers);console.log("hi")}
+  	);
+
     this.jobofferForm = this.formBuilder.group({
       //title: ['', Validators.required],
       Title: ['', [Validators.required, Validators.minLength(6)]],
@@ -37,6 +43,7 @@ export class OfferComponent implements OnInit {
  onSubmit() {
   this.submitted = true;
 
+  console.log(this.jobofferForm.getRawValue())
   // stop here if form is invalid
   if (this.jobofferForm.invalid) {
       return;
@@ -46,23 +53,21 @@ export class OfferComponent implements OnInit {
   alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.jobofferForm.value, null, 4));
 }
 
-/*onReset() {
-  this.submitted = false;
-  this.jobofferForm.reset();
-}*/
+key:string='id';
+reverse:boolean = false;
+Sort(key){
+  this.key = key
+  this.reverse = !this.reverse;
 
-  getOffers(){
-    this.OfferHttp.getOffers().subscribe(
-  		(data:OfferModel[]) => {this.offers = data;console.log(this.offers)}
-        //;console.log(this.offers);console.log("hi")}
-  	);
-  }
+}
+
+
 
 deleteOffer(id: number){
   this.OfferHttp.deleteOffer(id)
   .toPromise()
   .then((response)=>{
-    this.getOffers();
+    this.ngOnInit();
   }).catch((error:HttpErrorResponse)=>{
     console.log(error)
   });  
@@ -70,19 +75,23 @@ deleteOffer(id: number){
 
 addOffers(){
 
-  //this.OfferHttp.addOffers().subscribe(); //from html to ts
+  this.OfferHttp.addOffers(this.jobofferForm.getRawValue()).subscribe();
 }
 
-updatOffers(){
+  
 
+updatOffers(){
+  this.OfferHttp.updatOffers(this.jobofferForm.getRawValue()).subscribe();
 }
 
 
 /*handleFileInput(files: FileList) {
 this.fileToUpload = files.item(0);
-
-
 }*/
 
+/*onReset() {
+  this.submitted = false;
+  this.jobofferForm.reset();
+}*/
 
 }

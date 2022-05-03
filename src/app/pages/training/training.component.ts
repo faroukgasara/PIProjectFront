@@ -22,7 +22,6 @@ export class TrainingComponent implements OnInit {
   }
 
   getTrainings(){
-    
 
   }
 }
