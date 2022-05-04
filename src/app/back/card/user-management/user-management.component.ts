@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from 'src/app/model/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { UpdateprofileComponent } from '../../updateprofile/updateprofile.component';
 
 @Component({
   selector: 'app-user-management',
@@ -10,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserManagementComponent implements OnInit {
 
-  constructor(private UserHttp: UserService) { }
+  constructor(private dialog :MatDialog ,private UserHttp: UserService) { }
   users: UserModel[]=[];
   firstName:any;
   p:number = 1 ;
@@ -50,7 +52,16 @@ export class UserManagementComponent implements OnInit {
   Sort(key){
     this.key = key
     this.reverse = !this.reverse;
+  }
 
+
+  onCreate(us) {
+    localStorage.setItem('update', JSON.stringify(us));
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "80%";
+    this.dialog.open(UpdateprofileComponent,dialogConfig);
   }
 
 }

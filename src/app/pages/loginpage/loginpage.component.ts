@@ -16,11 +16,16 @@ export class LoginpageComponent implements OnInit , OnDestroy{
   focus2;
   token;
   email;
+  captcha:string;
+
   public loading:boolean = false ;
   public error:boolean = false ;
   form!: FormGroup;
   constructor(private formBuilder: FormBuilder,private http:HttpClient,private router:Router) { }
 
+  resolved(catptchaResponse : string){
+    this.captcha=catptchaResponse;
+  }
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");

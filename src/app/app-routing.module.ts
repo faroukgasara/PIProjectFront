@@ -21,6 +21,9 @@ import { TrainingComponent } from "./pages/training/training.component";
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/resetpassword.component";
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
+import { ReportinManagmentComponent } from "./back/card/reportin-managment/reportin-managment.component";
+import { BlackkistManagmentComponent } from "./back/blackkist-managment/blackkist-managment.component";
+import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
 
 
 
@@ -44,8 +47,21 @@ const routes: Routes = [
   { path: "userManagement", component: UserManagementComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
 
+
+  { path: "reporting", component: ReportinManagmentComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
+  { path: "fakeaccounts", component: FakeaccountsComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
+
+  { path: "blacklist", component: BlackkistManagmentComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
   { path: "forgetpassword", component: ForgetpasswordComponent ,canActivate:[IsSignedInGuard]},
   { path: "resetpassword/:email/:token", component: ResetpasswordComponent ,canActivate:[IsSignedInGuard]},
+
+  
 
   
 

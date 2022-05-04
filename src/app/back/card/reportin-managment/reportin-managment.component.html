@@ -1,0 +1,75 @@
+<div style="margin-top: -10%;margin-left:2%;margin-right:2%;" class="wrapper">
+    <div class="page-header">
+        <div class="content">
+
+            <h1> Reporting List</h1>
+            
+
+            <div class="card-body">
+                            
+                <form style="margin-top: 4%;" class="form">
+                    <h4 style="position: absolute;"> Search : </h4><br><br>
+                    <div  
+                    class="input-group col-md-3"
+                    [ngClass]="{ 'input-group-focus': focus1 === true }"
+                    >
+                    
+                        <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="tim-icons icon-email-85"> </i>
+                        </div>
+                        </div>
+                        
+                        <input
+                        class="form-control"
+                        placeholder="Enter Email "
+                        type="text"
+                        (focus)="focus1 = true"
+                        (blur)="focus1 = false"
+                        name="reported_by"
+                        [(ngModel)] = "reported_by" 
+                        (ngModelChange)="Search()"
+                        />
+                    </div>
+                </form>
+            </div>
+
+
+
+
+            <table style="margin-top: 4%;" class="table">
+                <thead>
+                    <tr>
+                        <th (click)="Sort('reported_by')">Reported by&nbsp;<i class="fa fa-sort"></i></th>
+                        <th (click)="Sort('user.firstName')">Reported&nbsp;<i class="fa fa-sort"></i></th>
+                        <th (click)="Sort('reason')">reason&nbsp;<i class="fa fa-sort"></i></th>
+                        <th (click)="Sort('user.reportingReason')">Reason Type&nbsp;<i class="fa fa-sort"></i></th>
+                        <th >Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor ="let user of users | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p};">
+                        
+                        <td>{{user.reported_by}}</td>
+                        <td >{{user.user.email}}</td>
+                        <td>{{user.reason}}</td>
+                        <td>{{user.reportingReason}}</td>
+                        <td class="td-actions">
+                        <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+                            <i class="tim-icons icon-single-02"></i>
+                        </button>
+                        <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+                            <i class="tim-icons icon-settings-gear-63"></i>
+                        </button>
+                        <button (click)="deleteReporting(user.id)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                            <i class="tim-icons icon-simple-remove"></i>
+                        </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <pagination-controls  style="position: absolute;padding-left: 20%;" (pageChange) ="p = $event">
+                </pagination-controls>
+            </table>
+        </div>
+    </div>
+</div>

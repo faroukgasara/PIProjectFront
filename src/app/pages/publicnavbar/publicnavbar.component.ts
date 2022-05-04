@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SubscribeService } from 'src/app/services/subscribe.service';
+import { ChatbotComponent } from '../index/chatbot/chatbot.component';
 
 @Component({
   selector: "app-publicnavbar",
@@ -16,7 +18,7 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
   public Registration:boolean ;
   user = JSON.parse(localStorage.getItem('user'));
   token = localStorage.getItem('token');
-  constructor(private router:Router,private SubscribeHttp: SubscribeService) { }
+  constructor(private dialog :MatDialog ,private router:Router,private SubscribeHttp: SubscribeService) { }
 
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];
@@ -64,6 +66,15 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']).then(()=>{
       location.reload() ;
     })
+  }
+
+  onCreate() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "40%";
+    dialogConfig.height="70%";
+    this.dialog.open(ChatbotComponent,dialogConfig);
   }
 
 }

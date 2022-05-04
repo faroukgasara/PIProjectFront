@@ -96,6 +96,12 @@
         <mat-icon>notification_important</mat-icon>
         </button>
 
+
+
+        <button (click)="onCreate()" [hidden]="!Logout" class="btn btn-primary btn-fab btn-icon btn-round">
+          <mat-icon>chat</mat-icon>
+          </button>
+
         <li class="nav-item" [hidden]="!Logout">
           <a
             class="nav-link btn btn-default d-none d-lg-block"

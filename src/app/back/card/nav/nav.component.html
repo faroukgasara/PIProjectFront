@@ -1,10 +1,10 @@
-<mat-sidenav-container  style="background-color: #1c1c24;" class="sidenav-container">
-  <mat-sidenav #drawer style="background-color: #f84d6d; " class="sidenav" fixedInViewport
+<mat-sidenav-container  style="background-color: #dee1e6;" class="sidenav-container">
+  <mat-sidenav #drawer style="background-color: white; " class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
       
-    <mat-toolbar style="color: white;"><button 
+    <mat-toolbar style="color: #110b1b;"><button 
       type="button"
       aria-label="Toggle sidenav"
       mat-icon-button
@@ -15,11 +15,11 @@
     </button> Cyber Hunter</mat-toolbar>
     <mat-divider ></mat-divider>
     <mat-nav-list >
-      <a style="color: white;"  *ngFor="let item of menuItems;let i = index" mat-list-item [routerLink]="'/'+item"> {{menuItem[i] | titlecase}} </a>
+      <a style="color: #110b1b;"  *ngFor="let item of menuItems;let i = index" mat-list-item [routerLink]="'/'+item"> {{menuItem[i] | titlecase}} </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar style="background-color: #272a3d;">
+    <mat-toolbar style="background-color: white;">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -27,7 +27,7 @@
         (click)="drawer.toggle()"
         [hidden] = "isHandset$ | async"
         >
-        <mat-icon class="white-icon" aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon class="blacl-icon" aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <button 
         type="button"
@@ -37,10 +37,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon class="white-icon" aria-label="Side nav toggle icon"  >menu</mat-icon>
       </button>
-      <span style="color: white;">DASHBOARD ADMIN</span>
+      <span style="color: #110b1b;">DASHBOARD ADMIN</span>
 
         
-      <i (click)="logout()" style="position: absolute ;top: 2.5%;right: 2.5%; color: aliceblue;" class="gg-log-out"></i>
+      <i (click)="logout()" style="position: absolute ;top: 2.5%;right: 2.5%; color: #110b1b;" class="gg-log-out"></i>
 
       
     </mat-toolbar>

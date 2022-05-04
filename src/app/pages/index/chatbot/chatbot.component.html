@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center">
+    <div class="card mt-5">
+      <div class="d-flex flex-row justify-content-between p-3 adiv text-white">
+        
+        <span class="pb-3">chatBot</span>
+        <button (click)="hide()"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div style="margin-bottom: 100px;" class="d-flex flex-row p-3 img-center">
+        <div class="bg-white mr-2 p-3"><span class="text-muted"><input  style="color: black;font-weight: bold;" type="text" id="question" name="question" [(ngModel)]="question"  class="form-control" rows="5" placeholder="Type your message"/></span></div>
+        <img src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-7.png" width="30" height="30">
+      </div>
+
+        <div style="margin-bottom: 100px;" class="d-flex flex-row p-3 img-center">
+          <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-7.png" width="30" height="30">
+          <div class="chat ml-2 p-3"><input style="color: black;font-weight: bold;" type="text" id="answer" name="answer" [(ngModel)]="answer"  class="form-control" rows="5" placeholder="wait for the answer"/></div>
+        </div>
+  
+        
+        
+        
+        <div class="form-group px-3">
+          <input type="text" id="question" name="question" [(ngModel)]="question" (keydown.enter)="getAnswer()" class="form-control" rows="5" placeholder="Type your message"/>
+        </div>
+    </div>
+  </div>

@@ -339,8 +339,9 @@
                   <div class="form-group">
                     <label for="appUserRole">Role</label>
                     <select  (change)="somethingChanged()" formControlName="appUserRole" name="appUserRole" class="form-control" id="appUserRole">
+                      <option style="background-color: #fe5d93" value="" [selected]="true">Choose Your Role</option>
+                      <option style="background-color: #fe5d93" value="USER" >USER</option>
                       <option style="background-color: #fe5d93" value="ADMIN" >ADMIN</option>
-                      <option style="background-color: #fe5d93" value="USER" [selected]="true">USER</option>
                       <option style="background-color: #fe5d93" value="TRAINER">TRAINER</option>
                       <option style="background-color: #fe5d93" value="COMPANY">COMPANY</option>
                       <option style="background-color: #fe5d93" value="ASSOCIATION" >ASSOCIATION</option>
@@ -349,6 +350,9 @@
                       <option style="background-color: #fe5d93" value="PSY">PSY</option>
                     </select>
                   </div>
+                  <small style="color: #fe5d93;" *ngIf="form.get('appUserRole').invalid && form.get('appUserRole').touched" [type]="'danger'">
+                    Please Choose a Role
+                  </small>
 
                   <div class="form-check text-left">
                     <label class="form-check-label">
@@ -357,6 +361,7 @@
                       <a href="javascript:void(0)"> terms and conditions </a> .
                     </label>
                   </div>
+                  <br>
                   
                   <div [hidden]="!loading" class="center">
                     <span style="color: #fe5d93;" class="visually-hidden">Loading...<br></span>
@@ -365,8 +370,12 @@
                   <div [hidden]="!loading" class="center">
                     <div class="lds-dual-ring"></div>
                   </div>
+
+                  <div [hidden]="captcha">
+                    <re-captcha (resolved)="resolved($event)" siteKey="6Le1pLYfAAAAAIhKAhdL0RSzzIdQKinI0RNBrRH3"></re-captcha>
+                  </div>
                   
-                  <button  [disabled]="!checkbox1" class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
+                  <button  [disabled]="!checkbox1 || !captcha" class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
                   
                   <alert [hidden]="!error" [type]="'danger'">
                     Something went wrong! please try again

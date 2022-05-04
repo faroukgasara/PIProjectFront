@@ -3,4 +3,4 @@
 <app-publicnavbar *ngIf="!accessGranted"></app-publicnavbar>
 <app-nav *ngIf="accessGranted"></app-nav>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer *ngIf="!accessGranted"></app-footer>

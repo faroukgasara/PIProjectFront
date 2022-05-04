@@ -37,7 +37,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -69,6 +68,17 @@ import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.c
 import { ResetpasswordComponent } from './pages/forgetpassword/resetpassword/resetpassword.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-users-by-year/count-total-users-by-year.component';
+import { ReportinManagmentComponent } from './back/card/reportin-managment/reportin-managment.component';
+import { BlackkistManagmentComponent } from './back/blackkist-managment/blackkist-managment.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddToblacklistComponent } from './back/blackkist-managment/add-toblacklist/add-toblacklist.component';
+
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import { environment } from '../environments/environment';
+import { UpdateprofileComponent } from "./back/updateprofile/updateprofile.component";
+import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
+import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
+
 
 @NgModule({
   declarations: [
@@ -93,6 +103,12 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
     ResetpasswordComponent,
     NotfoundComponent,
     CountTotalUsersByYearComponent,
+    ReportinManagmentComponent,
+    BlackkistManagmentComponent,
+    AddToblacklistComponent,
+    UpdateprofileComponent,
+    FakeaccountsComponent,
+    ChatbotComponent,
 
   ],
   imports: [
@@ -132,9 +148,11 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
+    MatDialogModule,
+    RecaptchaFormsModule,
+    RecaptchaModule,
   ],
   providers: [
-   
   ],
   bootstrap: [AppComponent]
 })

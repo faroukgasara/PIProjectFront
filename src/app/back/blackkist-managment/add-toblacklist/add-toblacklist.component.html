@@ -1,0 +1,64 @@
+<div 
+      aria-hidden="true"
+      aria-labelledby="myModalLabel"
+      bsModal
+      #myModal2="bs-modal"
+      id="myModal2"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div  class="modal-dialog">
+        <div style="background-color: #1c1c24;" class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button
+              aria-hidden="true"
+              class="close"
+              data-dismiss="modal"
+              (click)="hide()"
+              type="button"
+            >
+              <i class="tim-icons icon-simple-remove text-white"> </i>
+            </button>
+            <div class="text-muted text-center ml-auto mr-auto">
+              <h3 class="mb-0">Add To Blacklist</h3>
+            </div>
+          </div>
+          <div class="modal-body">
+            <form role="form" class="form" [formGroup]="form" (submit)="onSubmit()">
+              <div class="form-group mb-3">
+                <div
+                  class="input-group input-group-alternative"
+                  [ngClass]="{ 'input-group-focus': focus1 === true }"
+                >
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="tim-icons icon-email-85"> </i>
+                    </span>
+                  </div>
+                  <input
+                    class="form-control"
+                    placeholder="Email"
+                    formControlName="email"
+                    type="text"
+                    (focus)="focus1 = true"
+                    (blur)="focus1 = false"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <small  style="color: #fe5d93;" *ngIf="form.get('email').invalid && form.get('email').touched" [type]="'danger'">
+                    Please enter a valid Email
+                  </small>
+                </div>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary btn-round" type="submit">
+                    Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

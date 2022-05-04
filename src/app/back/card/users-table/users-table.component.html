@@ -6,7 +6,7 @@
           <th (click)="Sort('lastName')">LastName&nbsp;<i class="fa fa-sort"></i></th>
           <th (click)="Sort('enabled')">Enabled&nbsp;<i class="fa fa-sort"></i></th>
           <th (click)="Sort('locked')">Locked&nbsp;<i class="fa fa-sort"></i></th>
-          <th class="text-left">Actions</th>
+          <th >Actions</th>
       </tr>
   </thead>
   <tbody>
@@ -18,12 +18,6 @@
           <td >{{user.enabled}}</td>
           <td >{{user.locked}}</td>
           <td class="td-actions">
-            <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
-                <i class="tim-icons icon-single-02"></i>
-            </button>
-            <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
-                <i class="tim-icons icon-settings-gear-63"></i>
-            </button>
             <button (click)="deleteUser(user.email)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
                 <i class="tim-icons icon-simple-remove"></i>
             </button>

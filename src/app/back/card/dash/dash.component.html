@@ -7,8 +7,6 @@
       <app-card title="Total Users">
         <div class="col-md-10">
           <div class="row">
-            
-            
             <img style="padding-right:10em ;padding-bottom: 0.5em;" src="assets/img/teamwork (1).png"/>
             <h1 >{{TotalUsers}}</h1>
           </div>
@@ -25,36 +23,64 @@
 
     <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
       [rowspan]="( cardLayout | async )?.miniCard.rows">
-      <app-card title="Card {{i}}"><div>Mini Card Content Here</div></app-card>
+      <app-card title="Inactif Users">
+        <div class="col-md-10">
+          <div class="row">
+            <img style="padding-right:10em ;padding-bottom: 0.5em;" src="assets/img/teamwork (1).png"/>
+            <h1 >{{InactifUsers}}</h1>
+          </div>
+          <mat-divider ></mat-divider>
+          <div style="padding-top: 0.3em;" class="row">
+            <mat-icon style="color: white;">refresh</mat-icon>
+            <h5 >Updated Now</h5>
+          </div>
+
+        </div>
+      </app-card>
     </mat-grid-tile>
 
     <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
       [rowspan]="( cardLayout | async )?.miniCard.rows">
-      <app-card title="Card {{i}}"><div>Mini Card Content Here</div></app-card>
+      <app-card title="Card {{i}}">
+        <div class="col-md-10">
+          <div class="row">
+            <img style="padding-right:10em ;padding-bottom: 0.5em;" src="assets/img/teamwork (1).png"/>
+            <h1 >{{ActifUsers}}</h1>
+          </div>
+          <mat-divider ></mat-divider>
+          <div style="padding-top: 0.3em;" class="row">
+            <mat-icon style="color: white;">refresh</mat-icon>
+            <h5 >Updated Now</h5>
+          </div>
+
+        </div>
+      </app-card>
     </mat-grid-tile>
 
     <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard.cols"
       [rowspan]="( cardLayout | async )?.miniCard.rows">
-      <app-card title="Card {{i}}"><div>Mini Card Content Here</div></app-card>
+      <app-card style="background-color: white;" title="Card {{i}}"><div >Mini Card Content Here</div></app-card>
     </mat-grid-tile>
     <!--Charts-->
 
     <!--Table-->
-    <mat-grid-tile  [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
       <app-card  title="Management Table">
         <app-users-table style=" padding-bottom: 5%;"></app-users-table>
       </app-card>
    </mat-grid-tile>
 
+   
+
 
    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
    [rowspan]="( cardLayout | async )?.chart.rows">
-   <app-card title="Card"><div>zdz</div></app-card>
- </mat-grid-tile>
+   <app-card title="Subscribers Per Month"><app-count-total-users-by-year></app-count-total-users-by-year></app-card>
+  </mat-grid-tile>
 
  <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
    [rowspan]="( cardLayout | async )?.chart.rows">
-   <app-card title="Card"><app-chart></app-chart></app-card>
+   <app-card title="Total Users By Age"><app-chart></app-chart></app-card>
  </mat-grid-tile>
 
   </mat-grid-list>
