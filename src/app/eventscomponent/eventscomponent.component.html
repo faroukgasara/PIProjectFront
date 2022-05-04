@@ -14,22 +14,24 @@
 <table class="table">
     <thead>
         <tr>
-            <th (click)="Sort('Date')">Date Event&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateEvenement')">Date Event&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="Sort('titre')">Titre&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="Sort('lieux')">Lieux&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="Sort('affiche')">Poster&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="Sort('description')">Description&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('typeEvenement')">Type Evenement&nbsp;<i class="fa fa-sort"></i></th>
             <th class="text-left">Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor ="let event of events | orderBy: key: reverse | paginate: {itemsPerPage:2,currentPage:p};">
+        <tr *ngFor ="let event of events | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p};">
             
-            <td>{{event.Date | date : "yyyy.MM.dd" }}</td>
+            <td>{{event.dateEvenement | date : 'yyyy.MM.dd' }}</td>
             <td>{{event.titre}}</td>
             <td>{{event.lieux}}</td>
             <td >{{event.affiche}}</td>
             <td >{{event.description}}</td>
+            <td>{{event.typeEvenement}}</td>
             <td class="td-actions">
               <button style="margin-right: 10%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
                   <i class="tim-icons icon-single-02"></i>
@@ -48,3 +50,63 @@
         >
         </pagination-controls>
   </table>
+
+  <div class="grid-container">
+    <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">   
+   <mat-grid-tile  [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <app-card  title="Ajouter Evenement">
+      <div>
+
+       <form [formGroup]="form" (ngSubmit)="addEvent()">
+        <table class="table">
+        <thead>
+           
+        </thead>
+        <tbody>
+            <tr>   
+               <td> <input formControlName="dateEvenement" class="form-control" id="dateEvenement" type="date" placeholder="Date"> </td> 
+            </tr>
+            <tr>   
+                <td> <input formControlName="titre" class="form-control" type="text" placeholder="Titre"> </td> 
+             </tr>
+             <tr>   
+                <td> <input formControlName="lieux" class="form-control" type="text" placeholder="Lieux"> </td> 
+             </tr>
+             <tr>   
+                <td> <input formControlName="affiche" class="form-control" type="file" name="avatar" placeholder="Poster">    
+                </td>
+             </tr>
+             <tr>   
+                <td> <input formControlName="description" class="form-control" type="text" placeholder="Description"> </td> 
+             </tr>
+           <tr>
+             <td><div class="form-group">
+              <select formControlName="typeEvenement" name="typeEvenement" class="form-control" id="typeEvenement">
+                <option style="background-color: #fe5d93" [selected]="true">Selectionner type evenement</option>
+                <option style="background-color: #fe5d93" value="INTERNE" >Interne</option>
+                <option style="background-color: #fe5d93" value="CHARITE">Charite</option>
+                <option style="background-color: #fe5d93" value="PROJET_SOLIDAIRE">Projet Solidaire</option>
+              </select>
+            </div>
+          </td>
+           </tr>
+           
+            
+        </tbody>
+      </table>
+    
+      <button class="button-1" role="button" style="margin: 10px" type="submit"> Ajouter </button>
+      <button class="button-1" role="button" style="margin: 10px" > Annuler </button>
+    </form>
+    
+    </div>
+    </app-card>
+ </mat-grid-tile>
+  
+   <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+     [rowspan]="( cardLayout | async )?.chart.rows">
+     <app-card title="Card"><app-chart></app-chart></app-card>
+   </mat-grid-tile>
+  
+    </mat-grid-list>
+   </div>

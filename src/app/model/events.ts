@@ -7,11 +7,12 @@
 
     
 export interface EventsModel{
-        id:number;
-        Date:Date,
+        id:number,
+        dateEvenement:Date,
         titre:string,
         lieux:string,
         affiche:string,
         description:string,
+        typeEvenement:string
      
  }
