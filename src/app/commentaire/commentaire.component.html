@@ -2,28 +2,36 @@
 <div class="wrapper">
     <div class="page-header">
             <div class="content">
+                <h1>les formations disponibles</h1>
+                <div class="row mt-5" >
+                 
+                  <div *ngFor="let commentaire of commentaires">
+                    <div class="col-md-3">
+                      <div class="card" style="width: 18rem;">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{commentaire.comment}}</h5>
+                          <p class="card-text">{{commentaire.description}}</p>
+                          <p class="card-text">{{commentaire.CreatAt}}</p>
+                          <p Class="card-text">{{commentaire.commented_by}}</p>
+                          <p Class="card-text">{{commentaire.publications}}</p>
+                          <a href="#" class="btn btn-primary">voir plus d'informations</a>
+                          <td class="td-actions">
+                            
+                                <td><a class="btn btn-danger" (click)="supprimerComm(commentaire.id)">Supprimer</a></td>
+                        
+                            <td class="like-wrapper">
+                                <button id="like-button" (click)="OnLike(commentaire.id)" type="button" class="button ">
+                                    like
+                                </button>
+                          </td>
 
-<h1>les commentaires</h1>
-<div class="row mt-5" >
- 
-  <div *ngFor="let t of commentaires">
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img src="../../assets/img/logo.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{t.comment}}</h5>
-          <p class="card-text">{{t.description}}</p>
-          <a href="#" class="btn btn-primary">voir plus d'informations</a>
-          <td class="td-actions">
-            <button  type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
-                <i class="tim-icons icon-simple-remove"></i>
-            </button>
-          </td>
-        </div>
-      </div>
+                          
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
     </div>
   </div>
-</div>
-</div>
-</div>
-</div>

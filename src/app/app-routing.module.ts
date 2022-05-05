@@ -5,7 +5,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { PublicationComponent } from "./publication/publication.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddPublicationComponent } from "./add-publication/add-publication.component";
-import { detailsPublicationComponent} from "./publication/detailsPublication.component";
+
 import { CommentaireComponent} from "./commentaire/commentaire.component";
 
 import { IndexComponent } from "./pages/index/index.component";
@@ -33,12 +33,25 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/resetpassword.component";
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
+import { AddCommentaireComponent } from "./commentaire/add-commentaire/add-commentaire.component";
+import { detailsComponent } from "./publication/details/details.component";
+import { LoginComponent } from "./chat-msg/login/login.component";
+import { RoomlistComponent } from "./chat-msg/roomlist/roomlist.component";
+import { AddroomComponent } from "./chat-msg/addroom/addroom.component";
+import { ChatMSGComponent } from "./chat-msg/chat-msg.component";
 
 
 
 
 const routes: Routes = [
-
+  { path: 'loginn', component: LoginComponent },
+  { path: 'roomlist', component: RoomlistComponent },
+  { path: 'addroom', component: AddroomComponent },
+  { path: 'chatroom/:roomname', component: ChatMSGComponent },
+  { path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
 
   { path: "home", component: IndexComponent },
 
@@ -54,11 +67,13 @@ const routes: Routes = [
 
   
   {path : "publication", component : PublicationComponent},
+  {path : "publication/:id", component : detailsComponent},
   
-  {path : "publication/get/:id", component : detailsPublicationComponent},
+  {path : "publication/get/:id", component : detailsComponent},
 
   
   {path : "add-publication", component : AddPublicationComponent},
+  {path : "add-commentaire", component : AddCommentaireComponent},
   {path : "commentaire", component : CommentaireComponent}
   ,
 

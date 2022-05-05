@@ -7,12 +7,18 @@ import {
 } from "@angular/core";
 import { Location } from "@angular/common";
 import { DOCUMENT } from "@angular/common";
-
+import * as firebase from "firebase/app";
+import { initializeApp } from 'firebase/app';
+const cofig={
+  apiKey :"AIzaSyAv7RRPgXG4w-YKe1d5hzL2vjiEEzqk-bM",
+  databaseURL:"https://angularchatmsg-default-rtdb.firebaseio.com"
+};
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
+
 export class AppComponent implements OnInit {
 
   user = JSON.parse(localStorage.getItem('user'));
@@ -20,8 +26,13 @@ export class AppComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     public location: Location,
+
     @Inject(DOCUMENT) document
-  ) {}
+  ) {firebase.initializeApp(cofig);
+
+
+  }
+  
   @HostListener("window:scroll", ["$event"])
   onWindowScroll(e) {
     if (window.pageYOffset > 100) {
@@ -38,6 +49,7 @@ export class AppComponent implements OnInit {
       }
     }
   }
+  
   ngOnInit() {
     this.onWindowScroll(event);
     if(this.user.appUserRole=='ADMIN'){

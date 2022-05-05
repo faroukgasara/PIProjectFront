@@ -1,6 +1,6 @@
-   
+<script src="https://cdn.tiny.cloud/1/ygugmxerdivc6t4mgaqpyeasjipswjysog4p1z5xmgxh9px0/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> 
 <div class="header"></div>
-       
+ 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
      <div class="container">
      <div class="main-body p-0">
@@ -61,29 +61,37 @@
                          
                      </select>
                      <span class="input-icon input-icon-sm ml-auto w-auto">
-                         <input type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Search forum" />
+                         <input type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Search forum"    style="width:300px" [(ngModel)]="searchTerm" />
                      </span>
                  </div>
                  <!-- /Inner main header -->
      
                  <!-- Inner main body -->   
+    <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+      <div class="simplebar-content" style="padding: 16px;">
+        <nav class="nav nav-pills nav-gap-y-1 flex-column">
+             
+                
         
-
-<div class="card mb-2">
-    <div class="card-body p-2 p-sm-3">
-        <div *ngFor="let publication of publications">
-        <div class="media forum-item">
+                  <tr *ngFor="let publication of publications  | searchFilter:searchTerm">
+            
+              <div class="media forum-item">
             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
             <div class="media-body">
                 <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{publication.title}}</a></h6>
                 <p class="text-secondary">
-                    <label>{{publication.description}}</label>
+                  
+                    <label [innerHtml]="publication.description"></label>
                 </p>
+           
                 <p class="text-secondary">
                     <label>{{publication.type}}</label>
                 </p>
                 <p class="text-secondary">
                     <label>{{publication.createdAt}}</label>
+                </p>
+                <p class="text-secondary">
+                    <label>{{publication.users.firstName}}</label>
                 </p>
                 <p class="text-secondary">
                     <label>  <td><button type="button" class="btn btn-outline-primary" 
@@ -94,9 +102,83 @@
                     
                     
                     
-                    
                     <td><a class="btn btn-danger" (click)="supprimerProduit(publication.id)">Supprimer</a></td>
-                    <td><a class="btn btn-danger" (click)="getPost(publication.id)">details</a></td>
+                    <div>
+                        <a type="button" href="/publication/get/{{publication.id}}" class="read-more btn btn-default">Read More</a>
+                      </div>
+                    <td>
+                        <button type="submit" (click)="findByPub(publication.id)" class="btn btn-success">ListCommenter</button>
+                        <div class="inner-main-footer">
+                      <form id="example"    class="form" [formGroup]="form" (submit)="submit()">
+                        <div class="form-row">
+                          <div class="form-group col-md-6" [hidden]="!isFirstNameShown" [ngClass]="{ 'input-group-focus': focus === true }">
+                            
+                            <input
+                              class="form-control"
+                              formControlName="comment"
+                              placeholder="comment"
+                              type="text"
+                              (focus)="focus = true"
+                              (blur)="focus = false"
+                            />
+                          </div>
+                          
+                         
+                        </div>
+      
+                      
+      
+                        <div class="form-row">
+                          <div class="form-group col-md-12" [ngClass]="{ 'input-group-focus': focus2 === true }">
+                            
+                            
+                         
+      
+      
+                        
+                          <textarea 
+                            class="form-control"
+                            formControlName="description"
+                            placeholder="description"
+                            type="text"
+                           
+      
+                            ></textarea>
+                        </div>
+                        </div>  
+                       
+                        
+                          
+                         
+                        
+                     
+                        <div>
+                          <div>
+                            <div>
+                              <div>
+                                <div>
+                                  <div>
+                                    <div>
+                      <form>
+                          
+                     
+      
+                        <div [hidden]="!loading" class="center">
+                          <div class="lds-dual-ring"></div>
+                        </div>
+                        
+                      
+                            
+                      <button type="submit" (click)="submit(publication.id)" class="btn btn-success">Commenter</button>
+                      </form>
+                      
+                      
+                                    </div>
+                                  </div></div></div></div></div></div></form>
+                                </div>
+                               
+
+                    </td>
                    </label>
                 </p>
 
@@ -105,9 +187,32 @@
 
             <div class="text-muted small text-center align-self-center">
                 <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
-                <span><i class="far fa-comment ml-2"></i> 3</span>
-            </div>
-        </div>
+                <span><i class="far fa-comment ml-2"></i>{{publication.commentrs}}</span>
+                <h1 class="text-primary">
+                   Rate IT 
+                    </h1>
+                    <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
+                    <p>Rate: {{currentRate}}</p>
+                    <td class="Rate">
+                        <button id="like-button" (click)="OnRate(publication.id)" type="button" class="button ">
+                            send
+                        </button>
+                  </td>
+                  <div class="post-image">
+                    <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="zassets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg">
+                        <img src="http://localhost:8089/WomenEmpowerment/publication/Imgarticles/{{publication.id}}"  alt="">
+                    </a>
+                    <!-- Action buttons -->
+                    <!-- /partials/pages/feed/buttons/feed-post-actions.html -->
+                </div>
+           
+
+
+                 
+                  
+                    
+         
+        </div> </div> </tr>   </nav>
     
     </div>
     <a
@@ -148,9 +253,13 @@
                             </div>
                             <div class="text-muted small text-center">
                                 <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
-                                <span><i class="far fa-comment ml-2"></i> 3</span>
+                                <span><i class="far fa-comment ml-2"></i> 4 </span>
                             </div>
                         </div>
+                        <pagination-controls  style="position: absolute; padding-left: 20%;"
+                        (pageChange) ="p = $event"
+                        >
+                        </pagination-controls>
                     </div>
                 </div>
                 <div class="card mb-2">
@@ -212,8 +321,10 @@
             </div>
         </div>
     </div>
+    
 </div>
-</div>
+
+
 
 
 

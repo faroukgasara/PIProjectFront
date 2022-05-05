@@ -80,19 +80,39 @@ import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuestionComponent } from './pages/question/question.component';
 import { CandidaturComponent } from './pages/candidatur/candidatur.component';
 import { BrowserModule } from "@angular/platform-browser";
-
+import { CommentaireComponent } from "./commentaire/commentaire.component";
 import { PublicationComponent } from "./publication/publication.component";
 import {EditorModule} from '@tinymce/tinymce-angular';
 import { AddPublicationComponent } from "./add-publication/add-publication.component";
+import { AddCommentaireComponent } from './commentaire/add-commentaire/add-commentaire.component';
+import { SearchFilterPipe } from "./publication/SearchFilterPipe";
+import { detailsComponent } from "./publication/details/details.component";
+import { ChatMSGComponent } from './chat-msg/chat-msg.component';
+import { LoginComponent } from './chat-msg/login/login.component';
+import { RoomlistComponent } from './chat-msg/roomlist/roomlist.component';
+import { AddroomComponent } from './chat-msg/addroom/addroom.component';
+import { DatePipe } from "@angular/common";
 
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ListCommentComponent } from './list-comment/list-comment.component';
+
+import {MatDialogModule} from "@angular/material/dialog";
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     PublicnavbarComponent,
     AddPublicationComponent,
+    PublicationComponent,
+
+    CommentaireComponent,
+    AddCommentaireComponent,
+    
+    SearchFilterPipe,
+
 
     IndexComponent,
     ProfilepageComponent,
@@ -123,16 +143,34 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     QuizComponent,
     QuestionComponent,
     CandidaturComponent,
+    AddCommentaireComponent,
+    detailsComponent,
+    ChatMSGComponent,
+    LoginComponent,
+    RoomlistComponent,
+    AddroomComponent,
+    LoginComponent,
+    RoomlistComponent,
+    AddroomComponent,
+    ChatMSGComponent,
+    ListCommentComponent,
+  
+
     
   ],
   imports: [
+    
     BrowserAnimationsModule,
-    BrowserModule,
+   
     FormsModule,
-
-    PublicationComponent,
+    EditorModule,
+    MatDialogModule,
+    
+    
+    
 
     BrowserAnimationsModule,
+    Ng2SearchPipeModule,
 
     HttpClientModule,
     RouterModule,
@@ -168,12 +206,21 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
-    NgbModule,
+    NgbModule, 
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatBadgeModule
+     ,MatProgressSpinnerModule,
+     MatSnackBarModule,
+    MatSidenavModule
   ],
   providers: [
    
 
-    EditorModule,FormsModule
+    EditorModule,FormsModule,DatePipe
 
 
   ],
