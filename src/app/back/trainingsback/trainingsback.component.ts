@@ -40,7 +40,11 @@ export class TrainingsbackComponent implements OnInit {
   }
   updatetrainings(id:number)
   {
-    this.router.navigate(['updatetrainings',id]);
+    let user=JSON.parse(localStorage.getItem('user'));
+  console.log(localStorage.getItem('user'))
+
+    console.log(id);
+    this.router.navigate(['updatetrainings',user.email,id]);
   }
 
   SearchTraining(key: any): void {

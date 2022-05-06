@@ -15,17 +15,29 @@ export class UpdatetrainingComponent implements OnInit {
   constructor(private trainingser:TrainingService,private route:ActivatedRoute ,private router:Router) { }
 
   ngOnInit(): void {
-    this.id=this.route.snapshot.params['id']
+    this.id=this.route.snapshot.params['idFormation']
     this.trainingser.getTrainingById(this.id).subscribe( data=>{
      // this.description=this.trainingser.description;
+    
+    
       this.newTraining=data ;
-      console.log(data)
+      console.log( data);
+     
+      console.log(this.id);
+     
 
     },error=>console.log(error));
   }
 
+  tester(x: any){
+    console.log('tester');
+    console.log("*************"+x);
+  }
+
+
   updatetraining(){
-    this.trainingser.updateTraining(this.id,this.newTraining).subscribe((data)=>{
+    console.log(this.id);
+    this.trainingser.updateTraining(this.newTraining).subscribe((data)=>{
       this.router.navigate(['gestionformation']);
 
     })

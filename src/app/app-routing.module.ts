@@ -31,8 +31,8 @@ const routes: Routes = [
    canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
 
   { path: "gestionformation", component: TrainingsbackComponent },
-  { path: "trainings/:email/:idFormation", component: DetailtrainingComponent },
-  { path: "updatetrainings/:id", component: UpdatetrainingComponent },
+  { path: "trainings/:idFormation", component: DetailtrainingComponent },
+  { path: "updatetrainings/:email/:idFormation", component: UpdatetrainingComponent },
   
 
   { path: "profile/:email", component: ProfilepageComponent},  

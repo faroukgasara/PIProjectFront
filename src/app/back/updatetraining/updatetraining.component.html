@@ -17,19 +17,22 @@
 
     <div class="form-group">
         <label>date debut </label>
-        <input  placeholder="dateDebut" type="date" name="dateDebut" class="form-control"  [(ngModel)]="newTraining.dateDebut">
+        
+        <input  placeholder="dateDebut" type="date" name="dateDebut" class="form-control"  [ngModel]="newTraining.dateDebut | date: 'yyyy-MM-dd'"
+        (ngModelChange)="newTraining.dateDebut=$event">
 
     </div>
 
     <div class="form-group">
         <label>date fin </label>
-        <input  placeholder="dateFin" type="date" name="dateFin" class="form-control"  [(ngModel)]="newTraining.dateFin">
+        <input  placeholder="dateFin" type="date" name="dateFin" class="form-control" [ngModel]="newTraining.dateFin | date: 'yyyy-MM-dd'"
+        (ngModelChange)="newTraining.dateFin = $event">
 
     </div>
 
     <div class="form-group">
         <label>nbr max </label>
-        <input  placeholder="nbrMaxApprenant"  type="number" name="dateFin" class="form-control"  [(ngModel)]="newTraining.nbrMaxApprenant">
+        <input  placeholder="nbrMaxApprenant"  type="number" name="nbrMaxApprenant" class="form-control"  [(ngModel)]="newTraining.nbrMaxApprenant">
 
     </div>
 
@@ -53,30 +56,5 @@
   
     
 </form>
-
-
-<div class="card">
-    <div class="card-body" *ngIf="Training">
-      <form #f="ngForm" (ngSubmit)="EditProduct(f.value)">
-        <div class="form-group">
-          <label for="title">title</label>
-          <input  ngModel [(ngModel)]="Training.title" placeholder="title" type="text" name="title" id="title" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="description">description</label>
-          <input ngModel [(ngModel)]="Training.description"  placeholder="description" type="number" name="description" id="price" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="nbrMaxApprenant">nbrMaxApprenant</label>
-          <input ngModel [(ngModel)]="Training.nbrMaxApprenant"  placeholder="nbrMaxApprenant" type="number" name="nbrMaxApprenant" id="nbrMaxApprenant" class="form-control">
-        </div>
-        <button class="btn btn-sm btn-primary">Valider</button>
-      </form>
-    </div>
-  </div>
-
-
-
-
 
 

@@ -18,7 +18,17 @@ export class TrainingComponent implements OnInit {
 
   ngOnInit(): void {
     this.TrainingHttp.getTrainings().subscribe(
-  		(data:TrainingModel[]) => {this.trainings = data;console.log(this.trainings)}
+  		(data:TrainingModel[]) => {
+        this.trainings = data;
+        let n = data.length;
+        for(let i=0;i<=this.trainings.length;i++){
+          this.trainings[i].affiche = '../../assets/img/'+this.trainings[i].affiche.substring(12,this.trainings[i].affiche.length);
+
+          //console.log(this.trainings[i].affiche.substring(11,this.trainings[i].affiche.length));
+      };
+      
+       // this.trainings.affiche
+        console.log(this.trainings)}
   	);
   }
 
