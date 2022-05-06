@@ -10,4 +10,5 @@ export class TrainingModel{
 	 nbrMaxApprenant:string;
 	 affiche:string;
 	 formateur:string;
+	//  like:number;
 }

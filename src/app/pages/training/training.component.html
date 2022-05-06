@@ -1,7 +1,65 @@
-
-
-
 <div class="wrapper">
+  <div class="page-header">
+          <div class="content">
+<h1>les formations disponibles</h1>
+
+<div class="row mt-5" >
+ 
+  <div *ngFor="let t of trainings">
+    <div class="col-md-3">
+      <div class="card" style="width: 18rem;">
+        <img src="../../assets/img/logo.png" class="card-img-top" alt="...">
+        
+        
+        <div class="card-body">
+          <h5 class="card-title">{{t.title}}</h5>
+          <p class="card-text">{{t.description}}</p>
+
+          
+          <button type="button" class="btn btn-primary btn-icon btn-round mr-1" (click)="jaimetraining(Training)"><i class="tim-icons icon-heart-2"></i></button>
+          <a (click)="detailTrainings(t.idFormation)" class="btn btn-primary">See more !</a> 
+          
+           <!-- <a routerLink="{{t.idFormation}}" class="btn btn-primary">See more !</a>  -->
+          <!-- <td class="td-actions">
+            <button (click)="deleteTraining(t.idFormation)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                <i class="tim-icons icon-simple-remove"></i>
+            </button>
+          </td> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+  </div>
+  <!-- boutton
+  <li _ngcontent-ucu-c66="" ng-reflect-ng-class="nav-item," class="nav-item ng-star-inserted active">
+    <a _ngcontent-ucu-c66="" href="javascript:void(0);" role="tab" class="nav-link active" aria-controls="" aria-selected="true" id="">
+      <span _ngcontent-ucu-c66="" ng-reflect-ng-transclude="[object Object]">
+     </span><i class="tim-icons icon-bag-16 ng-star-inserted"></i> show more trainings  <!--container--><!--bindings={}--> <!--</a>
+    <!--</li> -->
+
+<!--pagination-->
+    
+    <div class="col-md-6">
+      <pagination
+        class="pagination-danger"
+        [boundaryLinks]="true"
+        [totalItems]="45"
+        [ngModel]="pagination"
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;"
+        lastText="&raquo;"
+      > </pagination><br />
+    </div>
+     
+      
+<app-detailtraining [trainings]="trainings" (trainingEvent)="afficher($event)"></app-detailtraining>
+
+      
+ <div class="wrapper">
   <div  class="mat-elevation-z8 small-table">
     <table mat-table [dataSource]="trainings" class="full-width-table" matSort aria-label="Elements" >
     

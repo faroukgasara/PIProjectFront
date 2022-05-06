@@ -1,0 +1,50 @@
+<div>
+    <form class="form-inline my-2 my-lg-0">
+        <input matInput style="margin: auto;" type="search" (ngModelChange)="SearchTraining(key.value)" #key="ngModel" ngModel 
+         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search trainings by title" required >
+      </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th (click)="Sort('title')">Title&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('description')">Description&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateDebut')">DateDebut&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateFin')">DateFin&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('nbrMaxApprenant')">nbrMaxApprenant&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('affiche')">affiche&nbsp;<i class="fa fa-sort"></i></th>
+            <th class="text-left">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let t of trainings | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};">
+            
+            <td>{{t.title}}</td>
+            <td>{{t.description}}</td>
+            <td>{{t.dateDebut}}</td>
+            <td >{{t.dateFin}}</td>
+            <td >{{t.nbrMaxApprenant}}</td>
+            <td >{{t.affiche}}</td>
+            <td class="td-actions">
+             
+              <button  (click)="updatetrainings(t.idFormation)" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+                  <i class="tim-icons icon-settings-gear-63"></i>
+              </button>
+              <button (click)="deleteTraining(t.idFormation)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                  <i class="tim-icons icon-simple-remove"></i>
+              </button>
+            </td>
+        </tr>
+    </tbody>
+        <pagination-controls  style="position: absolute; padding-left: 20%;"
+        (pageChange) ="p = $event"
+        >
+        
+        </pagination-controls>
+        <br><br><br>
+        <button [routerLink]="['/addtrainings/:email']" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+            <i class="tim-icons icon-single-02"></i>
+        </button>
+  </table>
+  

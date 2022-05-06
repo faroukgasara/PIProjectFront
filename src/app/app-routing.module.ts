@@ -15,6 +15,10 @@ import { DashComponent } from "./back/card/dash/dash.component";
 
 import { UserManagementComponent } from "./back/card/user-management/user-management.component";
 import { TrainingComponent } from "./pages/training/training.component";
+import { AddTrainingComponent } from "./back/add-training/add-training.component";
+import { TrainingsbackComponent } from "./back/trainingsback/trainingsback.component";
+import { DetailtrainingComponent } from "./pages/detailtraining/detailtraining.component";
+import { UpdatetrainingComponent } from "./back/updatetraining/updatetraining.component";
 
 
 
@@ -22,28 +26,27 @@ import { TrainingComponent } from "./pages/training/training.component";
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: IndexComponent },
+  { path: "trainings", component: TrainingComponent  },
+  { path: "addtrainings/:email", component: AddTrainingComponent ,
+   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
 
-  { path: "profile/:email", component: ProfilepageComponent,
+  { path: "gestionformation", component: TrainingsbackComponent },
+  { path: "trainings/:email/:idFormation", component: DetailtrainingComponent },
+  { path: "updatetrainings/:id", component: UpdatetrainingComponent },
+  
 
-  { path: "trainings", component: TrainingComponent },
+  { path: "profile/:email", component: ProfilepageComponent},  
   { path: "profile", component: ProfilepageComponent,
-
-    canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']}
-  },
+   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']} },
   { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
   { path: "landing", component: LandingpageComponent },
   { path: "login", component: LoginpageComponent ,canActivate:[IsSignedInGuard]},
   { path: "todo", component: TodoComponent },
   { path: "userManagement", component: UserManagementComponent },
-
-  
-
-
   { path: 'dashboard', component: DashComponent ,
-  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
-  }
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
   
-
+ 
 ];
 
 @NgModule({

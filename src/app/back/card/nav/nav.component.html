@@ -15,7 +15,7 @@
     </button> Cyber Hunter</mat-toolbar>
     <mat-divider ></mat-divider>
     <mat-nav-list >
-      <a style="color: white;"  *ngFor="let item of menuItems;let i = index" mat-list-item [routerLink]="'/'+item"> {{menuItem[i] | titlecase}} </a>
+    <a style="color: white;"  *ngFor="let item of menuItems;let i = index" mat-list-item [routerLink]="'/'+item"> {{menuItem[i] | titlecase}} </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

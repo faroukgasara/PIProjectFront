@@ -5,10 +5,7 @@ import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-
-
 import { BrowserModule } from "@angular/platform-browser";
-
 
 
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
@@ -54,7 +51,6 @@ import { UsersTableComponent } from "./back/card/users-table/users-table.compone
 import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
-
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -62,6 +58,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserManagementComponent } from './back/card/user-management/user-management.component';
 
 import { TrainingComponent } from './pages/training/training.component';
+import { AddTrainingComponent } from './back/add-training/add-training.component';
+import { TrainingsbackComponent } from './back/trainingsback/trainingsback.component';
+import { DetailtrainingComponent } from './pages/detailtraining/detailtraining.component';
+import { UpdatetrainingComponent } from './back/updatetraining/updatetraining.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +82,11 @@ import { TrainingComponent } from './pages/training/training.component';
     MiniCardComponent,
     UserManagementComponent,
     TrainingComponent,
+    AddTrainingComponent,
+    TrainingsbackComponent,
+    DetailtrainingComponent,
+    UpdatetrainingComponent,
+   
   ],
   imports: [
     BrowserAnimationsModule,
@@ -119,7 +124,9 @@ import { TrainingComponent } from './pages/training/training.component';
     MatBadgeModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule,
+    NgxPaginationModule, 
+    FormsModule,
+    
   ],
   providers: [
    

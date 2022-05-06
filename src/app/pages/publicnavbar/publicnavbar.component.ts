@@ -66,5 +66,5 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
       location.reload() ;
     })
   }
-
+  
 }
