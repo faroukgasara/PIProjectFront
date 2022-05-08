@@ -34,7 +34,7 @@ export class EventService {
 
 
   effectuerevent(idevent: any,idres: number,idcag: number){
-  	return this.http.post(this.eventUrl+'/event/addeventon/'+idevent+'/'+idres+'/'+idcag,null,this.options);
+  	return this.http.post(this.eventUrl+'/event/effectuerevent/'+idevent+'/'+idres+'/'+idcag,null,this.options);
   }
 
 }

@@ -19,7 +19,9 @@ export class AffectercagreseventComponent implements OnInit {
   }
 
   affecter(){
-    this.EventsHttp.effectuerevent(localStorage.getItem('eventid'),this.form.get['res'].value,this.form.get['res'].value).subscribe();
+    let res = this.form.get['res'].value;
+    let cag=this.form.get['cag'].value;
+    this.EventsHttp.effectuerevent(localStorage.getItem('eventid'),res,cag).subscribe();
 
   }
 
