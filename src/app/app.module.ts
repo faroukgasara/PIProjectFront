@@ -71,6 +71,10 @@ import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.c
 import { ResetpasswordComponent } from './pages/forgetpassword/resetpassword/resetpassword.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-users-by-year/count-total-users-by-year.component';
+import { EventFrontComponent } from './event-front/event-front.component';
+import { CagnottecomponentComponent } from './back/card/cagnottecomponent/cagnottecomponent.component';
+import { AffectercagreseventComponent } from "./eventscomponent/affectercagresevent/affectercagresevent.component";
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -99,6 +103,15 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
 
 
     EventscomponentComponent,
+
+
+    EventFrontComponent,
+
+
+    CagnottecomponentComponent,
+
+
+    AffectercagreseventComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -138,6 +151,7 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
     Ng2OrderModule,
     NgxPaginationModule,
     NgbModule,
+    MatDialogModule
   ],
   providers: [
    

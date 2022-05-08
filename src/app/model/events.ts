@@ -5,6 +5,8 @@
 	private String affiche;
 	private String description;*/
 
+import { CagnotteModel } from "./cagnotte";
+
     
 export interface EventsModel{
         id:number,
@@ -13,6 +15,6 @@ export interface EventsModel{
         lieux:string,
         affiche:string,
         description:string,
-        typeEvenement:string
+        typeEvenement:string,
      
  }

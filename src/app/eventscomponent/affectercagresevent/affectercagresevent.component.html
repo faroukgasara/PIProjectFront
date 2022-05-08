@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="affecter()">
+    <table class="table">
+    <thead>
+       
+    </thead>
+    <tbody>
+         <tr>   
+            <td> <input formControlName="res" class="form-control" type="text" placeholder="res"> </td> 
+         </tr>
+         <tr>   
+            <td> <input formControlName="cag" class="form-control" type="text" placeholder="cag" >    
+            </td>
+         </tr>
+     
+       
+     
+
+    </tbody>
+  </table>
+
+  <button class="button-1" role="button" style="margin: 10px" type="submit"> Ajouter </button>
+  <button class="button-1" role="button" style="margin: 10px" > Annuler </button>
+</form>
+

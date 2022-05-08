@@ -1,5 +1,3 @@
-<h1>Events</h1>
-
 <div class="form-group col-md-6" >
     <input
       class="form-control"
@@ -36,7 +34,7 @@
               <button style="margin-right: 10%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
                   <i class="tim-icons icon-single-02"></i>
               </button>
-              <button style="margin-right: 10%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+              <button (click)="onCreate(event.id)" style="margin-right: 10%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
                   <i class="tim-icons icon-settings-gear-63"></i>
               </button>
               <button (click)="deleteEvent(event.id)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
@@ -73,7 +71,7 @@
                 <td> <input formControlName="lieux" class="form-control" type="text" placeholder="Lieux"> </td> 
              </tr>
              <tr>   
-                <td> <input formControlName="affiche" class="form-control" type="file" name="avatar" placeholder="Poster">    
+                <td> <input formControlName="affiche" class="form-control" type="file" name="avatar" placeholder="Poster" >    
                 </td>
              </tr>
              <tr>   
@@ -90,8 +88,8 @@
             </div>
           </td>
            </tr>
-           
-            
+         
+
         </tbody>
       </table>
     

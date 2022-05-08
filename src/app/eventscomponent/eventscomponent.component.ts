@@ -6,7 +6,9 @@ import { EventService } from '../services/events.service';
 import { DatePipe } from '@angular/common'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AffectercagreseventComponent } from './affectercagresevent/affectercagresevent.component';
 
 @Component({
   selector: 'app-eventscomponent',
@@ -19,9 +21,10 @@ export class EventscomponentComponent implements OnInit {
   
   form:FormGroup;
   events: EventsModel[];
+  eventss: EventsModel;
   titre:any;
   p:number = 1 ;
-  constructor(private EventsHttp: EventService, private breakpointObserver: BreakpointObserver, private eventHttp: EventService, private datePipe: DatePipe, private formBuilder:FormBuilder) {}
+  constructor(private dialog :MatDialog ,private EventsHttp: EventService, private breakpointObserver: BreakpointObserver, private eventHttp: EventService, private datePipe: DatePipe, private formBuilder:FormBuilder) {}
 
     ngOnInit(): void {
       this.getEvents();
@@ -34,6 +37,8 @@ export class EventscomponentComponent implements OnInit {
         affiche: ['',Validators.required],
         description: ['',Validators.required],
         typeEvenement: ['',Validators.required]
+
+        
 
       });
 
@@ -56,16 +61,9 @@ export class EventscomponentComponent implements OnInit {
   }
 
   addEvent(){
+  
 
-    let body= new HttpParams();
-
-    body=body.set('dateEvenement',this.form.get(['dateEvenement']).value);
-    body=body.set('titre',this.form.get(['titre']).value);
-    body=body.set('lieux',this.form.get(['lieux']).value);
-    //body=body.set('affiche','Google_Chrome_icon_(February_2022).svg.png');
-    body=body.set('description',this.form.get(['description']).value);
-    body=body.set('typeEvenement',this.form.get(['typeEvenement']).value);
-    this.eventHttp.addEvent(body).pipe(map((data)=>data))
+    this.eventHttp.addEvent(this.form.getRawValue()).pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{
       console.log("efe")
@@ -133,6 +131,15 @@ export class EventscomponentComponent implements OnInit {
       };
     })
   );
+
+  onCreate(eventid) {
+    localStorage.setItem('eventid', JSON.stringify(eventid));
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "80%";
+    this.dialog.open(AffectercagreseventComponent,dialogConfig);
+  }
 
 
 }

@@ -19,9 +19,12 @@ import { TrainingComponent } from "./pages/training/training.component";
 import { EventscomponentComponent } from "./eventscomponent/eventscomponent.component";
 
 
+
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/resetpassword.component";
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
+import { EventFrontComponent } from "./event-front/event-front.component";
+import { CagnottecomponentComponent } from "./back/card/cagnottecomponent/cagnottecomponent.component";
 
 
 
@@ -55,7 +58,9 @@ const routes: Routes = [
   { path: "events", component: EventscomponentComponent,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
   },
-  
+  { path: "Eventfront", component: EventFrontComponent },
+  { path: "cagnotte", component: CagnottecomponentComponent },
+
 
 
   { path: 'dashboard', component: DashComponent ,

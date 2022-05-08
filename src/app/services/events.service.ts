@@ -26,12 +26,15 @@ export class EventService {
     return this.http.delete<EventsModel>(this.eventUrl+'/event/deleteEvent/'+id,this.options);
 }
 
-  addReport(reported: string,reportedby: string,reason: string){
-  	return this.http.post(this.eventUrl+'/reporting/addReport/'+reported+'/'+reportedby+'/'+reason,null,this.options);
+
+
+  addEvent(event:EventsModel){
+    return this.http.post(this.eventUrl+"/event/addeventonly",event,this.options);
   }
 
-  addEvent(event: HttpParams){
-    return this.http.post(this.eventUrl+"/event/addeventonly",event,this.options);
+
+  effectuerevent(idevent: any,idres: number,idcag: number){
+  	return this.http.post(this.eventUrl+'/event/addeventon/'+idevent+'/'+idres+'/'+idcag,null,this.options);
   }
 
 }

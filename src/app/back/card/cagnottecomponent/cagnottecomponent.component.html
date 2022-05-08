@@ -1,0 +1,74 @@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th (click)="Sort('valeur')">Valeur&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateDebut')">Date Debut&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateFin')">Date Fin&nbsp;<i class="fa fa-sort"></i></th>
+            <th class="text-left">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let cag of cagnotte | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p};">
+            <td>{{cag.valeur}}</td>
+            <td>{{cag.dateDebut | date : 'yyyy.MM.dd' }}</td>
+            <td>{{cag.dateFin | date : 'yyyy.MM.dd' }}</td>
+            
+            <td class="td-actions">
+              <button style="margin-right: 10%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+                  <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button style="margin-right: 10%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+                  <i class="tim-icons icon-settings-gear-63"></i>
+              </button>
+              <button (click)="deleteCagnotte(cag.id)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                  <i class="tim-icons icon-simple-remove"></i>
+              </button>
+            </td>
+        </tr>
+    </tbody>
+        <pagination-controls  style="position: absolute; padding-left: 20%;"
+        (pageChange) ="p = $event"
+        >
+        </pagination-controls>
+  </table>
+
+  <div class="grid-container">
+    <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">   
+   <mat-grid-tile  [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <app-card  title="Ajouter Cagnotte">
+      <div>
+
+       <form [formGroup]="form" (ngSubmit)="addCagnotte()">
+        <table class="table">
+        <thead>
+           
+        </thead>
+        <tbody>
+            <tr>   
+               <td> <input formControlName="dateDebut" class="form-control" id="dateDebut" type="date" placeholder="Date"> </td> 
+            </tr>
+            <tr>   
+                <td> <input formControlName="dateFin" class="form-control" id="dateFin" type="date" placeholder="Date"> </td> 
+             </tr>
+      
+         
+
+        </tbody>
+      </table>
+    
+      <button class="button-1" role="button" style="margin: 10px" type="submit"> Ajouter </button>
+      <button class="button-1" role="button" style="margin: 10px" > Annuler </button>
+    </form>
+    
+    </div>
+    </app-card>
+ </mat-grid-tile>
+  
+   <mat-grid-tile  [colspan]="( cardLayout | async )?.chart.cols"
+     [rowspan]="( cardLayout | async )?.chart.rows">
+     <app-card title="Card"><app-chart></app-chart></app-card>
+   </mat-grid-tile>
+  
+    </mat-grid-list>
+   </div>
