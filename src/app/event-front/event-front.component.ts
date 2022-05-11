@@ -81,9 +81,16 @@ Events:EventsModel[]=[];
 
 }
 public getEvents(){
-  this.EventsHttp.getallevents().subscribe((data:EventsModel[]) => {
-    this.Events = data;
-  })
+  this.EventsHttp.getallevents().subscribe(
+    (data:EventsModel[]) => {this.Events = data;
+      let n =data.length;
+      for(let i=0;i<=this.Events.length;i++){
+        this.Events[i].affiche = '../../assets/img/'+this.Events[i].affiche.substring(12,this.Events[i].affiche.length);
+      }
+      console.log(this.Events);
+    }
+    
+    );
 
 }
 

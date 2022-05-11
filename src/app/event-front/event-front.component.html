@@ -6,13 +6,13 @@
         
         <div class="col-lg-6">
           <carousel [showIndicators]="false">
-            
+
             <slide *ngFor ="let eventt of Events">
                 
                 <img 
                 alt="First slide"
                 class="d-block w-100"
-                src="assets/img/denys.jpg"
+                src="{{eventt.affiche}}"
               />
               
 
