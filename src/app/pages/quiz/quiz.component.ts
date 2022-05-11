@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit, Type , ViewChild, ElementRef } from '@angular/core';
 import { QuizModel } from 'src/app/model/quiz.model';
 import { QuizService } from 'src/app/services/quiz.service';
 
@@ -11,7 +11,7 @@ import { QuizService } from 'src/app/services/quiz.service';
 export class QuizComponent implements OnInit {
   displayedColumns: string[] = ['idQuiz','contenu','name'];
   quizs: QuizModel[];
-  
+  @ViewChild('name') namekey: ElementRef;
  //enum TypeQuiz  {QuizTrainer,QuizPlanification,QuizCertif}
  //state: Type = TypeQuiz.init;
 
@@ -19,6 +19,13 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  StartQuiz(){
+    localStorage.setItem("name", this.namekey.nativeElement.value);
+  }
+
+
+
 
   getQuizs(){
     this.QuizHttp.getQuizs().subscribe(

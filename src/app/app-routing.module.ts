@@ -2,11 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
-import { PublicationComponent } from "./publication/publication.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AddPublicationComponent } from "./add-publication/add-publication.component";
-import { detailsPublicationComponent} from "./publication/detailsPublication.component";
-import { CommentaireComponent} from "./commentaire/commentaire.component";
 
 import { IndexComponent } from "./pages/index/index.component";
 import { ProfilepageComponent } from "./pages/profilepage/profilepage.component";
@@ -17,7 +12,7 @@ import { HasRoleGuard } from "./has-role.guard";
 import { TodoComponent } from "./pages/todo/todo.component";
 import { IsSignedInGuard } from "./IsSignedInGuard ";
 import { DashComponent } from "./back/card/dash/dash.component";
-import { OfferComponent } from "./pages/offer/offer.component";
+import { OfferComponent } from "./back/card/offer/offer.component";
 import { QuizComponent } from "./pages/quiz/quiz.component";
 import { QuestionComponent } from "./pages/question/question.component";
 import { CandidaturComponent } from "./pages/candidatur/candidatur.component";
@@ -33,12 +28,13 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/resetpassword.component";
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
+import { AddofferComponent } from "./back/card/addoffer/addoffer.component";
+import { JobofferfrontComponent } from "./pages/jobofferfront/jobofferfront.component";
 
 
 
 
 const routes: Routes = [
-
 
   { path: "home", component: IndexComponent },
 
@@ -50,20 +46,6 @@ const routes: Routes = [
     canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']}
   },
   { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
-
-
-  
-  {path : "publication", component : PublicationComponent},
-  
-  {path : "publication/get/:id", component : detailsPublicationComponent},
-
-  
-  {path : "add-publication", component : AddPublicationComponent},
-  {path : "commentaire", component : CommentaireComponent}
-  ,
-
-
-
   { path: "landing", component: LandingpageComponent },
   { path: "login", component: LoginpageComponent ,canActivate:[IsSignedInGuard]},
   { path: "todo", component: TodoComponent },
@@ -89,10 +71,10 @@ const routes: Routes = [
   { path: "Quiz", component: QuizComponent },
   { path: "Question", component: QuestionComponent },
   { path: "Candidatur", component: CandidaturComponent},
-   
-   
+  { path: "Addoffer", component: AddofferComponent},
+  { path: "Jobofferfront", component: JobofferfrontComponent},
 
-
+   
   
   { path: 'dashboard', component: DashComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
@@ -106,13 +88,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [FormsModule, ReactiveFormsModule ,
+  imports: [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
       useHash: true
     })
   ],
-  exports: [RouterModule]
+  exports: []
 })
 export class AppRoutingModule {}

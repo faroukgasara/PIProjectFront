@@ -7,8 +7,7 @@ import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 
-
-
+import { BrowserModule } from "@angular/platform-browser";
 
 
 
@@ -55,7 +54,7 @@ import { UsersTableComponent } from "./back/card/users-table/users-table.compone
 import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2OrderModule } from "ng2-order-pipe";
@@ -75,15 +74,15 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-users-by-year/count-total-users-by-year.component';
 
 
-import { OfferComponent } from "./pages/offer/offer.component";
+
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuestionComponent } from './pages/question/question.component';
 import { CandidaturComponent } from './pages/candidatur/candidatur.component';
-
-import { PublicationComponent } from "./publication/publication.component";
-import {EditorModule} from '@tinymce/tinymce-angular';
-import { AddPublicationComponent } from "./add-publication/add-publication.component";
-
+import { ChangeBgDirective } from './change-bg.directive';
+import { AddofferComponent } from './back/card/addoffer/addoffer.component';
+import { JobofferfrontComponent } from './pages/jobofferfront/jobofferfront.component';
+import { OfferComponent } from "./back/card/offer/offer.component";
+import { UpdateofferComponent } from "./back/card/offer/updateoffer/updateoffer.component";
 
 
 @NgModule({
@@ -91,15 +90,12 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     AppComponent,
     FooterComponent,
     PublicnavbarComponent,
-    AddPublicationComponent,
-
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
     LandingpageComponent,
     LoginpageComponent,
     TodoComponent,
-
     NavComponent,
     DashComponent,
     CardComponent,
@@ -122,20 +118,18 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     QuizComponent,
     QuestionComponent,
     CandidaturComponent,
+    ChangeBgDirective,
+    AddofferComponent,
+    JobofferfrontComponent,
+    UpdateofferComponent,
     
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-
-    PublicationComponent,
-
-    BrowserAnimationsModule,
-
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
@@ -147,7 +141,7 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
-    BrowserModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -168,12 +162,10 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     Ng2OrderModule,
     NgxPaginationModule,
     NgbModule,
+    MatDialogModule
   ],
   providers: [
    
-
-    EditorModule,FormsModule
-
 
   ],
   bootstrap: [AppComponent]

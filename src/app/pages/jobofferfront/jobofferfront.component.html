@@ -1,0 +1,44 @@
+
+  <div class="card" style="width: 60rem;">
+    
+  
+    <div class="card-body" >
+      <h1> JOB OFFERS LIST</h1>
+      
+      <div *ngFor ="let offer of offers | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};">
+      <h1 class="card-title"> Title : {{offer.title}} &nbsp;</h1>
+        <h3>Domain: {{offer.domain}} &nbsp;</h3>
+        <h2>Place: {{offer.place}} &nbsp;</h2>
+        <h2>Description : {{offer.description}} &nbsp;</h2>
+      
+
+        <!-- BOUTON ***************************************************-->
+      
+      <div class="myStyle">
+        <mat-card class="style-mat-card">   
+         <mat-card-actions>  
+            <button mat-button color="warn" (click)="onClick()">  
+                <mat-icon>file_upload</mat-icon>  
+                Upload  
+            </button>  
+         </mat-card-actions>  
+        </mat-card><input type="file" #UploadFile id="UploadFile" name="UploadFile" multiple="multiple" accept="image/*" style="display:none;" />
+        <span >{{fileName}}</span>
+      </div>
+      
+    <button mat-button color="warn" (click)="JobApplication(offer.id)" > APPLY </button>  
+      
+      <!--
+      <input type="file" (change)="getFile($event)" base-sixty-four-input /> 
+      <input type="button"  (click)="onClick()" value="APPLY" base-sixty-four-input/>--> 
+     <!--class="btn btn-primary mr-1" --> 
+    
+<!-- BOUTON**********************************************************-->
+   
+</div>
+
+</div>
+</div>
+
+
+
