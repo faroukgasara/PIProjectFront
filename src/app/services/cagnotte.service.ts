@@ -22,13 +22,21 @@ export class CqgnotteService {
   	return this.http.get<CagnotteModel[]>(this.eventUrl+"/cagnotte/getcagnotte",this.options);
   }
 
+
+  getReas(){
+  	return this.http.get(this.eventUrl+"/reservation/getres",this.options);
+  }
+
   addCagnotte(cagnotte: CagnotteModel){
     return this.http.post(this.eventUrl+'/cagnotte/addcagnotte',cagnotte,this.options);
-}
-deleteCagnotte(cag: CagnotteModel | number):Observable<EventsModel>{
-    const id = typeof cag === 'number' ? cag : cag.id;
-    return this.http.delete<EventsModel>(this.eventUrl+'/cagnotte/deleteCagnotte/'+id,this.options);
-}
+  }
+  deleteCagnotte(cag: CagnotteModel | number):Observable<EventsModel>{
+      const id = typeof cag === 'number' ? cag : cag.id;
+      return this.http.delete<EventsModel>(this.eventUrl+'/cagnotte/deleteCagnotte/'+id,this.options);
+  }
+
+
+
 
 
 

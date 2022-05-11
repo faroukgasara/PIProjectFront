@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CqgnotteService } from 'src/app/services/cagnotte.service';
 import { EventService } from 'src/app/services/events.service';
 
 @Component({
@@ -9,19 +10,30 @@ import { EventService } from 'src/app/services/events.service';
 })
 export class AffectercagreseventComponent implements OnInit {
   form:FormGroup;
-  constructor(private formBuilder:FormBuilder,private EventsHttp: EventService) { }
+  cag:any=[]
+  res:any=[]
+  constructor(private formBuilder:FormBuilder,private EventsHttp: EventService,private cagHttp: CqgnotteService) { }
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
       res: ['',Validators.required],
       cag: ['',Validators.required],
     });
+
+
+    this.cagHttp.getcagnotte().subscribe(
+  		(data) => {this.cag = data;console.log(this.cag)}
+  	);
+
+    this.cagHttp.getReas().subscribe(
+  		(data) => {this.res = data;console.log(this.res)}
+  	);
   }
 
   affecter(){
-    let res = this.form.get['res'].value;
-    let cag=this.form.get['cag'].value;
-    this.EventsHttp.effectuerevent(localStorage.getItem('eventid'),res,cag).subscribe();
+    
+    this.EventsHttp.effectuerevent(localStorage.getItem('eventid'),this.form.controls['res'].value,this.form.controls['cag'].value).subscribe();
+    window.location.reload()
 
   }
 
