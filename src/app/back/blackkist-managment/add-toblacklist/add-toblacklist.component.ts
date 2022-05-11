@@ -31,8 +31,6 @@ export class AddToblacklistComponent implements OnInit {
       this.router.navigate(['/blacklist']).then(()=>{
         location.reload() ;
       });
-      
-      
     }).catch((error:HttpErrorResponse)=>{
       console.log(error)
     });

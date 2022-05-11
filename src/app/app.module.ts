@@ -78,6 +78,9 @@ import { environment } from '../environments/environment';
 import { UpdateprofileComponent } from "./back/updateprofile/updateprofile.component";
 import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
 import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
+import { NotificationuserComponent } from './back/card/nav/notificationuser/notificationuser.component';
+import { NotificationuserfrontComponent } from "./pages/publicnavbar/notificationuserfront/notificationuserfront.component";
+import { PredictionEmotionComponent } from './back/card/user-management/prediction-emotion/prediction-emotion.component';
 
 
 @NgModule({
@@ -109,6 +112,9 @@ import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
     UpdateprofileComponent,
     FakeaccountsComponent,
     ChatbotComponent,
+    NotificationuserComponent,
+    NotificationuserfrontComponent,
+    PredictionEmotionComponent,
 
   ],
   imports: [

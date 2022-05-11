@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from 'src/app/model/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { UpdateprofileComponent } from '../../updateprofile/updateprofile.component';
+import { PredictionEmotionComponent } from './prediction-emotion/prediction-emotion.component';
 
 @Component({
   selector: 'app-user-management',
@@ -52,6 +53,16 @@ export class UserManagementComponent implements OnInit {
   Sort(key){
     this.key = key
     this.reverse = !this.reverse;
+  }
+
+
+  Prediction(us) {
+    localStorage.setItem('prediction', JSON.stringify(us));
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "40%";
+    this.dialog.open(PredictionEmotionComponent,dialogConfig);
   }
 
 

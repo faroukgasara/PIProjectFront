@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Chart from 'chart.js';
 import { UserService } from 'src/app/services/user.service';
+
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',

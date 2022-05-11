@@ -47,7 +47,7 @@ export class ReportinManagmentComponent implements OnInit {
 
   getReporting(){
     this.UserHttp.getReporting().subscribe(
-  		(data) => {this.users=data;console.log(this.users)}
+  		(data) => {this.users=data;}
   	);
   }
 

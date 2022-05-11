@@ -55,6 +55,9 @@
             <td >{{user.enabled}}</td>
             <td >{{user.locked}}</td>
             <td class="td-actions">
+                <button (click)="Prediction(user.email)" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+                    <i class="tim-icons icon-single-02"></i>
+                </button>
               <button (click)="onCreate(user)"  style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
                   <i class="tim-icons icon-settings-gear-63"></i>
               </button>

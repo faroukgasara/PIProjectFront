@@ -11,6 +11,7 @@ import { UpdateprofileComponent } from "src/app/back/updateprofile/updateprofile
 })
 export class ProfilepageComponent implements OnInit, OnDestroy {
   isCollapsed = true;
+  other:boolean=false;
   users: UserModel;
   form!: FormGroup;
   user = JSON.parse(localStorage.getItem('user'));
@@ -27,6 +28,14 @@ export class ProfilepageComponent implements OnInit, OnDestroy {
     body.classList.add("profile-page");
     this.findByEmail();
 
+  }
+
+  somethingChanged(){
+    if(this.form.get(['type']).value == "Other"){
+      this.other=true
+    }else{
+      this.other=false
+    }
   }
 
 

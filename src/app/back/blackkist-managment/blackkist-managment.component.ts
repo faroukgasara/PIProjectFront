@@ -61,7 +61,6 @@ export class BlackkistManagmentComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.minWidth = "30%";
-    
     this.dialog.open(AddToblacklistComponent,dialogConfig);
   }
 }

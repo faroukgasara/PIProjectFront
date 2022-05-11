@@ -10,6 +10,7 @@ export class UserService {
     token = localStorage.getItem('token');
 	userUrl:string = 'http://localhost:8089/WomenEmpowerment';
 
+  user = JSON.parse(localStorage.getItem('user'));
   constructor(private http:HttpClient) { }
 
   options = {
@@ -28,6 +29,10 @@ export class UserService {
 
   getUsers(){
   	return this.http.get<UserModel[]>(this.userUrl+"/user/getUsers",this.options);
+  }
+
+  getNotif(){
+  	return this.http.get(this.userUrl+"/notificationuser/findByUserEmailContains/"+this.user.email,this.options);
   }
 
   getAnswer(question:any){
