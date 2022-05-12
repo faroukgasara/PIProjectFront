@@ -1,6 +1,8 @@
-<!--dash.component.html-->
 
 <div class="grid-container">
+  <!--dash.component.html-->
+<div><app-corona-home></app-corona-home></div>
+<div><app-corona-countries></app-corona-countries></div>
   <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
     <!--Mini Cards-->
     <mat-grid-tile>

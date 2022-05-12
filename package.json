@@ -82,6 +82,7 @@
     "ng-apexcharts": "^1.7.1",
     "ng-recaptcha": "^7.0.2",
     "ng2-charts": "^3.0.9",
+    "ng2-google-charts": "^7.0.0",
     "ng2-order-pipe": "^0.1.5",
     "ng2-search-filter": "^0.5.1",
     "ngx-bootstrap": "6.2.0",

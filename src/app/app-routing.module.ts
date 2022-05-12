@@ -24,11 +24,19 @@ import { NotfoundComponent } from "./pages/notfound/notfound.component";
 import { ReportinManagmentComponent } from "./back/card/reportin-managment/reportin-managment.component";
 import { BlackkistManagmentComponent } from "./back/blackkist-managment/blackkist-managment.component";
 import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
+import { CoronaCountriesComponent } from "./pages/corona/corona-countries/corona-countries.component";
+import { CoronaHomeComponent } from "./pages/corona/corona-home/corona-home.component";
 
 
 
 
 const routes: Routes = [
+
+
+
+  { path: "coronahome", component: CoronaHomeComponent },
+  { path: "countries", component: CoronaCountriesComponent },
+
 
   { path: "home", component: IndexComponent },
 

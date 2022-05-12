@@ -81,6 +81,9 @@ import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
 import { NotificationuserComponent } from './back/card/nav/notificationuser/notificationuser.component';
 import { NotificationuserfrontComponent } from "./pages/publicnavbar/notificationuserfront/notificationuserfront.component";
 import { PredictionEmotionComponent } from './back/card/user-management/prediction-emotion/prediction-emotion.component';
+import { CoronaHomeComponent } from './pages/corona/corona-home/corona-home.component';
+import { CoronaCountriesComponent } from './pages/corona/corona-countries/corona-countries.component';
+import { CoronaDashboardComponent } from './pages/corona/corona-dashboard/corona-dashboard.component';
 
 
 @NgModule({
@@ -115,6 +118,9 @@ import { PredictionEmotionComponent } from './back/card/user-management/predicti
     NotificationuserComponent,
     NotificationuserfrontComponent,
     PredictionEmotionComponent,
+    CoronaHomeComponent,
+    CoronaCountriesComponent,
+    CoronaDashboardComponent,
 
   ],
   imports: [
@@ -157,7 +163,7 @@ import { PredictionEmotionComponent } from './back/card/user-management/predicti
     MatDialogModule,
     RecaptchaFormsModule,
     RecaptchaModule,
-    NgxPrintModule
+    NgxPrintModule,
   ],
   providers: [
   ],

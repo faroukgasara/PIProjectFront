@@ -1,0 +1,19 @@
+<div class="mx-auto">
+    <div class="formgroup col-lg-5 mx-auto">
+        <label for="c">Select Country</label>
+        <select #input (change)="updateValues(input.value)" class="form-control" name="" id="c">
+            <option style="background-color: #fe5d93" value="{{con}}" *ngFor="let con of countries ">{{con}}</option>
+        </select>
+    
+    </div>
+
+    <app-corona-dashboard 
+    [totalConfirmed]="totalConfirmed"
+    [totalActive]="totalActive"
+    [totalDeaths]="totalDeaths"
+    [totalRecovered]="totalRecovered"
+    
+    >
+</app-corona-dashboard>
+
+</div>
