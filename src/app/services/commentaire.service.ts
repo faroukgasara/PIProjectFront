@@ -44,4 +44,14 @@ export class CommentaireService {
     }
 
   
+   
+    ajouterProduit( prod: any ,id :any):Observable<Commentaire>{
+     
+   let options = {
+     headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+   };
+   let user = JSON.parse(localStorage.getItem('user'));
+ 
+   return this.http.post<Commentaire>("http://localhost:8089/WomenEmpowerment/commentaire/add/"+`${id}`+"/"+`${user.email}`, prod, options);
+   }
 }

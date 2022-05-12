@@ -93,13 +93,14 @@ import { RoomlistComponent } from './chat-msg/roomlist/roomlist.component';
 import { AddroomComponent } from './chat-msg/addroom/addroom.component';
 import { DatePipe } from "@angular/common";
 
-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ListCommentComponent } from './list-comment/list-comment.component';
 
 import {MatDialogModule} from "@angular/material/dialog";
+import { UpdatepublicationComponent } from './publication/updatepublication/updatepublication.component';
+import { YoutubeComponent } from './youtube/youtube.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -107,6 +108,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     PublicnavbarComponent,
     AddPublicationComponent,
     PublicationComponent,
+    UpdatepublicationComponent,
+    YoutubeComponent,
 
     CommentaireComponent,
     AddCommentaireComponent,
@@ -154,6 +157,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     AddroomComponent,
     ChatMSGComponent,
     ListCommentComponent,
+    UpdatepublicationComponent,
+    YoutubeComponent,
   
 
     

@@ -121,12 +121,11 @@
     min-height: 1px;
     padding: 1rem;
 }
-.inner-main-footer{
-
-    background-color: #c9d8f0;
-}
 ngb-rating {
     font-size: 30px;
     color:rgb(248, 228, 47);
     background: rgba(237, 245, 236, 0.815);
+  }
+  .text-body{
+      font-size: 30px;
   }

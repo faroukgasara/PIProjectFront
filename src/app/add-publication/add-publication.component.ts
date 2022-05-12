@@ -9,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from "rxjs";
 import jwt_decode from 'jwt-decode';
+import { PublicationComponent } from "../publication/publication.component";
 @Component({
   selector: 'add-publication',
   templateUrl: './add-publication.component.html'
@@ -21,6 +22,7 @@ export class AddPublicationComponent implements OnInit {
   token = localStorage.getItem('token');
   public error:boolean = true ;
   prod :any={};
+  title:any;
   isCollapsed = true;
   public isFirstNameShown:boolean = true ;
   public isLastNameShown:boolean = true ;
@@ -35,20 +37,19 @@ export class AddPublicationComponent implements OnInit {
   userFile: any;
   imagePath: any;
   imgURL: any ;
+  body:any;
   constructor(private formBuilder: FormBuilder,private publicationService : publicationService,private http:HttpClient,
               private router :Router) { }
 
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      title:new FormControl('',Validators.required),
-      description:new FormControl('',Validators.required),
-      type:new FormControl('',Validators.required),
-      picture :new FormControl('')
-     
-    });
-  
 
+this.form = this.formBuilder.group({
+  title:[""],
+  description :[""],
+  type :[""]
+})
+  
 
   }
   getCurrentUser(): Observable<UserModel> {
@@ -103,8 +104,10 @@ export class AddPublicationComponent implements OnInit {
 
   addProduit(){
     this.publicationService.ajouterProduit(this.prod,this.userFile).subscribe((prod) => {
+    
+      this.prod={}
       
-    console.log(prod)
+          console.log(prod)
     this.router.navigate(['/publication'])  
     
   

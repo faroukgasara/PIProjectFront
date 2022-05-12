@@ -53,23 +53,26 @@
 
                 <h4 class="card-title"></h4>
               <div class="card-body">
-                <form >
+                <form [formGroup]="form" >
                   <div class="form-row">
-                    <div class="form-group col-md-6" [hidden]="!isFirstNameShown" [ngClass]="{ 'input-group-focus': focus === true }">
-                      
+            
+                    <div class="form-group col-md-6" [hidden]="" [ngClass]="{ 'input-group-focus': focus === true }">
+                      <label>Title</label>
                       <input
-[(ngModel)]="prod.title"
-                      class="form-control"
+                      [(ngModel)]="prod.title"
+                        class="form-control"
                         formControlName="title"
-                        placeholder="title"
+                        placeholder="Level of study"
                         type="text"
                         (focus)="focus = true"
                         (blur)="focus = false"
                       />
                     </div>
+                  </div>
+                    
                     
                    
-                  </div>
+              
 
                 
 
@@ -85,18 +88,17 @@
 
                   </div>
                   </div>  
-                  <div class="form-row">
+                
                     <div >
                       
-                      <select [(ngModel)]="prod.type"  name="body" id="body" class="form-control"
-                      formControlName="body"
-                      placeholder="body">
+                      <select [(ngModel)]="prod.type"  name="type" id="type" class="form-control"
+                      formControlName="type"
+                      placeholder="type">
                         <option value="">--Please choose an option--</option>
                     
                       
                    
-                     
-                    >
+              
 
                   <option value="Question">Question</option>
                   <option value="Video">Video</option>
@@ -105,7 +107,7 @@
                 
                 </select>
                   </div>
-                  
+                  <div class="form-row">
                   
                   
                     <input id="feed-upload-input-2" type="file" type="file" accept=".png, .jpg, .jpeg" (change)="onSelectFile($event)" onchange="readURL(this)">

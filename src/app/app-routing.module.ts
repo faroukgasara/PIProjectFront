@@ -39,6 +39,7 @@ import { LoginComponent } from "./chat-msg/login/login.component";
 import { RoomlistComponent } from "./chat-msg/roomlist/roomlist.component";
 import { AddroomComponent } from "./chat-msg/addroom/addroom.component";
 import { ChatMSGComponent } from "./chat-msg/chat-msg.component";
+import { YoutubeComponent } from "./youtube/youtube.component";
 
 
 
@@ -74,9 +75,9 @@ const routes: Routes = [
   
   {path : "add-publication", component : AddPublicationComponent},
   {path : "add-commentaire", component : AddCommentaireComponent},
-  {path : "commentaire", component : CommentaireComponent}
-  ,
-
+  {path : "commentaire", component : CommentaireComponent},
+  { path: "youtube", component: YoutubeComponent },
+  
 
 
   { path: "landing", component: LandingpageComponent },

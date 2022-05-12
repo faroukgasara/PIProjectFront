@@ -1,0 +1,47 @@
+
+
+<div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+    <div class="simplebar-content" style="padding: 16px;">
+      <nav class="nav nav-pills nav-gap-y-1 flex-column">
+
+        
+<h1>Youtube Video</h1>
+<label for="channelName"> Video:</label>
+<input #channelName type="text " placeholder="youtube Video">
+<br> <br>
+<button (click)="getData()">get channnels</button>
+  <div class="row mt-5" >
+   
+
+    <div *ngFor="let channel of channels">
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <h7 class="card-title">{{channel.snippet.channelTitle}}</h7>
+            <a target="_blanc" href="https://www.youtube.com/watch/{{channel.id.videoId}}">
+                <img class="img-thumbail" width="200" height="200" src="{{channel.snippet.thumbnails.medium.url}} "  >
+            </a>
+          <div class="card-body">
+          
+                <h2 class="card-title">Title    :{{channel.snippet.title}}</h2>
+<br> <br>
+                <h7 class="card-text">
+                    Details   : {{channel.snippet.description}}</h7>
+             
+            
+
+            
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  </div>
+      </nav>
+    </div>
+  </div>
+
+
+
+

@@ -74,14 +74,28 @@ export class AddCommentaireComponent implements OnInit {
     }).catch((error:HttpErrorResponse)=>{
       this.error = true;
       this.loading=false;
+   
     })
 
   }
 
+  addProduit(){
+    this.publicationService.ajouterProduit(this.newPub,this.id).subscribe((prod) => {
+    
+  
+      
+          console.log(prod)
+    this.router.navigate(['/publication'])  
+    
+  
+    });
+    console.log("fafs")
   
    
     
 
 }
+}
+
 
 

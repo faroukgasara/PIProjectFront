@@ -8,8 +8,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { map } from 'rxjs/operators';
 import { CommentaireService } from '../services/commentaire.service';
 import { ListCommentComponent } from '../list-comment/list-comment.component';
-import { MatDialog } from '@angular/material/dialog';
 import { RateService } from '../services/rate.service';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { UpdatepublicationComponent } from './updatepublication/updatepublication.component';
+
 
 
 @Component({
@@ -37,6 +39,7 @@ export class PublicationComponent implements OnInit {
   public loading:boolean = false ;
   message :string;
   form!: FormGroup;
+  form2!: FormGroup;
   searchTerm: string;
   listProducts : any; 
   post: publication;
@@ -59,7 +62,7 @@ export class PublicationComponent implements OnInit {
      
      
     });
-    this.form=this.formBuilder.group({
+    this.form2=this.formBuilder.group({
 
       rate : new FormControl('',Validators.required)
     });
@@ -93,6 +96,7 @@ supprimerProduit(id: number)
       this.ngOnInit();
     }).catch((error:HttpErrorResponse)=>{console.log(error)
     });
+    this.getAllProducts();
 }
 
 submit(id :number) : void{
@@ -111,7 +115,8 @@ submit(id :number) : void{
   .then((response)=>{
     this.loading=false;
     this.error = false;
-    this.router.navigate(['/commentaire'])
+
+    window.location.reload();
   }).catch((error:HttpErrorResponse)=>{
     this.error = true;
     this.loading=false;
@@ -155,6 +160,14 @@ window.location.reload();
       complete:()=>{},
   
   })
+}
+onCreate(us) {
+  localStorage.setItem('update', JSON.stringify(us));
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+  dialogConfig.minWidth = "80%";
+  this.dialog.open(UpdatepublicationComponent,dialogConfig);
 }
 
 }
