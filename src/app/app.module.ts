@@ -6,7 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
-
+import {NgxPrintModule} from 'ngx-print';
 import { BrowserModule } from "@angular/platform-browser";
 
 
@@ -157,6 +157,7 @@ import { PredictionEmotionComponent } from './back/card/user-management/predicti
     MatDialogModule,
     RecaptchaFormsModule,
     RecaptchaModule,
+    NgxPrintModule
   ],
   providers: [
   ],

@@ -5,7 +5,7 @@ import { UserModel } from 'src/app/model/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { UpdateprofileComponent } from '../../updateprofile/updateprofile.component';
 import { PredictionEmotionComponent } from './prediction-emotion/prediction-emotion.component';
-
+import {NgxPrintModule} from 'ngx-print';
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',

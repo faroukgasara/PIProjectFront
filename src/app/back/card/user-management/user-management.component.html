@@ -4,6 +4,13 @@
 
 <h1> Users List</h1>
 
+<div  style="position: absolute;right: 20px;margin-top: 2%;">
+    <button printTitle="Users List" printSectionId="print-me" ngxPrint  class="btn btn-primary btn-round" >
+        <i class="tim-icons icon-cloud-download-93"></i> Print PDF
+    </button>
+</div>
+<br><br><br><br>
+
 <div class="card-body">
                 
     <form style="margin-top: 2%;" class="form">
@@ -35,7 +42,7 @@
 
 
 
-<table style="margin-top: 4%;" class="table">
+<table id="print-me" style="margin-top: 4%;" class="table">
     <thead>
         <tr>
             <th (click)="Sort('email')">Email&nbsp;<i class="fa fa-sort"></i></th>

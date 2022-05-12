@@ -1,5 +1,6 @@
 <div class="wrapper">
     <div class="page-header">
+        
             <div class="content">
                     <div style=" padding-left: 2% "class="row">
                         <div class="col-md-3" style=" background-color: #303030; height: 93vh;">
@@ -18,11 +19,15 @@
                                     </form>
                                 </mat-card>
                             </div>
-                            
+                            <div  style="position: absolute;right: 20px;margin-top: 2%;">
+                                <button printTitle="Users List" printSectionId="print-me" ngxPrint  class="btn btn-primary btn-round" >
+                                    <i class="tim-icons icon-cloud-download-93"></i> Print PDF
+                                </button>
+                            </div>
 
                         </div>
 
-                        <div class="col-md-9">
+                        <div   id="print-me" class="col-md-9">
                             <div cdkDropListGroup>
                                 <div class="row">
                                     <div class="col-md-4">
@@ -97,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-
+                
         </div>
                 <div class="square square-3" id="square3"></div>
                 <div class="square square-4" id="square4"></div>

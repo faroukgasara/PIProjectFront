@@ -5,6 +5,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { ITask } from '../../model/task';
+import {NgxPrintModule} from 'ngx-print';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
