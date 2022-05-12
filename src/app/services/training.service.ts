@@ -62,7 +62,7 @@ updateTraining(training:any){
   let user=JSON.parse(localStorage.getItem('user'));
     console.log(localStorage.getItem('user'))
 
-  return this.http.put<TrainingModel>(this.trainingsUrl+"/update-Training/"+user.email,training,this.options)
+  return this.http.put<TrainingModel>(this.trainingsUrl+"/Training/update-Training/"+user.email,training,this.options)
   }
   recommended()
   {

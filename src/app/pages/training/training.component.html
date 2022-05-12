@@ -54,7 +54,11 @@
 </div>
 </div>
   <!--Sidebar Recommend-->
-  <div class="exemple_un">col-4</div>
+  <div *ngFor="let t of trainings1" >
+    <h5 class="card-title">{{t.title}}</h5>
+    <p class="card-text">{{t.description}}</p>
+  </div>
+  
   
  
   

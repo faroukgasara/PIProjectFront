@@ -38,6 +38,7 @@ newTraining=new TrainingModel()
     .pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{
+      this.router.navigate(['gestionformation']);
       console.log("rrrr")
     }).catch((error:HttpErrorResponse)=>{
       console.log(error)
