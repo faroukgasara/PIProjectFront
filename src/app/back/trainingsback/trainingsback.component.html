@@ -2,38 +2,64 @@
     <form class="form-inline my-2 my-lg-0">
         <input matInput style="margin: auto;" type="search" (ngModelChange)="SearchTraining(key.value)" #key="ngModel" ngModel 
          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search trainings by title" required >
+         <button
+         type="button"
+         class="btn btn-outline-warning"
+         (click)="startVoiceRecognition()"
+       >
+         <i class="fa fa-microphone" aria-hidden="true"></i>
+       </button>
       </form>
 </div>
+
+
+  <div><button  class="btn btn-primary btn-round pull-right" (click) ="exportHtmlToPDF()" >export to pdf</button></div>
+  <div class="card-body"></div>
+  <div class="table-responsive">
+    <div id="htmltable" #htmltable>
+        
+        <div><tr> <td> <button type="button" href="javascript:void(0)" class="btn btn-danger btn-round" (click)="getClasseByL()">tri croissant</button></td>
+            <td> <button type="button" href="javascript:void(0)" class="btn btn-info" (click)="getClasseDesc()">tri decroissant</button></td></tr></div>
 
 <table class="table">
     <thead>
         <tr>
-            <th (click)="Sort('title')">Title&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('description')">Description&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('dateDebut')">DateDebut&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('dateFin')">DateFin&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('nbrMaxApprenant')">nbrMaxApprenant&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('affiche')">affiche&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('title')" style="color:grey">Title&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('description')"style="color:grey">Description&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateDebut')"style="color:grey">DateDebut&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateFin')"style="color:grey">DateFin&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('nbrMaxApprenant')"style="color:grey">nbrMaxApprenant&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('affiche')"style="color:grey">affiche&nbsp;<i class="fa fa-sort"></i></th>
             <th class="text-left">Actions</th>
         </tr>
     </thead>
+ 
     <tbody>
-        <tr *ngFor ="let t of trainings | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};">
+        
+       
+        <tr *ngFor ="let t of trainings | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};"style="color:grey">
             
-            <td>{{t.title}}</td>
-            <td>{{t.description}}</td>
-            <td>{{t.dateDebut}}</td>
-            <td >{{t.dateFin}}</td>
-            <td >{{t.nbrMaxApprenant}}</td>
-            <td >{{t.affiche}}</td>
+            <td bgcolor="pink">{{t.title}}</td>
+          
+            
+            <td bgcolor="pink">{{t.description}}</td>
+            <td bgcolor="pink" >{{t.dateDebut}}</td>
+            <td bgcolor="pink">{{t.dateDebut}}</td>
+            <td bgcolor="pink">{{t.dateFin}}</td>
+            <td bgcolor="pink">{{t.nbrMaxApprenant}}</td>
+            <td>
+            <img src="{{t.affiche}}"   width="300" height="300"></td>
             <td class="td-actions">
              
-              <button  (click)="updatetrainings(t.idFormation)" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+              <button  (click)="updatetrainings(t.idFormation)" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm">
                   <i class="tim-icons icon-settings-gear-63"></i>
               </button>
-              <button (click)="deleteTraining(t.idFormation)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+              
+              <button (click)="deleteTraining(t.idFormation)" type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm">
                   <i class="tim-icons icon-simple-remove"></i>
               </button>
+
+              
             </td>
         </tr>
     </tbody>
@@ -46,5 +72,13 @@
         <button [routerLink]="['/addtrainings/:email']" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
             <i class="tim-icons icon-single-02"></i>
         </button>
+        
   </table>
+
+  <div class="chartClass" id="divChart">
+    <canvas id="myChart">
+        
+    </canvas>
+    
+</div>
   

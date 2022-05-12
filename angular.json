@@ -39,7 +39,8 @@
               "src/assets/demo/demo.css",
               
             ],
-            "scripts": []
+            "scripts": ["src/assets/js/annyang.min.js",
+              "node_modules/@apizee/apirtc/apiRTC.min.js"]
           },
           "configurations": {
             "production": {

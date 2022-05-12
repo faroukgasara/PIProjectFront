@@ -1,29 +1,40 @@
 <div class="wrapper">
     <div class="page-header">
             <div class="content">
-                <tr *ngFor="let p of trainingsD"></tr>
+                <tr>
                 <h3>our trainings </h3>
 
 <h1>{{idFormation}}</h1>
+<!-- <qrcode [qrdata]="'http://localhost:4200/#/trainings'" [size]="256" [level]="'M'"></qrcode> -->
 
-<h1>hi</h1>
+
 
 <div>
     <div>
         <label>
             <b>
-                <!-- {{Training.title}} -->
+               {{training.affiche}}
             </b>
         </label>
     </div>
     <div>
         <label>
             <b>
-               <!-- {{Training.description}} -->
+                {{training.title}}
             </b>
         </label>
     </div>
+    <div>
+        <label>
+            <b>
+               {{training.description}}
+            </b>
+        </label>
+    </div>
+
+   
 </div>
+                </tr>
 
 </div>
 </div>

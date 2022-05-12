@@ -1,15 +1,36 @@
 <div class="wrapper">
   <div class="page-header">
           <div class="content">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <h1>les formations disponibles</h1>
 
+<div>
+  <form class="form-inline my-2 my-lg-0">
+      <input (keyup.enter)="addsearch(key.value)" matInput style="margin: auto;" type="search" (ngModelChange)="SearchTraining(key.value)" #key="ngModel" ngModel 
+       name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search trainings by title" required >
+       <button
+       type="button"
+       class="btn btn-outline-warning"
+       (click)="startVoiceRecognition()"
+     >
+       <i class="fa fa-microphone" aria-hidden="true"></i>
+     </button>
+    </form>
+    
+</div>
+
+<div class="row">
+  <div class="col-10">
 <div class="row mt-5" >
- 
+
+
   <div *ngFor="let t of trainings">
+    
    
     <div class="col-md-3">
       <div class="card" style="width: 18rem;">
-        <img src="{{t.affiche}}" class="card-img-top" alt="...">
+        <img src="{{t.affiche}}" width="300" height="300" class="card-img-top" alt="...">
         
         
         <div class="card-body">
@@ -32,6 +53,13 @@
   </div>
 </div>
 </div>
+  <!--Sidebar Recommend-->
+  <div class="exemple_un">col-4</div>
+  
+ 
+  
+
+</div>
   </div>
   </div>
   <!-- boutton
@@ -43,7 +71,7 @@
 
 <!--pagination-->
     
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <pagination
         class="pagination-danger"
         [boundaryLinks]="true"
@@ -54,60 +82,32 @@
         firstText="&laquo;"
         lastText="&raquo;"
       > </pagination><br />
-    </div>
+    </div> -->
      
-      
+  <!-- <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>     -->
 <app-detailtraining [trainings]="trainings" (trainingEvent)="afficher($event)"></app-detailtraining>
 
       
- <div class="wrapper">
-  <div  class="mat-elevation-z8 small-table">
-    <table mat-table [dataSource]="trainings" class="full-width-table" matSort aria-label="Elements" >
-    
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> Email </th>
-        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> FirstName </th>
-        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="dateDebut">
-        <th mat-header-cell *matHeaderCellDef> LastName </th>
-        <td mat-cell *matCellDef="let element"> {{element.dateDebut}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="dateFin">
-        <th mat-header-cell *matHeaderCellDef> Enabled </th>
-        <td mat-cell *matCellDef="let element"> {{element.dateFin}} </td>
-      </ng-container>
-    
-        <ng-container matColumnDef="nbrMaxApprenant">
-          <th mat-header-cell *matHeaderCellDef> Locked </th>
-          <td mat-cell *matCellDef="let element"> {{element.nbrMaxApprenant}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="affiche">
-          <th mat-header-cell *matHeaderCellDef> Locked </th>
-          <td mat-cell *matCellDef="let element"> {{element.affiche}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="formateur">
-          <th mat-header-cell *matHeaderCellDef> Locked </th>
-          <td mat-cell *matCellDef="let element"> {{element.formateur}} </td>
-        </ng-container>
-    
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      <mat-paginator [length]="100"
-      [pageSize]="5"
-      [pageSizeOptions]="[5, 10, 25, 100]"
-      aria-label="Select page">
-      </mat-paginator>
-    </table>
-    
-    </div>
-</div>
+<carousel [showIndicators]="false">
+  <slide>
+    <img
+      alt="First slide"
+      class="d-block w-80"
+      src="assets/img/denys.jpg"
+    />
+  </slide>
+  <slide>
+    <img
+      alt="Second slide"
+      class="d-block w-80"
+      src="assets/img/fabien-bazanegue.jpg"
+    />
+  </slide>
+  <slide>
+    <img
+       alt="Third slide"
+      class="d-block w-90"
+      src="assets/img/mark-finn.jpg"
+    />
+  </slide>
+</carousel>

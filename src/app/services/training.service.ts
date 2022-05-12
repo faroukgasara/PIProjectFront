@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TrainingModel } from '../model/training';
 import { UserModel } from '../model/user.model';
@@ -64,6 +64,27 @@ updateTraining(training:any){
 
   return this.http.put<TrainingModel>(this.trainingsUrl+"/update-Training/"+user.email,training,this.options)
   }
+  recommended()
+  {
+    return this.http.get<TrainingModel>(this.trainingsUrl+"/recomended",this.options)
+  }
+//fonctioonaliotes avancees:
+  getTrainingsRecommanded(){
+  	return this.http.get<TrainingModel[]>(this.trainingsUrl+"/Training/recomended",this.options);
+  }
+
+  searchRecommanded(k:HttpParams){
+  	return this.http.post<TrainingModel[]>(this.trainingsUrl+"/Training/Search",k,this.options);
+  }
+
+
+  getClasseByLabel(){
+    return this.http.get<TrainingModel[]>(this.trainingsUrl+"/Training/getTrainingASC",this.options);
+  }
+
+  getClasseByDesc(){
+    return this.http.get<TrainingModel[]>(this.trainingsUrl+"/Training/getTrainingDesc",this.options);
+  } 
  
 
 }

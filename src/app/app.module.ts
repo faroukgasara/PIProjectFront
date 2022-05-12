@@ -62,6 +62,12 @@ import { AddTrainingComponent } from './back/add-training/add-training.component
 import { TrainingsbackComponent } from './back/trainingsback/trainingsback.component';
 import { DetailtrainingComponent } from './pages/detailtraining/detailtraining.component';
 import { UpdatetrainingComponent } from './back/updatetraining/updatetraining.component';
+import { RecherchevocaleComponent } from './pages/recherchevocale/recherchevocale.component';
+import { ChatTrainingComponent } from './chat-training/chat-training.component';
+
+//import { NgToastModule } from 'ng-angular-popup'
+
+
 
 @NgModule({
   declarations: [
@@ -86,6 +92,8 @@ import { UpdatetrainingComponent } from './back/updatetraining/updatetraining.co
     TrainingsbackComponent,
     DetailtrainingComponent,
     UpdatetrainingComponent,
+    RecherchevocaleComponent,
+    ChatTrainingComponent,
    
   ],
   imports: [
@@ -126,6 +134,11 @@ import { UpdatetrainingComponent } from './back/updatetraining/updatetraining.co
     Ng2OrderModule,
     NgxPaginationModule, 
     FormsModule,
+    BrowserModule,
+    FormsModule, ReactiveFormsModule,
+    BrowserAnimationsModule, MatFormFieldModule, MatInputModule
+   //NgToastModule 
+
     
   ],
   providers: [

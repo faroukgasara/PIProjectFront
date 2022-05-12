@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TrainingModel } from '../../model/training';
 import { TrainingService } from '../../services/training.service';
 import { map } from 'rxjs/operators';
+// import { NgToastService } from 'ng-angular-popup';
 
 import { title } from 'process';
 //import { ToastrService } from 'ngx-toastr';
@@ -21,7 +22,7 @@ newTraining=new TrainingModel()
   training:TrainingModel;
 
   form!: FormGroup;
-  constructor(private formBuilder: FormBuilder,private router:Router,private TrainingHttp: TrainingService,private http:HttpClient /*,private notfService:ToastrService*/) { }
+  constructor(private formBuilder: FormBuilder,private router:Router,private TrainingHttp: TrainingService,private http:HttpClient/*private toast: NgToastService *//*,private notfService:ToastrService*/) { }
 
     public notif(message):void
     {
@@ -41,6 +42,7 @@ newTraining=new TrainingModel()
     }).catch((error:HttpErrorResponse)=>{
       console.log(error)
     })
+    // this.toast.success({detail:"SUCCESS",summary:'Your Success Message'});
     }
   options = {
     headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)

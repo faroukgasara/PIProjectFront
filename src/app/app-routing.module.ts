@@ -19,6 +19,8 @@ import { AddTrainingComponent } from "./back/add-training/add-training.component
 import { TrainingsbackComponent } from "./back/trainingsback/trainingsback.component";
 import { DetailtrainingComponent } from "./pages/detailtraining/detailtraining.component";
 import { UpdatetrainingComponent } from "./back/updatetraining/updatetraining.component";
+import { RecherchevocaleComponent } from "./pages/recherchevocale/recherchevocale.component";
+import { ChatTrainingComponent } from "./chat-training/chat-training.component";
 
 
 
@@ -33,7 +35,8 @@ const routes: Routes = [
   { path: "gestionformation", component: TrainingsbackComponent },
   { path: "trainings/:idFormation", component: DetailtrainingComponent },
   { path: "updatetrainings/:email/:idFormation", component: UpdatetrainingComponent },
-  
+  { path: "rechercheVocale", component: RecherchevocaleComponent },
+  { path: "callTraining", component: ChatTrainingComponent },
 
   { path: "profile/:email", component: ProfilepageComponent},  
   { path: "profile", component: ProfilepageComponent,
