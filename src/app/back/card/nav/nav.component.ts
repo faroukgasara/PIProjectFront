@@ -18,8 +18,8 @@ export class NavComponent {
       shareReplay()
     );
 
-    menuItems = ['dashboard','userManagement', 'reporting', 'blacklist', 'fakeaccounts'];
-    menuItem = ['dashboard','user Management', 'reporting', 'blacklist', 'fake accounts'];
+    menuItems = ['dashboard','userManagement', 'reporting', 'blacklist', 'fakeaccounts','complaint','advertising'];
+    menuItem = ['dashboard','user Management', 'reporting', 'blacklist', 'fake accounts','complaint','advertising'];
   constructor(private breakpointObserver: BreakpointObserver,private router:Router) {}
 
   logout(){

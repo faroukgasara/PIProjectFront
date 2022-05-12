@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
@@ -78,6 +78,9 @@ import { environment } from '../environments/environment';
 import { UpdateprofileComponent } from "./back/updateprofile/updateprofile.component";
 import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
 import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
+import { ComplaintComponent } from './back/complaint/complaint.component';
+import { ReplyComplaintComponent } from './back/reply-complaint/reply-complaint.component';
+import { AdvertisingComponent } from './back/advertising/advertising.component';
 
 
 @NgModule({
@@ -109,6 +112,9 @@ import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
     UpdateprofileComponent,
     FakeaccountsComponent,
     ChatbotComponent,
+    ComplaintComponent,
+    ReplyComplaintComponent,
+    AdvertisingComponent,
 
   ],
   imports: [
@@ -153,6 +159,7 @@ import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
   ],
   providers: [
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] ,
+  schemas:[CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

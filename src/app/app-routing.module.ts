@@ -24,6 +24,8 @@ import { NotfoundComponent } from "./pages/notfound/notfound.component";
 import { ReportinManagmentComponent } from "./back/card/reportin-managment/reportin-managment.component";
 import { BlackkistManagmentComponent } from "./back/blackkist-managment/blackkist-managment.component";
 import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
+import { ComplaintComponent } from "./back/complaint/complaint.component";
+import { AdvertisingComponent } from "./back/advertising/advertising.component";
 
 
 
@@ -56,6 +58,12 @@ const routes: Routes = [
 
 
   { path: "blacklist", component: BlackkistManagmentComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
+  { path: "complaint", component: ComplaintComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
+  { path: "advertising", component: AdvertisingComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
 
   { path: "forgetpassword", component: ForgetpasswordComponent ,canActivate:[IsSignedInGuard]},

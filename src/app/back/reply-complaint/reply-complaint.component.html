@@ -1,0 +1,84 @@
+<div style="margin: 10px;" class=" content">
+    <div class=" row">
+      <div class=" col-md-4">
+        <div class=" card">
+          <div class=" card-header"><h5 class=" title">Reply Complaint</h5></div>
+          <div class=" card-body">
+            <form class="form" [formGroup]="form" (submit)="submit()">
+              <div class=" row">
+              </div>
+              <div class=" row">
+                <div class=" col-md-12">
+                  <div class=" form-group">
+                    <label> Address </label>
+                    <input
+                      formControlName="message"
+                      class=" form-control"
+                      placeholder="Home Address"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class=" row">
+                
+                </div>
+                
+              
+              <div class=" row">
+                <div class=" col-md-8">
+               
+                  <div class=" card-footer">
+                    <button class=" btn btn-fill btn-danger" type="submit">Save</button>
+                    
+                  </div>
+                </div>
+                
+              </div>
+              
+            </form>
+          </div>
+          <button (click)="hide()" class=" btn btn-fill btn-danger" >Close</button>
+        </div>
+      </div>
+      <div class=" col-md-8">
+        <div class=" card card-user">
+          <div class=" card-body">
+            <p class=" card-text"></p>
+            <div class=" author">
+              <div class=" block block-one"></div>
+              <div class=" block block-two"></div>
+              <div class=" block block-three"></div>
+              <div class=" block block-four"></div>
+              <table style="margin-top: 4%;" class="table">
+                <thead>
+                    <tr>
+                        <th (click)="Sort('id')">id&nbsp;<i class="fa fa-sort"></i></th>
+                        <th (click)="Sort('type')">type&nbsp;<i class="fa fa-sort"></i></th>
+                        <th (click)="Sort('description')">description&nbsp;<i class="fa fa-sort"></i></th>
+                        <th (click)="Sort('dateReclamation')">dateReclamation&nbsp;<i class="fa fa-sort"></i></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor ="let complaint of  complaints | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p};">
+                        
+                        <td>{{complaint.id}}</td>
+                        <td>{{complaint.type}}</td>
+                        <td>{{complaint.description}}</td>
+                        <td >{{complaint.dateReclamation}}</td>
+                      
+                    </tr>
+                </tbody>
+                    <pagination-controls  style="position: absolute;padding-left: 20%;"
+                    (pageChange) ="p = $event"
+                    >
+                    </pagination-controls>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

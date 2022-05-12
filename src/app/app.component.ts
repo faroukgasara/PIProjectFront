@@ -3,7 +3,8 @@ import {
   OnInit,
   Renderer2,
   HostListener,
-  Inject
+  Inject,
+  ViewEncapsulation
 } from "@angular/core";
 import { Location } from "@angular/common";
 import { DOCUMENT } from "@angular/common";
