@@ -85,6 +85,9 @@ updateTraining(training:any){
   getClasseByDesc(){
     return this.http.get<TrainingModel[]>(this.trainingsUrl+"/Training/getTrainingDesc",this.options);
   } 
+  getPdfTraining(){
+    return this.http.get(this.trainingsUrl+"/pdf/training/export/pdf");
+  }
  
 
 }

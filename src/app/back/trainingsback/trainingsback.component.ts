@@ -245,5 +245,12 @@ export class TrainingsbackComponent implements OnInit {
     );
   }
 
+  getPdf1() {
+
+    //console.log("test");
+    
+    this.TrainingHttp.getPdfTraining().subscribe(
+    );
+  }
 
 }

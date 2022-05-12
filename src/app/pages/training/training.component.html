@@ -1,117 +1,79 @@
 <div class="wrapper">
   <div class="page-header">
-          <div class="content">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<h1>les formations disponibles</h1>
-
-<div>
-  <form class="form-inline my-2 my-lg-0">
-      <input (keyup.enter)="addsearch(key.value)" matInput style="margin: auto;" type="search" (ngModelChange)="SearchTraining(key.value)" #key="ngModel" ngModel 
-       name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search trainings by title" required >
-       <button
-       type="button"
-       class="btn btn-outline-warning"
-       (click)="startVoiceRecognition()"
-     >
-       <i class="fa fa-microphone" aria-hidden="true"></i>
-     </button>
-    </form>
-    
-</div>
-
-<div class="row">
-  <div class="col-10">
-<div class="row mt-5" >
+    <div class="content">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-  <div *ngFor="let t of trainings">
-    
-   
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img src="{{t.affiche}}" width="300" height="300" class="card-img-top" alt="...">
-        
-        
-        <div class="card-body">
+      <h1>les formations disponibles</h1>
+
+      <div>
+        <form class="form-inline my-2 my-lg-0">
+          <input (keyup.enter)="addsearch(key.value)" matInput style="margin: auto;" type="search"
+            (ngModelChange)="SearchTraining(key.value)" #key="ngModel" ngModel name="key" id="searchName"
+            class="form-control mr-sm-2" placeholder="Search trainings by title" required>
+          <button type="button" class="btn btn-outline-warning" (click)="startVoiceRecognition()">
+            <i class="fa fa-microphone" aria-hidden="true"></i>
+          </button>
+        </form>
+
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="row mt-5">
+
+
+            <div *ngFor="let t of trainings">
+
+
+              <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src="{{t.affiche}}" width="300" height="300" class="card-img-top" alt="...">
+
+
+                  <div class="card-body">
+                    <h5 class="card-title">{{t.title}}</h5>
+                    <p class="card-text">{{t.description}}</p>
+
+
+                    <button type="button" class="btn btn-primary btn-icon btn-round mr-1"
+                      (click)="jaimetraining(Training)"><i class="tim-icons icon-heart-2"></i></button>
+                    <a (click)="detailTrainings(t.idFormation)" class="btn btn-primary">See more !</a>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+          
+          
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <!--Sidebar Recommend-->
+        <div *ngFor="let t of trainings1">
           <h5 class="card-title">{{t.title}}</h5>
           <p class="card-text">{{t.description}}</p>
-
-          
-          <button type="button" class="btn btn-primary btn-icon btn-round mr-1" (click)="jaimetraining(Training)"><i class="tim-icons icon-heart-2"></i></button>
-          <a (click)="detailTrainings(t.idFormation)" class="btn btn-primary">See more !</a> 
-          
-           <!-- <a routerLink="{{t.idFormation}}" class="btn btn-primary">See more !</a>  -->
-          <!-- <td class="td-actions">
-            <button (click)="deleteTraining(t.idFormation)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
-                <i class="tim-icons icon-simple-remove"></i>
-            </button>
-          </td> -->
         </div>
+
       </div>
-    </div>
-  </div>
-</div>
-</div>
-  <!--Sidebar Recommend-->
-  <div *ngFor="let t of trainings1" >
-    <h5 class="card-title">{{t.title}}</h5>
-    <p class="card-text">{{t.description}}</p>
-  </div>
-  
-  
- 
-  
 
-</div>
-  </div>
-  </div>
-  <!-- boutton
-  <li _ngcontent-ucu-c66="" ng-reflect-ng-class="nav-item," class="nav-item ng-star-inserted active">
-    <a _ngcontent-ucu-c66="" href="javascript:void(0);" role="tab" class="nav-link active" aria-controls="" aria-selected="true" id="">
-      <span _ngcontent-ucu-c66="" ng-reflect-ng-transclude="[object Object]">
-     </span><i class="tim-icons icon-bag-16 ng-star-inserted"></i> show more trainings  <!--container--><!--bindings={}--> <!--</a>
-    <!--</li> -->
 
-<!--pagination-->
     
-    <!-- <div class="col-md-6">
-      <pagination
-        class="pagination-danger"
-        [boundaryLinks]="true"
-        [totalItems]="45"
-        [ngModel]="pagination"
-        previousText="&lsaquo;"
-        nextText="&rsaquo;"
-        firstText="&laquo;"
-        lastText="&raquo;"
-      > </pagination><br />
-    </div> -->
-     
-  <!-- <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>     -->
-<app-detailtraining [trainings]="trainings" (trainingEvent)="afficher($event)"></app-detailtraining>
 
-      
-<carousel [showIndicators]="false">
-  <slide>
-    <img
-      alt="First slide"
-      class="d-block w-80"
-      src="assets/img/denys.jpg"
-    />
-  </slide>
-  <slide>
-    <img
-      alt="Second slide"
-      class="d-block w-80"
-      src="assets/img/fabien-bazanegue.jpg"
-    />
-  </slide>
-  <slide>
-    <img
-       alt="Third slide"
-      class="d-block w-90"
-      src="assets/img/mark-finn.jpg"
-    />
-  </slide>
-</carousel>
+
+
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>     -->
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

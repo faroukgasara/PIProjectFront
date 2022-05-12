@@ -14,6 +14,7 @@
 
 
   <div><button  class="btn btn-primary btn-round pull-right" (click) ="exportHtmlToPDF()" >export to pdf</button></div>
+  <div><button  class="btn btn-primary btn-round pull-right" (click) ="getPdf1()" >  pdf</button></div>
   <div class="card-body"></div>
   <div class="table-responsive">
     <div id="htmltable" #htmltable>
@@ -24,13 +25,13 @@
 <table class="table">
     <thead>
         <tr>
-            <th (click)="Sort('title')" style="color:grey">Title&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('description')"style="color:grey">Description&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('dateDebut')"style="color:grey">DateDebut&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('dateFin')"style="color:grey">DateFin&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('nbrMaxApprenant')"style="color:grey">nbrMaxApprenant&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="Sort('affiche')"style="color:grey">affiche&nbsp;<i class="fa fa-sort"></i></th>
-            <th class="text-left">Actions</th>
+            <th (click)="Sort('title')" style="color:black">Title&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('description')"style="color:black">Description&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateDebut')"style="color:black">DateDebut&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('dateFin')"style="color:black">DateFin&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('nbrMaxApprenant')"style="color:black">nbr&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="Sort('affiche')"style="color:black">affiche&nbsp;<i class="fa fa-sort"></i></th>
+            <th class="text-left"style="color:black">Actions</th>
         </tr>
     </thead>
  
@@ -39,16 +40,16 @@
        
         <tr *ngFor ="let t of trainings | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};"style="color:grey">
             
-            <td bgcolor="pink">{{t.title}}</td>
+            <td >{{t.title}}</td>
           
             
-            <td bgcolor="pink">{{t.description}}</td>
-            <td bgcolor="pink" >{{t.dateDebut}}</td>
-            <td bgcolor="pink">{{t.dateDebut}}</td>
-            <td bgcolor="pink">{{t.dateFin}}</td>
-            <td bgcolor="pink">{{t.nbrMaxApprenant}}</td>
+            <td >{{t.description}}</td>
+            <td >{{t.dateDebut}}</td>
+            
+            <td >{{t.dateFin}}</td>
+            <td >{{t.nbrMaxApprenant}}</td>
             <td>
-            <img src="{{t.affiche}}"   width="300" height="300"></td>
+            <img src="{{t.affiche}}"   width="200" height="200"></td>
             <td class="td-actions">
              
               <button  (click)="updatetrainings(t.idFormation)" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm">
