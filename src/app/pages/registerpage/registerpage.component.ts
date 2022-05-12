@@ -23,11 +23,16 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   public error:boolean = false ;
   public loading:boolean = false ;
   public companyName:boolean = false ;
-  public associationName:boolean = true ;
+  public associationName:boolean = false ;
+  captcha:string;
 
 
   constructor(private formBuilder: FormBuilder,private http:HttpClient,private router:Router) { }
 
+
+  resolved(catptchaResponse : string){
+    this.captcha=catptchaResponse;
+  }
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");
@@ -99,7 +104,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
       lastName:new FormControl('',Validators.required),
       password:['', [Validators.required]],
       email:new FormControl('',[Validators.email,Validators.required]),
-      appUserRole:'',
+      appUserRole:['', [Validators.required]],
       adress:new FormControl('',Validators.required),
       confirmpassword:['', [Validators.required]],
       associationName:new FormControl('',Validators.required),

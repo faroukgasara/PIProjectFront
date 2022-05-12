@@ -6,9 +6,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
-
-
-
+import {NgxPrintModule} from 'ngx-print';
+import { BrowserModule } from "@angular/platform-browser";
 
 
 
@@ -38,7 +37,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -56,7 +54,6 @@ import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
 
-
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -65,25 +62,28 @@ import { UserManagementComponent } from './back/card/user-management/user-manage
 
 
 import { TrainingComponent } from './pages/training/training.component';
-import { EventscomponentComponent } from './eventscomponent/eventscomponent.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from './pages/forgetpassword/resetpassword/resetpassword.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-users-by-year/count-total-users-by-year.component';
+import { ReportinManagmentComponent } from './back/card/reportin-managment/reportin-managment.component';
+import { BlackkistManagmentComponent } from './back/blackkist-managment/blackkist-managment.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddToblacklistComponent } from './back/blackkist-managment/add-toblacklist/add-toblacklist.component';
 
-
-import { OfferComponent } from "./pages/offer/offer.component";
-import { QuizComponent } from './pages/quiz/quiz.component';
-import { QuestionComponent } from './pages/question/question.component';
-import { CandidaturComponent } from './pages/candidatur/candidatur.component';
-
-import { PublicationComponent } from "./publication/publication.component";
-import {EditorModule} from '@tinymce/tinymce-angular';
-import { AddPublicationComponent } from "./add-publication/add-publication.component";
-
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import { environment } from '../environments/environment';
+import { UpdateprofileComponent } from "./back/updateprofile/updateprofile.component";
+import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
+import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
+import { NotificationuserComponent } from './back/card/nav/notificationuser/notificationuser.component';
+import { NotificationuserfrontComponent } from "./pages/publicnavbar/notificationuserfront/notificationuserfront.component";
+import { PredictionEmotionComponent } from './back/card/user-management/prediction-emotion/prediction-emotion.component';
+import { CoronaHomeComponent } from './pages/corona/corona-home/corona-home.component';
+import { CoronaCountriesComponent } from './pages/corona/corona-countries/corona-countries.component';
+import { CoronaDashboardComponent } from './pages/corona/corona-dashboard/corona-dashboard.component';
 
 
 @NgModule({
@@ -91,51 +91,44 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     AppComponent,
     FooterComponent,
     PublicnavbarComponent,
-    AddPublicationComponent,
-
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
     LandingpageComponent,
     LoginpageComponent,
     TodoComponent,
-
     NavComponent,
     DashComponent,
     CardComponent,
     ChartComponent,
     UsersTableComponent,
     MiniCardComponent,
-
     UserManagementComponent,
     TrainingComponent,
-
     ForgetpasswordComponent,
     ResetpasswordComponent,
     NotfoundComponent,
     CountTotalUsersByYearComponent,
+    ReportinManagmentComponent,
+    BlackkistManagmentComponent,
+    AddToblacklistComponent,
+    UpdateprofileComponent,
+    FakeaccountsComponent,
+    ChatbotComponent,
+    NotificationuserComponent,
+    NotificationuserfrontComponent,
+    PredictionEmotionComponent,
+    CoronaHomeComponent,
+    CoronaCountriesComponent,
+    CoronaDashboardComponent,
 
-
-    EventscomponentComponent,
-
-    OfferComponent,
-    QuizComponent,
-    QuestionComponent,
-    CandidaturComponent,
-    
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-
-    PublicationComponent,
-
-    BrowserAnimationsModule,
-
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
@@ -147,7 +140,7 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
-    BrowserModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -167,14 +160,12 @@ import { AddPublicationComponent } from "./add-publication/add-publication.compo
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
-    NgbModule,
+    MatDialogModule,
+    RecaptchaFormsModule,
+    RecaptchaModule,
+    NgxPrintModule,
   ],
   providers: [
-   
-
-    EditorModule,FormsModule
-
-
   ],
   bootstrap: [AppComponent]
 })

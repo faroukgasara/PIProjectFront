@@ -1,0 +1,15 @@
+<button (click)="hide()" class="btn btn-primary btn-fab btn-icon btn-round">
+<mat-icon>close</mat-icon>
+</button>
+<div class="container">
+  
+    <div class="wrapper">
+      <ul *ngFor="let item of notification;" class="sessions">
+        <li>
+          <div class="time">{{item.createdAt}}</div>
+          <p>{{item.description}}</p>
+        </li>
+        <mat-divider></mat-divider>
+      </ul>
+    </div>
+  </div> 

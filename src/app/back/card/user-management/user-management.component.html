@@ -1,22 +1,48 @@
-<h1> Users</h1>
+<div style="margin-top: -10%;margin-left:2%;margin-right:2%;" class="wrapper">
+    <div class="page-header">
+            <div class="content">
 
-<div class="form-group col-md-6" >
-                      
-    <label>FirstName</label>
-    <input
-      class="form-control"
-      type="text"
-      placeholder="Enter First Name"
-      name="firstName"
-      [(ngModel)] = "firstName" 
-      (ngModelChange)="Search()"
-      
-    />
+<h1> Users List</h1>
+
+<div  style="position: absolute;right: 20px;margin-top: 2%;">
+    <button printTitle="Users List" printSectionId="print-me" ngxPrint  class="btn btn-primary btn-round" >
+        <i class="tim-icons icon-cloud-download-93"></i> Print PDF
+    </button>
+</div>
+<br><br><br><br>
+
+<div class="card-body">
+                
+    <form style="margin-top: 2%;" class="form">
+        <h4 style="position: absolute;"> Search : </h4><br><br>
+        <div 
+        class="input-group col-md-3"
+        [ngClass]="{ 'input-group-focus': focus1 === true }"
+        >
+        
+            <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="tim-icons icon-email-85"> </i>
+            </div>
+            </div>
+            
+            <input
+            class="form-control"
+            placeholder="Enter FirstName "
+            type="text"
+            (focus)="focus1 = true"
+            (blur)="focus1 = false"
+            name="firstName"
+            [(ngModel)] = "firstName" 
+            (ngModelChange)="Search()"
+            />
+        </div>
+    </form>
 </div>
 
 
 
-<table class="table">
+<table id="print-me" style="margin-top: 4%;" class="table">
     <thead>
         <tr>
             <th (click)="Sort('email')">Email&nbsp;<i class="fa fa-sort"></i></th>
@@ -24,7 +50,7 @@
             <th (click)="Sort('lastName')">LastName&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="Sort('enabled')">Enabled&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="Sort('locked')">Locked&nbsp;<i class="fa fa-sort"></i></th>
-            <th class="text-left">Actions</th>
+            <th >Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -36,10 +62,10 @@
             <td >{{user.enabled}}</td>
             <td >{{user.locked}}</td>
             <td class="td-actions">
-              <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
-                  <i class="tim-icons icon-single-02"></i>
-              </button>
-              <button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
+                <button (click)="Prediction(user.email)" style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+                    <i class="tim-icons icon-single-02"></i>
+                </button>
+              <button (click)="onCreate(user)"  style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon">
                   <i class="tim-icons icon-settings-gear-63"></i>
               </button>
               <button (click)="deleteUser(user.email)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
@@ -53,3 +79,6 @@
         >
         </pagination-controls>
 </table>
+            </div>
+    </div>
+</div>

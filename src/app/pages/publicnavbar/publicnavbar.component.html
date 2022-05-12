@@ -1,3 +1,4 @@
+
 <nav
   class="navbar navbar-expand-lg fixed-top navbar-transparent"
   color-on-scroll="100"
@@ -6,6 +7,7 @@
 >
 
   <div class="container">
+
     <a
     class="navbar-brand"
     placement="bottom"
@@ -24,6 +26,9 @@
 >
   <span> WE• </span> commm
 </a>
+
+
+    
 
     <div class="navbar-translate">
       <a
@@ -49,6 +54,7 @@
         <span class="navbar-toggler-bar bar3"> </span>
       </button>
     </div>
+
     <div
       class="navbar-collapse justify-content-end"
       [collapse]="isCollapsed"
@@ -140,6 +146,19 @@
          
           </div>
         </li>
+
+
+        <alert
+          [hidden]="alertnot || Login"
+          class="alert-with-icon"
+          [type]="'success alert-with-icon'"
+          [dismissible]="true"
+        >
+          <span class="tim-icons icon-bell-55" data-notify="icon"> </span>
+          <span>
+            <b> You Have a New Notification You Can Check it if you Want! - </b> 
+          </span>
+        </alert>
         
         <div  [hidden]="!Logout" >
           <button [disabled]="isDisabled"
@@ -151,9 +170,16 @@
           </button>
         </div>
 
-        <button [hidden]="!Logout" class="btn btn-primary btn-fab btn-icon btn-round">
+        <button (click)="notif()" [hidden]="!Logout" class="btn btn-primary btn-fab btn-icon btn-round">
+          <span [hidden]="nb" class="badge">1</span>
         <mat-icon>notification_important</mat-icon>
         </button>
+
+
+
+        <button (click)="onCreate()" [hidden]="!Logout" class="btn btn-primary btn-fab btn-icon btn-round">
+          <mat-icon>chat</mat-icon>
+          </button>
 
         <li class="nav-item" [hidden]="!Logout">
           <a

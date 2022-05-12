@@ -15,11 +15,15 @@ export class ForgetpasswordComponent implements OnInit,OnDestroy {
   focus;
   focus1;
   focus2;
+  captcha:string;
   public loading:boolean = false ;
   public error:boolean = false ;
   form!: FormGroup;
   constructor(private UserHttp: UserService,private formBuilder: FormBuilder,private http:HttpClient,private router:Router) { }
 
+  resolved(catptchaResponse : string){
+    this.captcha=catptchaResponse;
+  }
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");

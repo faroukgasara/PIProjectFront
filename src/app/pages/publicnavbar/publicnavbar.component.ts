@@ -1,7 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SubscribeService } from 'src/app/services/subscribe.service';
+import { UserService } from 'src/app/services/user.service';
+import { ChatbotComponent } from '../index/chatbot/chatbot.component';
+import { NotificationuserfrontComponent } from './notificationuserfront/notificationuserfront.component';
 
 @Component({
   selector: "app-publicnavbar",
@@ -14,18 +18,26 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
   public Login:boolean  ;
   public Logout:boolean  ;
   public Registration:boolean ;
+  public nb:boolean=false;
+  notification:any ; 
+  public alertnot:boolean=false
   user = JSON.parse(localStorage.getItem('user'));
   token = localStorage.getItem('token');
-  constructor(private router:Router,private SubscribeHttp: SubscribeService) { }
+  constructor(private UserHttp: UserService,private dialog :MatDialog ,private router:Router,private SubscribeHttp: SubscribeService) { }
 
   ngOnInit() {
+    
+
+
+
+    
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("publicnavbar");
 
     if(this.token==null || this.user.appUserRole==null){
       this.Login = true;
       this.Registration = true;
-      this.Logout=false
+      this.Logout=false;
     }else{
       this.Login = false;
       this.Registration = false;
@@ -39,6 +51,17 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
     }else{
       this.isDisabled = false;
     }
+
+    this.UserHttp.getNotif().subscribe(
+  		(data) => { this.notification=data;
+      
+        for (let index = 0; index < Object.keys(data).length ; index++) {
+          if(Object.values(data)[index].readAt==null){
+            this.alertnot=false
+          }
+        }
+      }
+  	);
   }
 
   ngOnDestroy() {
@@ -64,6 +87,29 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']).then(()=>{
       location.reload() ;
     })
+  }
+
+  onCreate() {
+    
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "40%";
+    dialogConfig.height="70%";
+    this.dialog.open(ChatbotComponent,dialogConfig);
+  }
+
+
+  notif(){
+    this.nb=true;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "30%";
+    dialogConfig.height="50%";
+    dialogConfig.position = { right: '22%',top: '5%'};
+    this.dialog.open(NotificationuserfrontComponent,dialogConfig);
+
   }
 
 }

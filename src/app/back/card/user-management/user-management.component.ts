@@ -1,8 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from 'src/app/model/user.model';
 import { UserService } from 'src/app/services/user.service';
-
+import { UpdateprofileComponent } from '../../updateprofile/updateprofile.component';
+import { PredictionEmotionComponent } from './prediction-emotion/prediction-emotion.component';
+import {NgxPrintModule} from 'ngx-print';
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
@@ -10,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserManagementComponent implements OnInit {
 
-  constructor(private UserHttp: UserService) { }
+  constructor(private dialog :MatDialog ,private UserHttp: UserService) { }
   users: UserModel[]=[];
   firstName:any;
   p:number = 1 ;
@@ -50,7 +53,26 @@ export class UserManagementComponent implements OnInit {
   Sort(key){
     this.key = key
     this.reverse = !this.reverse;
+  }
 
+
+  Prediction(us) {
+    localStorage.setItem('prediction', JSON.stringify(us));
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "40%";
+    this.dialog.open(PredictionEmotionComponent,dialogConfig);
+  }
+
+
+  onCreate(us) {
+    localStorage.setItem('update', JSON.stringify(us));
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "80%";
+    this.dialog.open(UpdateprofileComponent,dialogConfig);
   }
 
 }

@@ -33,11 +33,23 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/resetpassword.component";
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
+import { ReportinManagmentComponent } from "./back/card/reportin-managment/reportin-managment.component";
+import { BlackkistManagmentComponent } from "./back/blackkist-managment/blackkist-managment.component";
+import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
+import { CoronaCountriesComponent } from "./pages/corona/corona-countries/corona-countries.component";
+import { CoronaHomeComponent } from "./pages/corona/corona-home/corona-home.component";
 
 
 
 
 const routes: Routes = [
+
+
+
+
+  { path: "coronahome", component: CoronaHomeComponent },
+  { path: "countries", component: CoronaCountriesComponent },
+
 
 
   { path: "home", component: IndexComponent },
@@ -73,6 +85,17 @@ const routes: Routes = [
   { path: "userManagement", component: UserManagementComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
 
+
+  { path: "reporting", component: ReportinManagmentComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
+  { path: "fakeaccounts", component: FakeaccountsComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
+
+  { path: "blacklist", component: BlackkistManagmentComponent ,
+  canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
   { path: "forgetpassword", component: ForgetpasswordComponent ,canActivate:[IsSignedInGuard]},
   { path: "resetpassword/:email/:token", component: ResetpasswordComponent ,canActivate:[IsSignedInGuard]},
 
@@ -82,6 +105,8 @@ const routes: Routes = [
   { path: "events", component: EventscomponentComponent,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
   },
+  
+
   
 
 

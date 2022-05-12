@@ -14,6 +14,7 @@ export class DashComponent implements OnInit{
 
   TotalUsers:number;
   InactifUsers=0;
+  ActifUsers=0;
   users: UserModel[]=[];
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -66,6 +67,8 @@ export class DashComponent implements OnInit{
         for (let i of this.users) {
           if(i.enabled==false || i.locked==true){
             this.InactifUsers = this.InactifUsers+1;
+          }else{
+            this.ActifUsers = this.ActifUsers+1;
           }
         }
       }
