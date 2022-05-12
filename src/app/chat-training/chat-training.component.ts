@@ -8,6 +8,7 @@ declare var apiRTC: any;
   templateUrl: './chat-training.component.html',
   styleUrls: ['./chat-training.component.scss']
 })
+// besoin d'une conversation pour la liaison afin d'obtenir le nom de la conversation de l'utilisateur :
 export class ChatTrainingComponent implements OnInit {
 
   title = 'ApiRTC-angular';
