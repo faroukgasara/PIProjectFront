@@ -116,7 +116,7 @@ export class LoginpageComponent implements OnInit , OnDestroy{
       withCreadentials:true
     };
     this.loading= true;
-    this.http.post('http://localhost:8089/WomenEmpowerment/login',body.toString(), options)
+    this.http.post('http://localhost:8080/WomenEmpowerment/login',body.toString(), options)
     .pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{
@@ -145,7 +145,7 @@ export class LoginpageComponent implements OnInit , OnDestroy{
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
 
-    this.http.get("http://localhost:8089/WomenEmpowerment/user/findByEmail/"+email, options)
+    this.http.get("http://localhost:8080/WomenEmpowerment/user/findByEmail/"+email, options)
     .pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{

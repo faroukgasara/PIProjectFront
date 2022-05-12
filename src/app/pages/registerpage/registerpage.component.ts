@@ -165,7 +165,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
 
   submit() : void{
     this.loading= true;
-    this.http.post('http://localhost:8089/WomenEmpowerment/registration',this.form.getRawValue())
+    this.http.post('http://localhost:8080/WomenEmpowerment/registration',this.form.getRawValue())
     .pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{
@@ -175,6 +175,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     }).catch((error:HttpErrorResponse)=>{
       this.error = true;
       this.loading=false;
+      console.log(error);
     })
   }
 }

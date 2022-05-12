@@ -8,7 +8,7 @@ import { TrainingModel } from '../model/training';
 })
 export class TrainingService {
     token = localStorage.getItem('token');
-	trainingsUrl:string = 'http://localhost:8089/WomenEmpowerment';
+	trainingsUrl:string = 'http://localhost:8080/WomenEmpowerment';
 
   constructor(private http:HttpClient) { }
 

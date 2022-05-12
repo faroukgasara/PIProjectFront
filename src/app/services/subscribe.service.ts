@@ -9,7 +9,7 @@ import { UserModel } from '../model/user.model';
 export class SubscribeService {
     user = JSON.parse(localStorage.getItem('user'));
     token = localStorage.getItem('token');
-    subUrl:string = 'http://localhost:8089/WomenEmpowerment';
+    subUrl:string = 'http://localhost:8080/WomenEmpowerment';
 
   constructor(private http:HttpClient) { }
 

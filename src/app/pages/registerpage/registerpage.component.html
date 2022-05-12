@@ -375,7 +375,7 @@
                     <re-captcha (resolved)="resolved($event)" siteKey="6Le1pLYfAAAAAIhKAhdL0RSzzIdQKinI0RNBrRH3"></re-captcha>
                   </div>
                   
-                  <button  [disabled]="!checkbox1 || !captcha" class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
+                  <button  [disabled]="!checkbox1" class="w-100 btn btn-lg btn-primary"  type="submit">Register</button>
                   
                   <alert [hidden]="!error" [type]="'danger'">
                     Something went wrong! please try again

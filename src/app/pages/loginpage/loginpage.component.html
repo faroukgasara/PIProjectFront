@@ -129,14 +129,14 @@
                     </div>
   
                     <div [hidden]="!loading" class="center">
+                      <span style="color: #fe5d93;" class="visually-hidden">Loading...<br></span>
+                    </div>
+  
+                    <div [hidden]="!loading" class="center">
                       <div class="lds-dual-ring"></div>
                     </div>
-
-                    <div [hidden]="captcha">
-                      <re-captcha (resolved)="resolved($event)" siteKey="6Le1pLYfAAAAAIhKAhdL0RSzzIdQKinI0RNBrRH3"></re-captcha>
-                    </div>
                     
-                    <button  [disabled]="!form.valid || !captcha" class="w-100 btn btn-lg btn-primary"  type="submit">Login</button>
+                    <button [disabled]="!form.valid" class="w-100 btn btn-lg btn-primary"  type="submit">Login</button>
                     <alert [hidden]="!error" [type]="'danger'">
                       Something went wrong! please try again
                     </alert>

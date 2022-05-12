@@ -10,6 +10,9 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 
 
+import { NgxPaginationModule } from "ngx-pagination";
+import { Ng2OrderModule } from "ng2-order-pipe";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { ProgressbarModule } from "ngx-bootstrap/progressbar";
@@ -54,9 +57,6 @@ import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
 
-import { NgxPaginationModule } from "ngx-pagination";
-import { Ng2OrderModule } from "ng2-order-pipe";
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { UserManagementComponent } from './back/card/user-management/user-management.component';
 
@@ -73,7 +73,7 @@ import { BlackkistManagmentComponent } from './back/blackkist-managment/blackkis
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddToblacklistComponent } from './back/blackkist-managment/add-toblacklist/add-toblacklist.component';
 
-import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+//import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
 import { environment } from '../environments/environment';
 import { UpdateprofileComponent } from "./back/updateprofile/updateprofile.component";
 import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
@@ -145,12 +145,11 @@ import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
     MatPaginatorModule,
     MatSortModule,
     MatBadgeModule,
-    Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
     MatDialogModule,
-    RecaptchaFormsModule,
-    RecaptchaModule,
+    //RecaptchaFormsModule,
+    //RecaptchaModule,
   ],
   providers: [
   ],
