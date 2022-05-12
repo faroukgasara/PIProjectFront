@@ -30,6 +30,7 @@ import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/res
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
 import { AddofferComponent } from "./back/card/addoffer/addoffer.component";
 import { JobofferfrontComponent } from "./pages/jobofferfront/jobofferfront.component";
+import { StatComponent } from "./back/card/stat/stat.component";
 
 
 
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: "Candidatur", component: CandidaturComponent},
   { path: "Addoffer", component: AddofferComponent},
   { path: "Jobofferfront", component: JobofferfrontComponent},
+  { path: "Stat", component: StatComponent},
 
    
   
@@ -98,3 +100,4 @@ const routes: Routes = [
   exports: []
 })
 export class AppRoutingModule {}
+

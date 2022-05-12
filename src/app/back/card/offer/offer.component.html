@@ -1,21 +1,30 @@
 <!--************affichage BackOffice***************-->
 <div class="wrapper">
+   
   <div class="page-header">
-          <div class="content">
-
+   
+          <div class="content"> 
+            <h1 class=" text-center" > Offers List &nbsp;</h1>
+            <br>
+                <div class="text-left">
+                    <button mat-button color="accent"type="submit"class="btn btn-sm btn-success"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="ADD ye marwa" style="width: 15rem; float: right;" 
+                            [routerLink]="['/Addoffer']">Add Offer </button>
+                </div>
+            
 <table class="table">
+   
   <thead>
+
+    <br><br>
       <tr>
-          <th (click)="Sort('Title')">Title&nbsp;<i class="fa fa-sort"></i></th>
-          <th (click)="Sort('domain')">Domain&nbsp;<i class="fa fa-sort"></i></th>
-          <th (click)="Sort('place')">Place&nbsp;<i class="fa fa-sort"></i></th>
-          <th (click)="Sort('description')">description&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="Sort('Title')">Title&nbsp;</th> <!--<i class="fa fa-sort"></i>-->
+          <th (click)="Sort('domain')">Domain&nbsp;</th>
+          <th (click)="Sort('place')">Place&nbsp;</th>
+          <th (click)="Sort('description')">description&nbsp;</th>
           
           <th class="text-left">Actions</th>
-          <th class="text-left">
-          <button mat-button color="accent"type="submit"class="btn btn-sm btn-success"
-                  [routerLink]="['/Addoffer']">Add Offer </button>
-          </th>
+        
 
       </tr>
   </thead>
@@ -53,6 +62,26 @@
       </pagination-controls>
 </table>
           </div>
+
   </div>
+
 </div>
+
+
+<div class="card center text-center mb-3"   style="width: auto;" >
+    <div class="card-body" >
+
+  <h2> Most asked Job : </h2>
+  <h2>
+  <div *ngFor="let st of stat1" data-bs-toggle="tooltip"
+   data-bs-placement="top" title="Most Asked Job" class=" text-center" >
+      {{st}}
+    </div></h2> 
+</div>  
+</div> 
+
+
+
+
+ 
 <!--************MODAL***********-->

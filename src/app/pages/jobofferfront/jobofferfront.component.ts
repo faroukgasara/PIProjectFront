@@ -3,7 +3,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { OfferModel } from 'src/app/model/offer.model';
 import { JobofferfrontService } from 'src/app/services/Jobofferfront.service';
 import { OfferService } from 'src/app/services/offer.service';
-
+import Swal from 'sweetalert2';
+ 
 @Component({
   selector: 'app-jobofferfront',
   templateUrl: './jobofferfront.component.html',
@@ -13,6 +14,8 @@ export class JobofferfrontComponent implements OnInit {
   @ViewChild("UploadFile", {static: false}) UploadFile: ElementRef;files  = [];  
     fileName:string;
     offers: OfferModel[];
+    sugg: any=[];
+    title: OfferModel[];
 
   //file:any;
   barWidth:string="0%";
@@ -24,6 +27,7 @@ export class JobofferfrontComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.suggestedOffer();
     this.OfferHttp.getOffers().subscribe(
   		(data:OfferModel[]) => {this.offers = data;console.log(this.offers)}
         //;console.log(this.offers);console.log("hi")}
@@ -86,20 +90,47 @@ JobApplication(idOffer: number){
   }).catch((error:HttpErrorResponse)=>{
     console.log(error)
   });
+  Swal.fire('Congrats!', ' You Applyed successfully', 'success')
 }
 
-suggestedOffer( idUser: number){
+suggestedOffer(){
 
-  this.jobofferfrontService.suggestedOffer(idUser).subscribe(
-    (data:OfferModel[])=>{this.offers=data;console.log(this.offers)
+  this.jobofferfrontService.suggestedOffer().subscribe(
+    (data)=>{this.sugg=data;console.log(this.sugg)
     
 
     }
   );
 }
+//******************recherche  */
+FindOfferByTitle(Title: string) {
+ this.OfferHttp.getOffers().subscribe(
+   (data:OfferModel[]) => {this.offers = data;console.log(this.title)});
+
+}
+
+//********************filter  */
+
+search($event) {
+  const { value } = $event.target;
+  if (!value) {
+    //this.getOffers();
+    return;
+  }
+  this.offers= this.offers?.filter(function (item) {
+    if (item.Title.includes(value) || item.description.includes(value))
+      return item;
+  });
+}
 
 
-  //******************************* */
+  successAlertNotification(){
+    Swal.fire('Hi', 'Congrats! operation successfull', 'success')
+  }
+
+
+
+
 
 /*
   getFile(event:any){

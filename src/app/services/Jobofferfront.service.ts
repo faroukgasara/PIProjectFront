@@ -10,6 +10,7 @@ import { UserModel } from '../model/user.model';
 })
 export class JobofferfrontService {
     token = localStorage.getItem('token');
+    userr = localStorage.getItem('user');
 	userUrl:string = 'http://localhost:8089/WomenEmpowerment';
 
     newOffer = new OfferModel()
@@ -38,10 +39,15 @@ export class JobofferfrontService {
     return this.httpClient.post(this.offerUrl+'/Offer/apply/'+idOffer+'/'+email,null,this.options);
 }
 
-suggestedOffer( idUser: number){
+suggestedOffer(){
 
-  return this.httpClient.get<OfferModel[]>(this. offerUrl+'/Offer/suggestedOffer/'+idUser,this.options);
+  return this.httpClient.get<OfferModel[]>(this. offerUrl+'/Offer/suggestedOffer/'+ JSON.parse(localStorage.getItem('user')).id,this.options);
 
+}
+
+FindOfferByTitle(Title: string) { //:Observable<OfferModel[]>
+  
+  return this.httpClient.get<any>(this.offerUrl+"/Offer/FindOfferByTitle/"+ Title,this.options);
 }
 
 }

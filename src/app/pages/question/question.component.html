@@ -2,12 +2,13 @@
     <div class="card">
 
     <div class="d-flex justify-content-between p-3">
-    <div class="image">
+    <!--div class="image">
     <img src="https://img.icons8.com/color/96/eeeeee/angularjs.png" width="90" alt="logo">
-    </div>
+    </div-->
     <div class="quiz-header">
     <h4 style="font-family: cursive;">Angular & TypeScript Quizl</h4>
-    <span style="font-style: italic;">Welcome {{name}}</span>
+    <h4>
+    <span style="font-style: italic;">Welcome {{name}}</span></h4>
     </div>
     </div>
 
@@ -47,7 +48,7 @@
 
 <div class="d-flex justify-content-between">
 <button [disabled]="currentquestion ===0" class="btn" (click)=" previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i></button>
-<button (click)="resetQuiz()" class="btn"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button >
+<button (click)="resetQuiz()" class="btn"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button>
 <button class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
 </div>
 

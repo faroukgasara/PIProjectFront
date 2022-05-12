@@ -83,6 +83,7 @@ import { AddofferComponent } from './back/card/addoffer/addoffer.component';
 import { JobofferfrontComponent } from './pages/jobofferfront/jobofferfront.component';
 import { OfferComponent } from "./back/card/offer/offer.component";
 import { UpdateofferComponent } from "./back/card/offer/updateoffer/updateoffer.component";
+import { StatComponent } from './back/card/stat/stat.component';
 
 
 @NgModule({
@@ -122,7 +123,7 @@ import { UpdateofferComponent } from "./back/card/offer/updateoffer/updateoffer.
     AddofferComponent,
     JobofferfrontComponent,
     UpdateofferComponent,
-    
+    StatComponent,
   ],
   imports: [
     BrowserAnimationsModule,

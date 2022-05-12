@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { OfferModel } from '../model/offer.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,9 @@ export class OfferService {
   	return this.http.put(this.offerUrl+"/Offer/update-offer",offer,this.options);
   }
   
+  stats() {
+    return this.http.get(this.offerUrl+'/Offer/statistic',this.options); //apiUrl
+  }
 
   /*postFile(fileToUpload: File): Observable<boolean> {
     const endpoint = 'your-destination-url';
