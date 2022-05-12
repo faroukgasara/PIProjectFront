@@ -75,6 +75,8 @@ import { EventFrontComponent } from './event-front/event-front.component';
 import { CagnottecomponentComponent } from './back/card/cagnottecomponent/cagnottecomponent.component';
 import { AffectercagreseventComponent } from "./eventscomponent/affectercagresevent/affectercagresevent.component";
 import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateeventComponent } from './eventscomponent/updateevent/updateevent.component';
+import { ReservationComponent } from "./eventscomponent/reservation/reservation.component";
 
 @NgModule({
   declarations: [
@@ -112,6 +114,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 
     AffectercagreseventComponent,
+
+
+    UpdateeventComponent,
+
+
+    ReservationComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -151,7 +159,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     Ng2OrderModule,
     NgxPaginationModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    BsDatepickerModule,
+    
+   
   ],
   providers: [
    

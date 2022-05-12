@@ -30,6 +30,10 @@ export class CqgnotteService {
   addCagnotte(cagnotte: CagnotteModel){
     return this.http.post(this.eventUrl+'/cagnotte/addcagnotte',cagnotte,this.options);
   }
+
+  addRes(cagnotte: any){
+    return this.http.post(this.eventUrl+'/reservation/addreservation',cagnotte,this.options);
+  }
   deleteCagnotte(cag: CagnotteModel | number):Observable<EventsModel>{
       const id = typeof cag === 'number' ? cag : cag.id;
       return this.http.delete<EventsModel>(this.eventUrl+'/cagnotte/deleteCagnotte/'+id,this.options);

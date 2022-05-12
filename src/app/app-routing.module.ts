@@ -25,12 +25,15 @@ import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/res
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
 import { EventFrontComponent } from "./event-front/event-front.component";
 import { CagnottecomponentComponent } from "./back/card/cagnottecomponent/cagnottecomponent.component";
+import { ReservationComponent } from "./eventscomponent/reservation/reservation.component";
 
 
 
 
 const routes: Routes = [
 
+  
+  { path: "reservation", component: ReservationComponent },
   { path: "home", component: IndexComponent },
 
   { path: "profile/:email", component: ProfilepageComponent},
@@ -76,6 +79,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {

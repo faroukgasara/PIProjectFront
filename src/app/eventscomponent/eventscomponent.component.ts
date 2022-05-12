@@ -9,6 +9,9 @@ import { map } from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AffectercagreseventComponent } from './affectercagresevent/affectercagresevent.component';
+import { UpdateeventComponent } from './updateevent/updateevent.component';
+
+
 
 @Component({
   selector: 'app-eventscomponent',
@@ -23,10 +26,16 @@ export class EventscomponentComponent implements OnInit {
   events: EventsModel[];
   eventss: EventsModel;
   titre:any;
-  p:number = 1 ;
+  p:number = 1 ;  
+  minDate:any = "";
+
+ 
+  
   constructor(private dialog :MatDialog ,private EventsHttp: EventService, private breakpointObserver: BreakpointObserver, private eventHttp: EventService, private datePipe: DatePipe, private formBuilder:FormBuilder) {}
 
     ngOnInit(): void {
+      
+      this.getDate();
       this.getEvents();
       this.form=this.formBuilder.group({
 
@@ -36,14 +45,33 @@ export class EventscomponentComponent implements OnInit {
         lieux: ['',Validators.required],
         affiche: ['',Validators.required],
         description: ['',Validators.required],
-        typeEvenement: ['',Validators.required]
-
-        
+        typeEvenement: ['',Validators.required],
 
       });
 
    }
 
+   getDate(){
+    var date:any = new Date();
+    var toDate:any = date.getDate();
+    if(toDate < 10)
+    [
+      toDate = 0 + toDate
+    ]
+    var month = date.getMonth() + 1;
+    if(month < 10){
+      month = '0' + month;
+    } 
+    var year = date.getFullYear();
+    this.minDate = year + "-" + month + "-" + toDate
+  }
+
+  openModal(event:any): void {
+    const dialogRef = this.dialog.open(UpdateeventComponent, {
+      width: '80%',
+      data: {event},
+    });
+  }
 
    getEvents(){
     this.EventsHttp.getallevents().subscribe(

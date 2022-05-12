@@ -32,6 +32,10 @@ export class EventService {
     return this.http.post(this.eventUrl+"/event/addeventonly",event,this.options);
   }
 
+  update(event:any){
+    return this.http.put(this.eventUrl+"/event/updatevent",event,this.options);
+  }
+
 
   effectuerevent(idevent: any,idres: number,idcag: number){
   	return this.http.post(this.eventUrl+'/event/effectuerevent/'+idevent+'/'+idres+'/'+idcag,null,this.options);
