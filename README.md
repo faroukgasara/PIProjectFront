@@ -86,12 +86,12 @@ Blk• Design System Angular
 ├── package.json
 ├── src
 │   ├── app
-│   │   ├── app-routing.module.ts
+│   │   ├── app-routing.
 │   │   ├── app.component.html
 │   │   ├── app.component.scss
 │   │   ├── app.component.spec.ts
 │   │   ├── app.component.ts
-│   │   ├── app.module.ts
+│   │   ├── app.
 │   │   └── pages
 │   │       ├── examples
 │   │       │   ├── landingpage
@@ -106,7 +106,7 @@ Blk• Design System Angular
 │   │       ├── index
 │   │       │   ├── index.component.html
 │   │       │   └── index.component.ts
-│   │       └── pages.module.ts
+│   │       └── pages.
 │   ├── assets
 │   │   ├── css
 │   │   │   └── nucleo-icons.css

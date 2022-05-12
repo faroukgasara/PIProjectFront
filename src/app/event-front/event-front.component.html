@@ -1,0 +1,68 @@
+
+<div class="section">
+    <div class="container">
+      <div class="title"><h3>Events</h3></div>
+      <div class="row justify-content-between align-items-center">
+        
+        <div class="col-lg-6">
+          <carousel [showIndicators]="false">
+
+            <slide *ngFor ="let eventt of Events">
+                
+                <img 
+                alt="First slide"
+                class="d-block w-100"
+                src="{{eventt.affiche}}"
+              />
+              
+
+              <div class="card">
+                <div class="card-header">
+                  <h1>{{eventt.titre}}  : <i class='fas fa-location-arrow' style='font-size:15px'></i> {{eventt.lieux}} </h1>
+                  <h2>{{eventt.dateEvenement | date : 'yyyy.MM.dd' }} </h2>
+                  <tabset class="nav-tabs-danger">
+                    <tab>
+                      <ng-template tabHeading>
+                       Join Event
+                      </ng-template>
+                      <p>
+                        {{eventt.description}}<br />
+       
+                        <br />
+                      <h3>This event is : {{eventt.typeEvenement}}</h3>
+                      <button class="button-1" role="button" style="margin: 5px" type="submit">Join Us</button>
+                    </tab>
+                    <tab>
+                      <ng-template tabHeading>
+                         Donate
+                      </ng-template>
+                     
+                      <p>
+                        
+                        <br>
+                        
+
+                       
+                        <td> <input formControlName="" style="margin: 20px" class="form-control" type="number" placeholder="Ex: 1000 TND"> </td> 
+
+                        <br />
+  
+                        <button class="button-1" role="button" style="margin: 10px" type="submit">Donate</button>
+                        <button class="button-1" role="button" style="margin: 10px" > Annuler </button>
+                      </p>
+                    </tab>
+                    
+                  </tabset>
+                </div>
+              </div>
+
+
+            </slide>
+
+            
+          </carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+  

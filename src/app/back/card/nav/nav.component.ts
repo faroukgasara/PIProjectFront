@@ -25,9 +25,13 @@ export class NavComponent implements OnInit{
     );
 
 
-    menuItems = ['dashboard','userManagement', 'reporting', 'blacklist', 'fakeaccounts'];
-    menuItem = ['dashboard','user Management', 'reporting', 'blacklist', 'fake accounts'];
+
+    
   constructor(private dialog :MatDialog ,private breakpointObserver: BreakpointObserver,private router:Router) {}
+
+
+    menuItems = ['dashboard','userManagement', 'orders', 'customers', 'products', 'events', 'cagnotte','reservation','reporting', 'blacklist', 'fakeaccounts'];
+    menuItem = ['dashboard','user Management', 'orders', 'customers', 'products', 'events', 'cagnotte','reservation', 'reporting', 'blacklist', 'fakeaccounts'];
 
 
   logout(){

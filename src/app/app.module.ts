@@ -68,9 +68,10 @@ import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.c
 import { ResetpasswordComponent } from './pages/forgetpassword/resetpassword/resetpassword.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-users-by-year/count-total-users-by-year.component';
+
 import { ReportinManagmentComponent } from './back/card/reportin-managment/reportin-managment.component';
 import { BlackkistManagmentComponent } from './back/blackkist-managment/blackkist-managment.component';
-import {MatDialogModule} from '@angular/material/dialog';
+
 import { AddToblacklistComponent } from './back/blackkist-managment/add-toblacklist/add-toblacklist.component';
 
 import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
@@ -84,6 +85,14 @@ import { PredictionEmotionComponent } from './back/card/user-management/predicti
 import { CoronaHomeComponent } from './pages/corona/corona-home/corona-home.component';
 import { CoronaCountriesComponent } from './pages/corona/corona-countries/corona-countries.component';
 import { CoronaDashboardComponent } from './pages/corona/corona-dashboard/corona-dashboard.component';
+
+import { EventFrontComponent } from './event-front/event-front.component';
+import { CagnottecomponentComponent } from './back/card/cagnottecomponent/cagnottecomponent.component';
+import { AffectercagreseventComponent } from "./eventscomponent/affectercagresevent/affectercagresevent.component";
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateeventComponent } from './eventscomponent/updateevent/updateevent.component';
+import { ReservationComponent } from "./eventscomponent/reservation/reservation.component";
+import { EventscomponentComponent } from "./eventscomponent/eventscomponent.component";
 
 
 @NgModule({
@@ -121,6 +130,22 @@ import { CoronaDashboardComponent } from './pages/corona/corona-dashboard/corona
     CoronaHomeComponent,
     CoronaCountriesComponent,
     CoronaDashboardComponent,
+    EventscomponentComponent,
+
+
+    EventFrontComponent,
+
+
+    CagnottecomponentComponent,
+
+
+    AffectercagreseventComponent,
+
+
+    UpdateeventComponent,
+
+
+    ReservationComponent,
 
   ],
   imports: [
@@ -160,10 +185,16 @@ import { CoronaDashboardComponent } from './pages/corona/corona-dashboard/corona
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
+
     MatDialogModule,
     RecaptchaFormsModule,
     RecaptchaModule,
     NgxPrintModule,
+    NgbModule,
+    MatDialogModule,
+    BsDatepickerModule,
+    
+
   ],
   providers: [
   ],

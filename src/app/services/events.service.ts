@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EventsModel } from '../model/events';
 
 @Injectable({
   providedIn: 'root'
+  
 })
 export class EventService {
     token = localStorage.getItem('token');
-	userUrl:string = 'http://localhost:8089/WomenEmpowerment';
+	eventUrl:string = 'http://localhost:8089/WomenEmpowerment';
 
   constructor(private http:HttpClient) { }
 
@@ -17,18 +18,27 @@ export class EventService {
   };
 
   getallevents(){
-  	return this.http.get<EventsModel[]>(this.userUrl+"/event/getallevents",this.options);
+  	return this.http.get<EventsModel[]>(this.eventUrl+"/event/getallevents",this.options);
   }
 
   deleteEvent(event: EventsModel | number):Observable<EventsModel>{
     const id = typeof event === 'number' ? event : event.id;
-    return this.http.delete<EventsModel>(this.userUrl+'/event/deleteEvent/'+id,this.options);
+    return this.http.delete<EventsModel>(this.eventUrl+'/event/deleteEvent/'+id,this.options);
 }
 
-  addReport(reported: string,reportedby: string,reason: string){
-  	return this.http.post(this.userUrl+'/reporting/addReport/'+reported+'/'+reportedby+'/'+reason,null,this.options);
+
+
+  addEvent(event:EventsModel){
+    return this.http.post(this.eventUrl+"/event/addeventonly",event,this.options);
+  }
+
+  update(event:any){
+    return this.http.put(this.eventUrl+"/event/updatevent",event,this.options);
   }
 
 
+  effectuerevent(idevent: any,idres: number,idcag: number){
+  	return this.http.post(this.eventUrl+'/event/effectuerevent/'+idevent+'/'+idres+'/'+idcag,null,this.options);
+  }
 
 }

@@ -1,11 +1,16 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import noUiSlider from "nouislider";
+import { EventsModel } from "src/app/model/events";
+import { EventService } from "src/app/services/events.service";
 
 @Component({
   selector: "app-index",
   templateUrl: "index.component.html"
 })
 export class IndexComponent implements OnInit, OnDestroy {
+  
+  Events:EventsModel[]=[];
+
   isCollapsed = true;
   focus;
   focus1;
@@ -13,7 +18,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   date = new Date();
   pagination = 3;
   pagination1 = 1;
-  constructor() {}
+  constructor(private  EventsHttp:EventService) {}
   scrollToDownload(element: any) {
     element.scrollIntoView({ behavior: "smooth" });
   }
@@ -32,6 +37,8 @@ export class IndexComponent implements OnInit, OnDestroy {
       }
     });
 
+this.getEvents();
+
     var slider2 = document.getElementById("sliderDouble");
 
     noUiSlider.create(slider2, {
@@ -43,8 +50,18 @@ export class IndexComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  public getEvents(){
+    this.EventsHttp.getallevents().subscribe((data:EventsModel[]) => {
+      this.Events = data;
+    })
+  }
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
   }
+
+  
+
+
 }

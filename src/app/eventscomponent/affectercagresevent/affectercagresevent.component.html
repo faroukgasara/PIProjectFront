@@ -1,0 +1,35 @@
+<div class="form-group col-md-6">
+   <form [formGroup]="form" (submit)="affecter()">
+    <table class="table">
+    <thead>
+       
+    </thead>
+    <tbody>
+         <tr>   
+            <th> <select formControlName="res">
+               <option *ngFor="let title of res" 
+               [value]="title.id" 
+               >
+               {{title.lieuxReservation}} 
+               </option>
+               </select>
+            </th>
+         </tr>
+         <tr>   
+            <th> <select formControlName="cag">
+               <option *ngFor="let title of cag" 
+               [value]="title.id" 
+               >
+               {{title.dateDebut}}  {{title.dateFin}}
+               </option>
+               </select>
+            </th>
+         </tr>
+     
+    </tbody>
+  </table>
+
+  <button class="button-1" role="button" style="margin: 10px" type="submit"> Ajouter </button>
+</form>
+</div>
+

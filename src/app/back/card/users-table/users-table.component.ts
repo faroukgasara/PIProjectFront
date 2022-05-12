@@ -1,6 +1,3 @@
-
-
-
 import { HttpErrorResponse } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import { UserModel } from 'src/app/model/user.model';

@@ -30,14 +30,20 @@ import { TrainingComponent } from "./pages/training/training.component";
 import { EventscomponentComponent } from "./eventscomponent/eventscomponent.component";
 
 
+
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/resetpassword.component";
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
+
 import { ReportinManagmentComponent } from "./back/card/reportin-managment/reportin-managment.component";
 import { BlackkistManagmentComponent } from "./back/blackkist-managment/blackkist-managment.component";
 import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
 import { CoronaCountriesComponent } from "./pages/corona/corona-countries/corona-countries.component";
 import { CoronaHomeComponent } from "./pages/corona/corona-home/corona-home.component";
+
+import { EventFrontComponent } from "./event-front/event-front.component";
+import { CagnottecomponentComponent } from "./back/card/cagnottecomponent/cagnottecomponent.component";
+import { ReservationComponent } from "./eventscomponent/reservation/reservation.component";
 
 
 
@@ -47,11 +53,15 @@ const routes: Routes = [
 
 
 
+
   { path: "coronahome", component: CoronaHomeComponent },
   { path: "countries", component: CoronaCountriesComponent },
 
 
 
+
+  
+  { path: "reservation", component: ReservationComponent },
   { path: "home", component: IndexComponent },
 
   { path: "profile/:email", component: ProfilepageComponent},
@@ -71,8 +81,7 @@ const routes: Routes = [
 
   
   {path : "add-publication", component : AddPublicationComponent},
-  {path : "commentaire", component : CommentaireComponent}
-  ,
+  {path : "commentaire", component : CommentaireComponent} ,
 
 
 
@@ -105,7 +114,9 @@ const routes: Routes = [
   { path: "events", component: EventscomponentComponent,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
   },
-  
+  { path: "Eventfront", component: EventFrontComponent },
+  { path: "cagnotte", component: CagnottecomponentComponent },
+
 
   
 
@@ -131,7 +142,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [FormsModule, ReactiveFormsModule ,
+
+  
+
+  imports: [
+    
+    FormsModule,
+    ReactiveFormsModule ,
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
