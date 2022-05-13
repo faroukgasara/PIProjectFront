@@ -26,13 +26,17 @@ export class NavComponent implements OnInit{
 
 
 
+
     
   constructor(private dialog :MatDialog ,private breakpointObserver: BreakpointObserver,private router:Router) {}
 
 
-    menuItems = ['dashboard','userManagement', 'orders', 'customers', 'products', 'events', 'cagnotte','reservation','reporting', 'blacklist', 'fakeaccounts'];
-    menuItem = ['dashboard','user Management', 'orders', 'customers', 'products', 'events', 'cagnotte','reservation', 'reporting', 'blacklist', 'fakeaccounts'];
+    menuItems = ['dashboard','userManagement', 'orders', 'customers', 'products', 'events', 'cagnotte','reservation','reporting', 'blacklist', 'fakeaccounts','gestionformation'];
+    menuItem = ['dashboard','user Management', 'orders', 'customers', 'products', 'events', 'cagnotte','reservation', 'reporting', 'blacklist', 'fakeaccounts','Trainings'];
 
+
+   
+  
 
   logout(){
     localStorage.clear();

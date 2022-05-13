@@ -6,9 +6,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
-import {NgxPrintModule} from 'ngx-print';
-import { BrowserModule } from "@angular/platform-browser";
 
+import {NgxPrintModule} from 'ngx-print';
+
+
+import { BrowserModule } from "@angular/platform-browser";
 
 
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
@@ -53,7 +55,6 @@ import { UsersTableComponent } from "./back/card/users-table/users-table.compone
 import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
-
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -62,6 +63,16 @@ import { UserManagementComponent } from './back/card/user-management/user-manage
 
 
 import { TrainingComponent } from './pages/training/training.component';
+import { AddTrainingComponent } from './back/add-training/add-training.component';
+import { TrainingsbackComponent } from './back/trainingsback/trainingsback.component';
+import { DetailtrainingComponent } from './pages/detailtraining/detailtraining.component';
+import { UpdatetrainingComponent } from './back/updatetraining/updatetraining.component';
+import { RecherchevocaleComponent } from './pages/recherchevocale/recherchevocale.component';
+import { ChatTrainingComponent } from './chat-training/chat-training.component';
+
+//import { NgToastModule } from 'ng-angular-popup'
+
+
 
 
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
@@ -114,6 +125,7 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
     MiniCardComponent,
     UserManagementComponent,
     TrainingComponent,
+
     ForgetpasswordComponent,
     ResetpasswordComponent,
     NotfoundComponent,
@@ -146,6 +158,15 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
 
 
     ReservationComponent,
+
+
+    AddTrainingComponent,
+    TrainingsbackComponent,
+    DetailtrainingComponent,
+    UpdatetrainingComponent,
+    RecherchevocaleComponent,
+    ChatTrainingComponent,
+   
 
   ],
   imports: [
@@ -184,6 +205,7 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
     MatBadgeModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
+
     NgxPaginationModule,
 
     MatDialogModule,
@@ -192,7 +214,16 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
     NgxPrintModule,
     
     MatDialogModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+
+    NgxPaginationModule, 
+    FormsModule,
+    BrowserModule,
+    FormsModule, ReactiveFormsModule,
+    BrowserAnimationsModule, MatFormFieldModule, MatInputModule
+   //NgToastModule 
+
+
     
   ],
   providers: [

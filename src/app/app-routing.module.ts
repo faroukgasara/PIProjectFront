@@ -27,6 +27,7 @@ import { CandidaturComponent } from "./pages/candidatur/candidatur.component";
 import { UserManagementComponent } from "./back/card/user-management/user-management.component";
 
 import { TrainingComponent } from "./pages/training/training.component";
+
 import { EventscomponentComponent } from "./eventscomponent/eventscomponent.component";
 
 
@@ -44,6 +45,14 @@ import { CoronaHomeComponent } from "./pages/corona/corona-home/corona-home.comp
 import { EventFrontComponent } from "./event-front/event-front.component";
 import { CagnottecomponentComponent } from "./back/card/cagnottecomponent/cagnottecomponent.component";
 import { ReservationComponent } from "./eventscomponent/reservation/reservation.component";
+
+import { AddTrainingComponent } from "./back/add-training/add-training.component";
+import { TrainingsbackComponent } from "./back/trainingsback/trainingsback.component";
+import { DetailtrainingComponent } from "./pages/detailtraining/detailtraining.component";
+import { UpdatetrainingComponent } from "./back/updatetraining/updatetraining.component";
+import { RecherchevocaleComponent } from "./pages/recherchevocale/recherchevocale.component";
+import { ChatTrainingComponent } from "./chat-training/chat-training.component";
+
 
 
 
@@ -63,14 +72,23 @@ const routes: Routes = [
   
   { path: "reservation", component: ReservationComponent },
   { path: "home", component: IndexComponent },
+  { path: "trainings", component: TrainingComponent  },
+  { path: "addtrainings/:email", component: AddTrainingComponent ,
+   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}},
+
 
   { path: "profile/:email", component: ProfilepageComponent},
 
-  { path: "trainings", component: TrainingComponent },
-  { path: "profile", component: ProfilepageComponent,
+  { path: "gestionformation", component: TrainingsbackComponent },
+  { path: "trainings/:idFormation", component: DetailtrainingComponent },
+  { path: "updatetrainings/:email/:idFormation", component: UpdatetrainingComponent },
+  { path: "rechercheVocale", component: RecherchevocaleComponent },
+  { path: "callTraining", component: ChatTrainingComponent },
 
-    canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']}
-  },
+
+  { path: "profile/:email", component: ProfilepageComponent},  
+  { path: "profile", component: ProfilepageComponent,
+   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']} },
   { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
 
 
@@ -110,6 +128,7 @@ const routes: Routes = [
 
 
   { path: "userManagement", component: UserManagementComponent },
+
   
   { path: "events", component: EventscomponentComponent,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
@@ -137,8 +156,9 @@ const routes: Routes = [
   {path: '404', component: NotfoundComponent},
   {path: '**', redirectTo: '/404'}
 
-  
 
+  
+ 
 ];
 
 @NgModule({
