@@ -93,6 +93,7 @@ import { RoomlistComponent } from './chat-msg/roomlist/roomlist.component';
 import { AddroomComponent } from './chat-msg/addroom/addroom.component';
 import { DatePipe } from "@angular/common";
 
+
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -169,12 +170,14 @@ import { YoutubeComponent } from './youtube/youtube.component';
    
     FormsModule,
     EditorModule,
-    MatDialogModule,
+    MatDialogModuleule,
     
     
     
 
     BrowserAnimationsModule,
+
+    
     Ng2SearchPipeModule,
 
     HttpClientModule,

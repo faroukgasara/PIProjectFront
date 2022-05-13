@@ -116,7 +116,7 @@ submit(id :number) : void{
     this.loading=false;
     this.error = false;
 
-    window.location.reload();
+      window.location.reload();
   }).catch((error:HttpErrorResponse)=>{
     this.error = true;
     this.loading=false;
