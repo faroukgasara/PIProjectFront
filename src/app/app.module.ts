@@ -81,6 +81,7 @@ import { ChatbotComponent } from "./pages/index/chatbot/chatbot.component";
 import { ComplaintComponent } from './back/complaint/complaint.component';
 import { ReplyComplaintComponent } from './back/reply-complaint/reply-complaint.component';
 import { AdvertisingComponent } from './back/advertising/advertising.component';
+import { TargetedgroupsComponent } from './targetedgroups/targetedgroups.component';
 
 
 @NgModule({
@@ -115,6 +116,7 @@ import { AdvertisingComponent } from './back/advertising/advertising.component';
     ComplaintComponent,
     ReplyComplaintComponent,
     AdvertisingComponent,
+    TargetedgroupsComponent,
 
   ],
   imports: [

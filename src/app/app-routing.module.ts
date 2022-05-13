@@ -26,6 +26,7 @@ import { BlackkistManagmentComponent } from "./back/blackkist-managment/blackkis
 import { FakeaccountsComponent } from "./back/fakeaccounts/fakeaccounts.component";
 import { ComplaintComponent } from "./back/complaint/complaint.component";
 import { AdvertisingComponent } from "./back/advertising/advertising.component";
+//import { AdvertisingComponent } from "./back/advertising/advertising.component";
 
 
 

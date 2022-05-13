@@ -1,3 +1,5 @@
+import { Targetedgroups } from "./targetedgroups";
+
 export class Advertising {
     id:number;
     nom:string;
@@ -7,6 +9,7 @@ export class Advertising {
     nbrVuesCible:number;
     nbrVuesFinal:number;
     type:any;
+    populationCible:Targetedgroups[];
 
 }
 
