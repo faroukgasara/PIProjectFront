@@ -19,7 +19,7 @@ export class TrainingService {
     affiche: '',
     formateur:'',
     idFormation:1,
-    // like:1,
+    //  likes:0,
 
   };
     token = localStorage.getItem('token');

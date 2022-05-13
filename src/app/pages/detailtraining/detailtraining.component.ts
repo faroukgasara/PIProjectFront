@@ -20,6 +20,7 @@ export class DetailtrainingComponent implements OnInit {
     this.training=new TrainingModel();
     this.trainservice.getTrainingById(this.idFormation).subscribe(data=>{
     this.training=data;
+    this.training.affiche = '../../assets/img/'+this.training.affiche.substring(12,this.training.affiche.length);
     });
   }
 

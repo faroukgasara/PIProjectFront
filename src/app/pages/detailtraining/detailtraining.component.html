@@ -1,42 +1,30 @@
 <div class="wrapper">
     <div class="page-header">
-            <div class="content">
-                <tr>
-                <h3>our trainings </h3>
+        <div class="content">
+            <tr>
+                <h1>{{training.title}} </h1>
 
-<h1>{{idFormation}}</h1>
-<!-- <qrcode [qrdata]="'http://localhost:4200/#/trainings'" [size]="256" [level]="'M'"></qrcode> -->
+                <div>
+                    <div>
+                        <label>
+                            <b>
+                                <!-- {{training.affiche}} -->
+                                <img src="{{training.affiche}}" width="300" height="300">
+                            </b>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <b>
+                                {{training.description}}
+                            </b>
+                        </label>
+                    </div>
 
 
+                </div>
+            </tr>
 
-<div>
-    <div>
-        <label>
-            <b>
-               {{training.affiche}}
-            </b>
-        </label>
+        </div>
     </div>
-    <div>
-        <label>
-            <b>
-                {{training.title}}
-            </b>
-        </label>
-    </div>
-    <div>
-        <label>
-            <b>
-               {{training.description}}
-            </b>
-        </label>
-    </div>
-
-   
 </div>
-                </tr>
-
-</div>
-</div>
-</div>
-
