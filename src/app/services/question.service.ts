@@ -11,15 +11,6 @@ export class QuestionService {
 	questionUrl:string = 'http://localhost:8089/WomenEmpowerment';
 
   constructor(private http:HttpClient) { }
-      
-  getQuestioJson(){
-    return this.http.get<any>("assets/questions.json");
-  }
-
-
-
-
-
 
    options = {
     headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)

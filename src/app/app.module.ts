@@ -7,15 +7,10 @@ import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 
-
 import {NgxPrintModule} from 'ngx-print';
 
 
 import { BrowserModule } from "@angular/platform-browser";
-
-
-
-
 
 
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
@@ -60,8 +55,6 @@ import { UsersTableComponent } from "./back/card/users-table/users-table.compone
 import { DashComponent } from "./back/card/dash/dash.component";
 import { NavComponent } from "./back/card/nav/nav.component";
 
-
-
 import { NgxPaginationModule } from "ngx-pagination";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -90,7 +83,6 @@ import { CountTotalUsersByYearComponent } from './back/card/chart/count-total-us
 import { ReportinManagmentComponent } from './back/card/reportin-managment/reportin-managment.component';
 import { BlackkistManagmentComponent } from './back/blackkist-managment/blackkist-managment.component';
 
-
 import { AddToblacklistComponent } from './back/blackkist-managment/add-toblacklist/add-toblacklist.component';
 
 import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
@@ -112,18 +104,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateeventComponent } from './eventscomponent/updateevent/updateevent.component';
 import { ReservationComponent } from "./eventscomponent/reservation/reservation.component";
 import { EventscomponentComponent } from "./eventscomponent/eventscomponent.component";
-
-
-import { QuizComponent } from './pages/quiz/quiz.component';
-import { QuestionComponent } from './pages/question/question.component';
-import { CandidaturComponent } from './pages/candidatur/candidatur.component';
-import { ChangeBgDirective } from './change-bg.directive';
-import { AddofferComponent } from './back/card/addoffer/addoffer.component';
-import { JobofferfrontComponent } from './pages/jobofferfront/jobofferfront.component';
-import { OfferComponent } from "./back/card/offer/offer.component";
-import { UpdateofferComponent } from "./back/card/offer/updateoffer/updateoffer.component";
-import { StatComponent } from './back/card/stat/stat.component';
-
 
 
 @NgModule({
@@ -165,7 +145,6 @@ import { StatComponent } from './back/card/stat/stat.component';
     EventscomponentComponent,
 
 
-
     EventFrontComponent,
 
 
@@ -188,16 +167,6 @@ import { StatComponent } from './back/card/stat/stat.component';
     RecherchevocaleComponent,
     ChatTrainingComponent,
    
-
-    OfferComponent,
-    QuizComponent,
-    QuestionComponent,
-    CandidaturComponent,
-    ChangeBgDirective,
-    AddofferComponent,
-    JobofferfrontComponent,
-    UpdateofferComponent,
-    StatComponent,
 
   ],
   imports: [
@@ -239,7 +208,6 @@ import { StatComponent } from './back/card/stat/stat.component';
 
     NgxPaginationModule,
 
-
     MatDialogModule,
     RecaptchaFormsModule,
     RecaptchaModule,
@@ -258,11 +226,7 @@ import { StatComponent } from './back/card/stat/stat.component';
 
     
   ],
- 
   providers: [
-   
-
-
   ],
   bootstrap: [AppComponent]
 })

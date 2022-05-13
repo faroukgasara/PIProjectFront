@@ -4,6 +4,4 @@ export class OfferModel{
 	Domain:string;
 	Place:string;
 	description:string;
-	cv:string;
-	
 }
