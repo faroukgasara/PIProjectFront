@@ -118,8 +118,7 @@ submit(id :number) : void{
     this.loading=false;
     this.error = false;
 
-location.reload();
-
+    window.location.reload();
   }).catch((error:HttpErrorResponse)=>{
     this.error = true;
     this.loading=false;
@@ -196,5 +195,6 @@ onCreate(us) {
   dialogConfig.minWidth = "80%";
   this.dialog.open(UpdatepublicationComponent,dialogConfig);
 }
+
 
 }

@@ -10,10 +10,7 @@ export class YoutubeService {
   constructor(private http:HttpClient) { }
 
   getChannnels(channelName) : Observable<any>{
-
-    const API_KEY="AIzaSyD-A0t5HmOjOcTzE389Cqo8QNkzIa6k_Xg"
-
-
+    const API_KEY="AIzaSyCvgUx7tjTcAhWsmt0cHbQ1vL4EoavhAvI"
     let options = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
     };

@@ -101,9 +101,7 @@ import { ListCommentComponent } from './list-comment/list-comment.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { UpdatepublicationComponent } from './publication/updatepublication/updatepublication.component';
 import { YoutubeComponent } from './youtube/youtube.component';
-import { SuggestedpubComponent } from "./suggestedpub/suggestedpub.component";
-
-
+import { SuggestedpubComponent } from './suggestedpub/suggestedpub.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,7 +111,6 @@ import { SuggestedpubComponent } from "./suggestedpub/suggestedpub.component";
     PublicationComponent,
     UpdatepublicationComponent,
     YoutubeComponent,
-
 SuggestedpubComponent,
 
     CommentaireComponent,
@@ -164,10 +161,9 @@ SuggestedpubComponent,
     ListCommentComponent,
     UpdatepublicationComponent,
     YoutubeComponent,
-
     SuggestedpubComponent,
 
-
+  
 
     
   ],
@@ -183,8 +179,6 @@ SuggestedpubComponent,
     
 
     BrowserAnimationsModule,
-
-    
     Ng2SearchPipeModule,
 
     HttpClientModule,
