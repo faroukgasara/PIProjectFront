@@ -1,0 +1,23 @@
+.card{
+max-width: 8eepx;
+margin: auto;
+padding: 10px;}
+
+li{
+list-style-type: none;
+cursor: pointer;
+margin: 10px 0;
+}
+
+li .card:hover {
+border: 1px solid blue;
+} 
+.ol{
+ padding: 0;
+ }
+
+ /*.result.text-center.col-md-6.col-sm-12 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }*/

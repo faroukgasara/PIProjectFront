@@ -1,0 +1,94 @@
+
+<br><br>
+<h1  class=" text-center"> JOB OFFERS LIST </h1>
+
+<div class="card" style="width: 60rem;">
+  
+  <div class="card-body" >
+ 
+    <div *ngFor ="let offer of offers | orderBy: key: reverse | paginate: {itemsPerPage:8,currentPage:p};">
+       <h1 class="card-title"> Title : {{offer.title}} &nbsp;</h1>
+        <h3>Domain: {{offer.domain}} &nbsp;</h3>
+        <h3>Place: {{offer.place}} &nbsp;</h3>
+        <h4>Description : {{offer.description}} &nbsp;</h4>
+      
+
+        <!-- BOUTON ***************************************************-->
+      
+       <div class="myStyle">
+        <mat-card class="style-mat-card">   
+         <mat-card-actions>  
+            <button mat-button color="warn" (click)="onClick()">  
+                <mat-icon>file_upload</mat-icon>  
+                Upload  
+            </button>  
+         </mat-card-actions>  
+        </mat-card><input type="file" #UploadFile id="UploadFile" name="UploadFile" multiple="multiple" accept="image/*" style="display:none;" />
+        <span >{{fileName}}</span>
+       </div>
+       <br> 
+     
+       <!--button (click)="successAlertNotification()">Success Popup</button-->
+       <button class="center btn btn-primary "   color="warn" style="width: 20rem;"  (click)="JobApplication(offer.id)" > 
+        APPLY </button>  
+       <!-- BOUTON************************************* mat-button**************float: right;*******-->
+   
+    </div>
+
+  </div>
+</div>
+<br>
+<br><br><br>
+
+<!--*************************suggestedOffer()********************************-->
+
+<h1 class=" text-center"> JOB OFFERS SUGGESTIONS</h1>
+<div class="card" style="width: 60rem;">
+  <div class="card-body" >
+ 
+    <div *ngFor ="let offer of sugg | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};">
+        <h1 class="card-title"> Title : {{offer.title}} &nbsp;</h1>
+        <h3>Domain: {{offer.domain}} &nbsp;</h3>
+        <h3>Place: {{offer.place}} &nbsp;</h3>
+        <h4>Description : {{offer.description}} &nbsp;</h4>
+      
+
+        <!-- BOUTON ***************************************************-->
+      
+       <div class="myStyle">
+        <mat-card class="style-mat-card">   
+         <mat-card-actions>  
+            <button mat-button color="warn" (click)="onClick()">  
+                <mat-icon>file_upload</mat-icon>  
+                Upload  
+            </button>  
+         </mat-card-actions>  
+        </mat-card><input type="file" #UploadFile id="UploadFile" name="UploadFile" multiple="multiple" accept="image/*" style="display:none;" />
+        <span >{{fileName}}</span>
+       </div>
+       <br> 
+     
+       <!--button (click)="successAlertNotification()">Success Popup</button-->
+       <button class="center btn btn-primary"  color="warn" style="width: 20rem;" (click)="JobApplication(offer.id)" > APPLY </button>  
+       <!-- BOUTON**********************************************************-->
+   
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--
+      <input type="file" (change)="getFile($event)" base-sixty-four-input /> 
+      <input type="button"  (click)="onClick()" value="APPLY" base-sixty-four-input/>--> 
+     <!--class="btn btn-primary mr-1" --> 

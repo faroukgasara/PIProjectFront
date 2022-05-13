@@ -2,11 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
-import { PublicationComponent } from "./publication/publication.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AddPublicationComponent } from "./add-publication/add-publication.component";
-import { detailsPublicationComponent} from "./publication/detailsPublication.component";
-import { CommentaireComponent} from "./commentaire/commentaire.component";
 
 import { IndexComponent } from "./pages/index/index.component";
 import { ProfilepageComponent } from "./pages/profilepage/profilepage.component";
@@ -17,7 +12,7 @@ import { HasRoleGuard } from "./has-role.guard";
 import { TodoComponent } from "./pages/todo/todo.component";
 import { IsSignedInGuard } from "./IsSignedInGuard ";
 import { DashComponent } from "./back/card/dash/dash.component";
-import { OfferComponent } from "./pages/offer/offer.component";
+import { OfferComponent } from "./back/card/offer/offer.component";
 import { QuizComponent } from "./pages/quiz/quiz.component";
 import { QuestionComponent } from "./pages/question/question.component";
 import { CandidaturComponent } from "./pages/candidatur/candidatur.component";
@@ -35,6 +30,9 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
 import { ForgetpasswordComponent } from "./pages/forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./pages/forgetpassword/resetpassword/resetpassword.component";
 import { NotfoundComponent } from "./pages/notfound/notfound.component";
+import { AddofferComponent } from "./back/card/addoffer/addoffer.component";
+import { JobofferfrontComponent } from "./pages/jobofferfront/jobofferfront.component";
+import { StatComponent } from "./back/card/stat/stat.component";
 
 import { ReportinManagmentComponent } from "./back/card/reportin-managment/reportin-managment.component";
 import { BlackkistManagmentComponent } from "./back/blackkist-managment/blackkist-managment.component";
@@ -63,6 +61,7 @@ const routes: Routes = [
 
 
 
+
   { path: "coronahome", component: CoronaHomeComponent },
   { path: "countries", component: CoronaCountriesComponent },
 
@@ -71,6 +70,7 @@ const routes: Routes = [
 
   
   { path: "reservation", component: ReservationComponent },
+
   { path: "home", component: IndexComponent },
   { path: "trainings", component: TrainingComponent  },
   { path: "addtrainings/:email", component: AddTrainingComponent ,
@@ -90,6 +90,7 @@ const routes: Routes = [
   { path: "profile", component: ProfilepageComponent,
    canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN','USER']} },
   { path: "register", component: RegisterpageComponent,canActivate:[IsSignedInGuard] },
+
 
 
   
@@ -144,10 +145,11 @@ const routes: Routes = [
   { path: "Quiz", component: QuizComponent },
   { path: "Question", component: QuestionComponent },
   { path: "Candidatur", component: CandidaturComponent},
-   
-   
+  { path: "Addoffer", component: AddofferComponent},
+  { path: "Jobofferfront", component: JobofferfrontComponent},
+  { path: "Stat", component: StatComponent},
 
-
+   
   
   { path: 'dashboard', component: DashComponent ,
   canActivate:[HasRoleGuard],data:{appUserRole:['ADMIN']}
@@ -163,18 +165,23 @@ const routes: Routes = [
 
 @NgModule({
 
+
   
 
-  imports: [
+ 
     
+   
+
+  imports: [
     FormsModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
       useHash: true
     })
   ],
-  exports: [RouterModule]
+  exports: []
 })
 export class AppRoutingModule {}
+

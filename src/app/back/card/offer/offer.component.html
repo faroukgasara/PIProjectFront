@@ -1,0 +1,87 @@
+<!--************affichage BackOffice***************-->
+<div class="wrapper">
+   
+  <div class="page-header">
+   
+          <div class="content"> 
+            <h1 class=" text-center" > Offers List &nbsp;</h1>
+            <br>
+                <div class="text-left">
+                    <button mat-button color="accent"type="submit"class="btn btn-sm btn-success"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="ADD ye marwa" style="width: 15rem; float: right;" 
+                            [routerLink]="['/Addoffer']">Add Offer </button>
+                </div>
+            
+<table class="table">
+   
+  <thead>
+
+    <br><br>
+      <tr>
+          <th (click)="Sort('Title')">Title&nbsp;</th> <!--<i class="fa fa-sort"></i>-->
+          <th (click)="Sort('domain')">Domain&nbsp;</th>
+          <th (click)="Sort('place')">Place&nbsp;</th>
+          <th (click)="Sort('description')">description&nbsp;</th>
+          
+          <th class="text-left">Actions</th>
+        
+
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor ="let offer of offers | orderBy: key: reverse | paginate: {itemsPerPage:7,currentPage:p};">
+          
+          <td>{{offer.title}}</td>
+          <td>{{offer.domain}}</td>
+          <td>{{offer.place}}</td>
+          <td>{{offer.description}}</td>
+          <td class="td-actions">
+            <!--button style="margin-right: 5%;" type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
+                <i class="tim-icons icon-single-02"></i>
+            </button-->
+            
+            
+            
+                <button style="margin-right: 5%;" type="button" (click)="openDialog(offer)"
+                 rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon"
+                 >
+                <i class="tim-icons icon-settings-gear-63"></i>
+                </button>   
+           
+
+
+            <button (click)="deleteOffer(offer.id)" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon">
+                <i class="tim-icons icon-simple-remove"></i>
+            </button>
+          </td>
+      </tr>
+  </tbody>
+      <pagination-controls  style="position: absolute; padding-left: 20%;"
+      (pageChange) ="p = $event"
+      >
+      </pagination-controls>
+</table>
+          </div>
+
+  </div>
+
+</div>
+
+
+<div class="card center text-center mb-3"   style="width: auto;" >
+    <div class="card-body" >
+
+  <h2> Most asked Job : </h2>
+  <h2>
+  <div *ngFor="let st of stat1" data-bs-toggle="tooltip"
+   data-bs-placement="top" title="Most Asked Job" class=" text-center" >
+      {{st}}
+    </div></h2> 
+</div>  
+</div> 
+
+
+
+
+ 
+<!--************MODAL***********-->
