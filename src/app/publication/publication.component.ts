@@ -46,6 +46,7 @@ export class PublicationComponent implements OnInit {
   publications : publication[];
   permaLink: Number;
   userFile: any;
+  channels: publication[];
   constructor(private formBuilder: FormBuilder,private publicationService : publicationService,  private like : RateService ,
              private router :Router,
            private comserv : CommentaireService,private http:HttpClient,private dialog:MatDialog) { 
@@ -55,6 +56,7 @@ export class PublicationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.form = this.formBuilder.group({
       comment:new FormControl('',Validators.required),
       description:new FormControl('',Validators.required),
@@ -64,7 +66,7 @@ export class PublicationComponent implements OnInit {
     });
     this.form2=this.formBuilder.group({
 
-      rate : new FormControl('',Validators.required)
+      rate : new FormControl(Validators.required)
     });
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("add-commentaire");
@@ -80,7 +82,7 @@ export class PublicationComponent implements OnInit {
           console.log(com);
           this.commentaires=com;
         })
-    
+  
   }
  
   
@@ -116,7 +118,8 @@ submit(id :number) : void{
     this.loading=false;
     this.error = false;
 
-      window.location.reload();
+location.reload();
+
   }).catch((error:HttpErrorResponse)=>{
     this.error = true;
     this.loading=false;
@@ -139,11 +142,35 @@ findByPub(id:any):any{
   });
 
 }
+OnRate2(id :number) : void{
+  let user = JSON.parse(localStorage.getItem('user'));
+  let publication = JSON.parse(localStorage.getItem('publication'));
+
+
+  
+  let options = {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+  };
+  this.loading= true;
+   this.http.post("http://localhost:8089/WomenEmpowerment/rating/add/"+id+"/"+`${user.email}`,this.form2.getRawValue(),options)
+  .pipe(map((data)=>data))
+  .toPromise()
+  .then((response)=>{
+    this.loading=false;
+    this.error = false;
+
+    window.location.reload();
+  }).catch((error:HttpErrorResponse)=>{
+    this.error = true;
+    this.loading=false;
+  })
+
+}
 OnRate(id:any){
     
    
     
-  this.like.addRate(id,this.Likes).subscribe({
+  this.like.addRate(id,this.form2.getRawValue().Likes).subscribe({
     next:(data:any)=>{
 console.log("mchet");
 window.location.reload();

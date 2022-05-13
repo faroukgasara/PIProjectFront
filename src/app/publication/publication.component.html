@@ -195,13 +195,33 @@
                 <h1 class="text-primary">
                    Rate IT 
                     </h1>
-                    <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
-                    <p>Rate: {{currentRate}}</p>
+                    <ngb-rating [max]="5" [(rate)]="currentRate" ></ngb-rating>
+                    <form id="example"    class="form" [formGroup]="form2">
+                  
+                    <div class="form-row">
+                        <div class="form-group col-md-6" [hidden]="!isFirstNameShown" [ngClass]="{ 'input-group-focus': focus === true }">
+                          
+                          <input
+
+                            class="form-control"
+                            formControlName="rate"
+                           [value]="currentRate"
+                            placeholder="rate"
+                            
+                            value="{{currentRate}}"
+                            
+                         
+                      
+                        />
+                        </div>
+                        
+                       
+                      </div>
                     <td class="Rate">
-                        <button id="like-button" (click)="OnRate(publication.id)" type="button" class="button ">
-                            send
-                        </button>
+                        <button type="submit" (click)="OnRate2(publication.id)" class="btn btn-success">send</button>
+
                   </td>
+                  </form>
                   <div class="post-image">
                     <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg">
                         <img src="http://localhost:8089/WomenEmpowerment/publication/Imgarticles/{{publication.id}}"  alt="">
@@ -339,5 +359,9 @@
 
 
 
+
+<app-suggestedpub></app-suggestedpub>
+
         
 <app-youtube></app-youtube>
+

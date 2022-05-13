@@ -93,5 +93,14 @@ addCommentaire( id:number ,prod: Commentaire){
   return this.http.post("http://localhost:8089/WomenEmpowerment/likes/add/"+id+"/"+`${user.email}`, prod, options);
   }
 
-  
+  getChannnels() : Observable<any>{
+      let options = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+    };
+    let user = JSON.parse(localStorage.getItem('user'));
+
+
+    const url="http://localhost:8089/WomenEmpowerment/publication/sug/Achraf/aaa/aaa/ADMIN/18"
+    return this.http.get<any>(url,options)
+  }
 }

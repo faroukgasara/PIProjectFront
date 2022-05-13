@@ -41,6 +41,8 @@ import { AddroomComponent } from "./chat-msg/addroom/addroom.component";
 import { ChatMSGComponent } from "./chat-msg/chat-msg.component";
 import { YoutubeComponent } from "./youtube/youtube.component";
 
+import { SuggestedpubComponent } from "./suggestedpub/suggestedpub.component";
+
 
 
 
@@ -74,6 +76,7 @@ const routes: Routes = [
 
   
   {path : "add-publication", component : AddPublicationComponent},
+  {path : "sug-pub", component : SuggestedpubComponent},
   {path : "add-commentaire", component : AddCommentaireComponent},
   {path : "commentaire", component : CommentaireComponent},
   { path: "youtube", component: YoutubeComponent },
