@@ -58,7 +58,7 @@ export class QuestionComponent implements OnInit {
   }
 
   if(option.correct){
-    this.points+=10;
+    this.points+=10;//this.points = this.points +10;
     this.correctAnswer++;
     setTimeout(()=>{
       this.currentquestion++;
