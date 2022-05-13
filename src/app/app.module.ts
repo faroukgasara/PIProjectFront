@@ -190,11 +190,10 @@ import { EventscomponentComponent } from "./eventscomponent/eventscomponent.comp
     RecaptchaFormsModule,
     RecaptchaModule,
     NgxPrintModule,
-    NgbModule,
-    MatDialogModule,
-    BsDatepickerModule,
     
-
+    MatDialogModule,
+    BsDatepickerModule
+    
   ],
   providers: [
   ],

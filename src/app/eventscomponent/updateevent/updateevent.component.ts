@@ -13,7 +13,7 @@ import { EventService } from 'src/app/services/events.service';
 })
 export class UpdateeventComponent implements OnInit { form:FormGroup;
   minDate:any = "";
-
+  
   constructor(private dialog :MatDialog, public dialogRef: MatDialogRef<UpdateeventComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
 private eventHttp: EventService, private datePipe: DatePipe, private formBuilder:FormBuilder) {}
