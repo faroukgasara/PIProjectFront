@@ -105,52 +105,12 @@ import { UpdateeventComponent } from './eventscomponent/updateevent/updateevent.
 import { ReservationComponent } from "./eventscomponent/reservation/reservation.component";
 import { EventscomponentComponent } from "./eventscomponent/eventscomponent.component";
 
-import { OfferComponent } from "./pages/offer/offer.component";
-import { QuizComponent } from './pages/quiz/quiz.component';
-import { QuestionComponent } from './pages/question/question.component';
-import { CandidaturComponent } from './pages/candidatur/candidatur.component';
-import { BrowserModule } from "@angular/platform-browser";
-import { CommentaireComponent } from "./commentaire/commentaire.component";
-import { PublicationComponent } from "./publication/publication.component";
-import {EditorModule} from '@tinymce/tinymce-angular';
-import { AddPublicationComponent } from "./add-publication/add-publication.component";
-import { AddCommentaireComponent } from './commentaire/add-commentaire/add-commentaire.component';
-import { SearchFilterPipe } from "./publication/SearchFilterPipe";
-import { detailsComponent } from "./publication/details/details.component";
-import { ChatMSGComponent } from './chat-msg/chat-msg.component';
-import { LoginComponent } from './chat-msg/login/login.component';
-import { RoomlistComponent } from './chat-msg/roomlist/roomlist.component';
-import { AddroomComponent } from './chat-msg/addroom/addroom.component';
-import { DatePipe } from "@angular/common";
 
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ListCommentComponent } from './list-comment/list-comment.component';
-
-import {MatDialogModule} from "@angular/material/dialog";
-import { UpdatepublicationComponent } from './publication/updatepublication/updatepublication.component';
-import { YoutubeComponent } from './youtube/youtube.component';
-import { SuggestedpubComponent } from './suggestedpub/suggestedpub.component';
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     PublicnavbarComponent,
-
-    AddPublicationComponent,
-    PublicationComponent,
-    UpdatepublicationComponent,
-    YoutubeComponent,
-SuggestedpubComponent,
-
-    CommentaireComponent,
-    AddCommentaireComponent,
-    
-    SearchFilterPipe,
-
-
-
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
@@ -208,47 +168,11 @@ SuggestedpubComponent,
     ChatTrainingComponent,
    
 
-
-    OfferComponent,
-    QuizComponent,
-    QuestionComponent,
-    CandidaturComponent,
-    AddCommentaireComponent,
-    detailsComponent,
-    ChatMSGComponent,
-    LoginComponent,
-    RoomlistComponent,
-    AddroomComponent,
-    LoginComponent,
-    RoomlistComponent,
-    AddroomComponent,
-    ChatMSGComponent,
-    ListCommentComponent,
-    UpdatepublicationComponent,
-    YoutubeComponent,
-    SuggestedpubComponent,
-
-  
-
-    
-
   ],
   imports: [
-    
     BrowserAnimationsModule,
-   
+    BrowserModule,
     FormsModule,
-
-    EditorModule,
-    MatDialogModule,
-    
-    
-    
-
-    BrowserAnimationsModule,
-    Ng2SearchPipeModule,
-
-
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
@@ -287,8 +211,7 @@ SuggestedpubComponent,
     MatDialogModule,
     RecaptchaFormsModule,
     RecaptchaModule,
-    NgxPrintModule
-    ,
+    NgxPrintModule,
     
     MatDialogModule,
     BsDatepickerModule,
@@ -304,19 +227,7 @@ SuggestedpubComponent,
     
   ],
   providers: [
-
-   
-    MatInputModule,
-    MatIconModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatTableModule,
-    MatBadgeModule
-     ,MatProgressSpinnerModule,
-     MatSnackBarModule,
-    MatSidenavModule,   EditorModule,FormsModule,DatePipe
   ],
-
   bootstrap: [AppComponent]
 })
 export class AppModule {}

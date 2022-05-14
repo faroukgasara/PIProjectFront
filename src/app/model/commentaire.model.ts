@@ -6,8 +6,8 @@ export class Commentaire {
     comment: string;
     description: string;
     commented_by: string;
+    type: string;
     createdAt: string   ;
-    publications:number;
    
  
     }

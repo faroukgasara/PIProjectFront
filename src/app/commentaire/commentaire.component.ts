@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { emit } from 'process';
 import { Commentaire } from '../model/commentaire.model';
 import { CommentaireService } from '../services/commentaire.service';
-import { LikeService } from '../services/like.service';
 
 @Component({
   selector: 'app-commentaire',
@@ -11,35 +9,28 @@ import { LikeService } from '../services/like.service';
   styleUrls: ['./commentaire.component.scss']
 })
 export class CommentaireComponent implements OnInit {
+
   listProducts : any; 
-  id:any;
+  post: Commentaire;
   commentaires : Commentaire[];
   permaLink: Number;
-  Likes:any={}
-  likedBy:any={}
   constructor(private publicationService : CommentaireService,
              private router :Router,
-             private routers :ActivatedRoute,
-             private like : LikeService 
-  ) { 
+             private routers :ActivatedRoute) { 
 
    //this.produits = produitService.listeProduit();
     
   }
   token = localStorage.getItem('token');
 
-  ngOnInit() {
-    this.getUsers();
+  ngOnInit(): void {
+    this.publicationService.listeProdt().subscribe(pubs => {
+      console.log(pubs);
+      this.commentaires = pubs;
+      });
     
   }
-  
-  getUsers(){
-    this.publicationService.getUsers().subscribe(
-  		(data:Commentaire[]) => {this.commentaires = data}
-  	);
-  }
-  
-  /*getOne(id :number) {
+  getOne(id :number) {
     this.routers.params.subscribe(params => {
       this.permaLink = params['id'];
     });
@@ -50,56 +41,35 @@ export class CommentaireComponent implements OnInit {
       console.log('Failure Response');
     })
   }
-  */
+  
   reloadComponent() {
     let currentUrl = this. router. url;
     this. router. routeReuseStrategy. shouldReuseRoute = () => false;
     this. router. onSameUrlNavigation = 'reload';
     this. router. navigate([currentUrl]);
-    
     }
     refresh(): void {
       window.location.reload();
   }
-  OnLike(id:any){
-     
-   
-    
-    this.like.addlike(id,this.Likes).subscribe({
-      next:(data:any)=>{
-console.log("mchet");
 
-
-        },
-        error:(err:any)=>{
-          console.log("err")
-          console.log(err)
-          console.log(this.id)
-
-        
-        },
-        complete:()=>{},
-    
-    })
+  getAllProducts(){
+    this.publicationService.listeProdt().subscribe(res => this.listProducts = res)
   }
-  supprimerComm(id: number)
-  {
-    console.log("suppppppppppppppppppppppppppppp supprimé");
-   
-  let conf = confirm("Etes-vous sûr ?");
-  if (conf)
-  
-  
-    this.publicationService.supprimerPublication(id).subscribe(() => this.getUsers());
-   
-    window.location.reload();
-  
-  }
+supprimerProduit(id: number)
+{
+  console.log("suppppppppppppppppppppppppppppp supprimé");
+ 
+let conf = confirm("Etes-vous sûr ?");
+if (conf)
 
 
-  getComm(id:number)
-  {this.publicationService.getComm(id).subscribe(
-    (data:Commentaire[]) => {this.commentaires = data}
-  	);
-  }
+  this.publicationService.supprimerPublation(id).subscribe(() => this.getAllProducts());
+  this.refresh();
+  this.reloadComponent;
+  
+
+}
+
+
+
 }
