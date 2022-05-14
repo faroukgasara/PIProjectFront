@@ -16,9 +16,12 @@ export class ReservationComponent implements OnInit {
   form:FormGroup;
   events:any={};
   p:number = 1 ;  
+  minDate:any = "";
   constructor(private dialog :MatDialog ,private cagHttp: CqgnotteService, private breakpointObserver: BreakpointObserver, private eventHttp: EventService, private datePipe: DatePipe, private formBuilder:FormBuilder) {}
 
   ngOnInit() {
+
+    this.getDate();
     this.form=this.formBuilder.group({
       lieuxReservation: ['',Validators.required],
       dateReservation: ['',Validators.required],
@@ -49,6 +52,19 @@ export class ReservationComponent implements OnInit {
   }
 
 
-  
+  getDate(){
+    var date:any = new Date();
+    var toDate:any = date.getDate();
+    if(toDate < 10)
+    [
+      toDate = 0 + toDate
+    ]
+    var month = date.getMonth() + 1;
+    if(month < 10){
+      month = '0' + month;
+    } 
+    var year = date.getFullYear();
+    this.minDate = year + "-" + month + "-" + toDate
+  }
 
 }

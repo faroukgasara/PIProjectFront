@@ -18,12 +18,14 @@ export class CagnottecomponentComponent implements OnInit {
   form:FormGroup;
   cagnotte: CagnotteModel[];
   valeur:any;
-  p:number = 1 ;
+  p:number = 1;
+  minDate:any="";
   constructor( private cagnotteHttp: CqgnotteService, private breakpointObserver: BreakpointObserver, private eventHttp: EventService, private datePipe: DatePipe, private formBuilder:FormBuilder) {}
 
 
   ngOnInit(): void {
     this.getcagnotte()
+    this.getDate();
     this.form=this.formBuilder.group({
      
       dateDebut: ['',Validators.required],
@@ -112,6 +114,20 @@ export class CagnottecomponentComponent implements OnInit {
     });
   }
 
- 
+  getDate(){
+    var date:any = new Date();
+    var toDate:any = date.getDate();
+    if(toDate < 10)
+    [
+      toDate = 0 + toDate
+    ]
+    var month = date.getMonth() + 1;
+    if(month < 10){
+      month = '0' + month;
+    } 
+    var year = date.getFullYear();
+    this.minDate = year + "-" + month + "-" + toDate
+  }
+
 
 }
