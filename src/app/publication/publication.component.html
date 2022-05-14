@@ -92,6 +92,7 @@
                  
                     
                     
+
                     
                     
                     
@@ -108,6 +109,138 @@
                 <span><i class="far fa-comment ml-2"></i> 3</span>
             </div>
         </div>
+
+                        <td><a class="btn btn-danger" (click)="supprimerProduit(publication.id)">Supprimer</a></td>
+                        <div>
+                          </div>
+                        <td>
+                            <button type="submit" (click)="findByPub(publication.id)" class="btn btn-success">ListCommenter</button>
+                            <div class="inner-main-footer">
+                          <form id="example"    class="form" [formGroup]="form" (submit)="submit()">
+                            <div class="form-row">
+                              <div class="form-group col-md-6" [hidden]="!isFirstNameShown" [ngClass]="{ 'input-group-focus': focus === true }">
+                                
+                                <input
+                                  class="form-control"
+                                  formControlName="comment"
+                                  placeholder="comment"
+                                  type="text"
+                                  (focus)="focus = true"
+                                  (blur)="focus = false"
+                                />
+                              </div>
+                              
+                             
+                            </div>
+          
+                          
+          
+                            <div class="form-row">
+                              <div class="form-group col-md-12" [ngClass]="{ 'input-group-focus': focus2 === true }">
+                                
+                                
+                             
+          
+          
+                            
+                              <textarea 
+                                class="form-control"
+                                formControlName="description"
+                                placeholder="description"
+                                type="text"
+                               
+          
+                                ></textarea>
+                            </div>
+                            </div>  
+                           
+                            
+                              
+                             
+                            
+                         
+                            <div>
+                              <div>
+                                <div>
+                                  <div>
+                                    <div>
+                                      <div>
+                                        <div>
+                          <form>
+                              
+                         
+          
+                            <div [hidden]="!loading" class="center">
+                              <div class="lds-dual-ring"></div>
+                            </div>
+                            
+                          
+                                
+                          <button type="submit" (click)="submit(publication.id)" class="btn btn-success">Commenter</button>
+                          </form>
+                          
+                          
+                                        </div>
+                                      </div></div></div></div></div></div></form>
+                                    </div>
+                                   
+    
+                        </td>
+                    </div>
+                    </label>
+                    </p>
+    
+                </div>
+
+            <div class="text-muted small text-center align-self-center">
+                <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
+                <span><i class="far fa-comment ml-2"></i>{{publication.commentrs}}</span>
+                <h1 class="text-primary">
+                   Rate IT 
+                    </h1>
+                    <ngb-rating [max]="5" [(rate)]="currentRate" ></ngb-rating>
+                    <form id="example"    class="form" [formGroup]="form2">
+                  
+                    <div class="form-row">
+                        <div class="form-group col-md-6" [hidden]="!isFirstNameShown" [ngClass]="{ 'input-group-focus': focus === true }">
+                          
+                          <input
+
+                            class="form-control"
+                            formControlName="rate"
+                           
+                            placeholder="rate"
+                            
+                            value="{{currentRate}}"
+                            
+                         
+                      
+                        />
+                        </div>
+                        
+                       
+                      </div>
+                    <td class="Rate">
+                        <button type="submit" (click)="OnRate2(publication.id)" class="btn btn-success">send</button>
+
+                  </td>
+                  </form>
+                  <div class="post-image">
+                    <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="https://via.placeholder.com/1600x900" data-demo-href="assets/img/demo/unsplash/1.jpg">
+                        <img src="http://localhost:8089/WomenEmpowerment/publication/Imgarticles/{{publication.id}}"  alt="">
+                    </a>
+                    <!-- Action buttons -->
+                    <!-- /partials/pages/feed/buttons/feed-post-actions.html -->
+                </div>
+           
+
+
+                 
+                  
+                    
+         
+        </div> </div> </tr>   </nav>
+
     
     </div>
     <a

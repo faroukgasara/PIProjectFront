@@ -3,6 +3,7 @@ import { publication } from '../model/publication.model';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Options } from 'selenium-webdriver';
+import { Commentaire } from '../model/commentaire.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,7 +23,7 @@ export class publicationService {
   token = localStorage.getItem('token');
   
   apiURL: string = 'http://localhost:8089/WomenEmpowerment/publication/';
-
+  apiURL1: string = 'http://localhost:8089/WomenEmpowerment/commentaire/';
   produits: publication[];
   publica: publication;
 
@@ -45,18 +46,24 @@ export class publicationService {
 
 
    
-   ajouterProduit( prod: publication):Observable<publication>{
+   ajouterProduit( prod: any,userfile:any):Observable<publication>{
+       const formData = new FormData();
+    formData.append('file',userfile)
+    formData.append('body',JSON.stringify(prod))
     let options = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
     };
-    return this.http.post<publication>(`${this.apiURL}add`, prod, options);
+    let user = JSON.parse(localStorage.getItem('user'));
+  
+    return this.http.post<publication>(`${this.apiURL}add/${user.email}`, formData, options);
     }
+    
     getPost(id: Number):Observable<publication>{
       let options = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
       };
-      const newLocal = this.http.get<publication>(`${this.apiURL}get/${id}`, options);
-      return newLocal;
+      return this.http.get<publication>(`${this.apiURL}get/${id}`,options);
+    
     }
    
     supprimerPublication(id : number) {
@@ -79,7 +86,21 @@ updateProduit(prod :publication) : Observable<publication>
 return this.http.put<publication>(this.apiURL, prod, httpOptions);
 }
 
+addCommentaire( id:number ,prod: Commentaire){
+  let options = {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+  };    let user = JSON.parse(localStorage.getItem('user'));
+  return this.http.post("http://localhost:8089/WomenEmpowerment/likes/add/"+id+"/"+`${user.email}`, prod, options);
+  }
+
+  getChannnels() : Observable<any>{
+      let options = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+    };
+    let user = JSON.parse(localStorage.getItem('user'));
 
 
-  
+    const url="http://localhost:8089/WomenEmpowerment/publication/sug/"+`${user.desciption}`+"/aaa/aaa/ADMIN/"+`${user.age}`
+    return this.http.get<any>(url,options)
+  }
 }
