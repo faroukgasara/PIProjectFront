@@ -100,7 +100,7 @@ addCommentaire( id:number ,prod: Commentaire){
     let user = JSON.parse(localStorage.getItem('user'));
 
 
-    const url="http://localhost:8089/WomenEmpowerment/publication/sug/Achraf/aaa/aaa/ADMIN/18"
+    const url="http://localhost:8089/WomenEmpowerment/publication/sug/"+`${user.desciption}`+"/aaa/aaa/ADMIN/"+`${user.age}`
     return this.http.get<any>(url,options)
   }
 }

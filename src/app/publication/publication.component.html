@@ -109,7 +109,6 @@
                     
                         <td><a class="btn btn-danger" (click)="supprimerProduit(publication.id)">Supprimer</a></td>
                         <div>
-                            <a type="button" href="/publication/get/{{publication.id}}" class="read-more btn btn-default">Read More</a>
                           </div>
                         <td>
                             <button type="submit" (click)="findByPub(publication.id)" class="btn btn-success">ListCommenter</button>
@@ -206,7 +205,7 @@
 
                             class="form-control"
                             formControlName="rate"
-                           [value]="currentRate"
+                           
                             placeholder="rate"
                             
                             value="{{currentRate}}"
