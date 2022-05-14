@@ -89,6 +89,7 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
     })
   }
 
+
   onCreate() {
     
     const dialogConfig = new MatDialogConfig();
@@ -111,5 +112,6 @@ export class PublicnavbarComponent implements OnInit, OnDestroy {
     this.dialog.open(NotificationuserfrontComponent,dialogConfig);
 
   }
+
 
 }

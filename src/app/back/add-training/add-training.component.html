@@ -1,0 +1,61 @@
+<h1>ajouter une nouvelle formation </h1>
+<form class="form"  [formGroup]="form" (submit)="addTraining()"> 
+<br><br>
+    <div class="form-group" >
+        <label>title</label>
+        <input  placeholder="title" formControlName="title" type="text" name="title" class="form-control"  [(ngModel)]="newTraining.title">
+
+    </div>
+
+    <div class="form-group">    
+        <label>description</label>
+        <input  placeholder="description" formControlName="description" type="text" name="description" class="form-control"  [(ngModel)]="newTraining.description">
+
+    </div>
+
+    <div class="form-group">
+        <label>date debut </label>
+        <input  placeholder="dateDebut" formControlName="dateDebut" type="date" min="2022-05-13" max="2022-06-13" name="dateDebut" class="form-control"  [(ngModel)]="newTraining.dateDebut">
+
+    </div>
+
+    <div class="form-group">
+        <label>date fin </label>
+        <input  placeholder="dateFin" formControlName="dateFin" type="date" name="dateFin" class="form-control" min="2022-05-13"  [(ngModel)]="newTraining.dateFin">
+
+    </div>
+
+    <div class="form-group">
+        <label>nbr max </label>
+        <input  placeholder="nbrMaxApprenant" formControlName="nbrMaxApprenant" type="number" name="dateFin" class="form-control"  [(ngModel)]="newTraining.nbrMaxApprenant">
+
+    </div>
+
+    <div class="button-wrap mt-3">
+        <label class="new-button" for="upload">upload image</label>
+        <input
+          id="upload"
+          (change)="onFileChanged($event)"
+         
+          formControlName="affiche"
+          #fileInput
+          type="file"
+        />
+        
+        </div>
+
+        <button mat-button color="accent"  type="submit"class="btn btn-sm btn-success" (click)="notif()" [routerLink]="['/addtrainings/:email']">Add Training</button>
+        
+       
+           
+   
+  
+    
+</form>
+
+<!-- 
+<lib-ng-toast></lib-ng-toast> -->
+
+
+
+
