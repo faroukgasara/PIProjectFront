@@ -19,7 +19,6 @@ import { IsSignedInGuard } from "./IsSignedInGuard ";
 import { DashComponent } from "./back/card/dash/dash.component";
 import { OfferComponent } from "./pages/offer/offer.component";
 import { QuizComponent } from "./pages/quiz/quiz.component";
-import { QuestionComponent } from "./pages/question/question.component";
 import { CandidaturComponent } from "./pages/candidatur/candidatur.component";
 
 
@@ -142,7 +141,6 @@ const routes: Routes = [
 
   { path: "offers", component: OfferComponent },
   { path: "Quiz", component: QuizComponent },
-  { path: "Question", component: QuestionComponent },
   { path: "Candidatur", component: CandidaturComponent},
    
    
