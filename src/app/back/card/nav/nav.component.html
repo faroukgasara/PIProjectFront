@@ -1,0 +1,49 @@
+<mat-sidenav-container  style="background-color: #1c1c24;" class="sidenav-container">
+  <mat-sidenav #drawer style="background-color: #f84d6d; " class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+      
+    <mat-toolbar style="color: white;"><button 
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      >
+      <img mat-card-image style="margin-top: 5%;margin-right: 5% "src="../../../../assets/img/cyber.png" alt="Photo of a Shiba Inu">
+      
+    </button> Cyber Hunter</mat-toolbar>
+    <mat-divider ></mat-divider>
+    <mat-nav-list >
+      <a style="color: white;"  *ngFor="let item of menuItems;let i = index" mat-list-item [routerLink]="'/'+item"> {{menuItem[i] | titlecase}} </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #272a3d;">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        [hidden] = "isHandset$ | async"
+        >
+        <mat-icon class="white-icon" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <button 
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon class="white-icon" aria-label="Side nav toggle icon"  >menu</mat-icon>
+      </button>
+      <span style="color: white;">DASHBOARD ADMIN</span>
+
+        
+      <i (click)="logout()" style="position: absolute ;top: 2.5%;right: 2.5%; color: aliceblue;" class="gg-log-out"></i>
+
+      
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

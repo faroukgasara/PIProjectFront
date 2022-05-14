@@ -1,0 +1,166 @@
+<style>
+  .center {
+  display: flex;
+  justify-content: center;
+}
+  #example {
+    height: 650px;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+  .lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+<div  class="wrapper">
+    <div class="page-header">
+      <div class="page-header-image"></div>
+      <div class="content">
+        <div class="container">
+          <div class="row">
+            
+            
+            <div class="col-lg-6 col-md-20 offset-lg-0 offset-md-3">
+              
+              <div class="square square-7" id="square7"></div>
+              <div class="square square-8" id="square8"></div>
+              
+              <div class="card card-register">
+                
+                <div class="card-header">
+                  <img
+                    style="height: 310px;"
+                    alt="Card image"
+                    class="card-img"
+                    src="assets/img/square1-red.png"
+                  />
+  
+                  <h4 style="padding-top: 4%;" class="card-title">Login</h4>
+                </div>
+                <div class="card-body">
+                  <form class="form" [formGroup]="form" (submit)="submit()">
+                    <div style="margin-top: 30px;"
+                      class="input-group"
+                      [ngClass]="{ 'input-group-focus': focus1 === true }"
+                    >
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="tim-icons icon-email-85"> </i>
+                        </div>
+                      </div>
+                      <input
+                        class="form-control"
+                        formControlName="email"
+                        placeholder="Email"
+                        type="email"
+                        (focus)="focus1 = true"
+                        (blur)="focus1 = false"
+                      />
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <small  style="color: #fe5d93;" *ngIf="form.get('email').invalid && form.get('email').touched" [type]="'danger'">
+                          Please enter a valid Email
+                        </small>
+                      </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;"
+                      class="input-group"
+                      [ngClass]="{ 'input-group-focus': focus2 === true }"
+                    >
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="tim-icons icon-lock-circle"> </i>
+                        </div>
+                      </div>
+                      <input
+                        class="form-control"
+                        formControlName="password"
+                        placeholder="Password"
+                        type="password"
+                        (focus)="focus2 = true"
+                        (blur)="focus2 = false"
+                      />
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <small  style="color: #fe5d93;" *ngIf="form.get('password').invalid && form.get('password').touched" [type]="'danger'">
+                          Please enter a valid Password
+                        </small>
+                      </div>
+                    </div>
+
+                    <div style="margin-top: 10px;margin-bottom: 10px;" >
+                      <label class="form-check-label">
+                        <a [routerLink]="['/forgetpassword']" href="javascript:void(0)"> FORGOT PASSWORD </a> 
+                      </label>
+                    </div>
+
+                    <div style="margin-top: 10px;margin-bottom: 10px;" >
+                      <label class="form-check-label">
+                        <a > Don't Have an Account? </a> <a [routerLink]="['/register']"href="javascript:void(0)"> Sign Up? </a> 
+                      </label>
+                    </div>
+
+                    <div [hidden]="!loading" class="center">
+                      <span style="color: #fe5d93;" class="visually-hidden">Loading...<br></span>
+                    </div>
+  
+                    <div [hidden]="!loading" class="center">
+                      <div class="lds-dual-ring"></div>
+                    </div>
+                    
+                    <button [disabled]="!form.valid" class="w-100 btn btn-lg btn-primary"  type="submit">Login</button>
+                    <alert [hidden]="!error" [type]="'danger'">
+                      Something went wrong! please try again
+                    </alert>
+
+                  </form>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="register-bg"><img
+        style="margin-top: 5%;"
+                  alt="Card image"
+                  class="card-img"
+                  src="assets/img/login.png"
+                /></div>
+        <div class="square square-1" id="square1"></div>
+        <div class="square square-2" id="square2"></div>
+        <div class="square square-3" id="square3"></div>
+        <div class="square square-4" id="square4"></div>
+        <div class="square square-5" id="square5"></div>
+        <div class="square square-6" id="square6"></div>
+    </div>
+    
+  </div>
+  
